@@ -1,0 +1,8 @@
+name = "vanilla-breakout"
+type = "webpack"
+account_id = "c7324fba23408f51251e4513e3f61ddb"
+workers_dev = true
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
