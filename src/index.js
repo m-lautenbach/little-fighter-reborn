@@ -157,6 +157,7 @@ const moveBall = () => {
 }
 
 const draw = () => {
+  requestAnimationFrame(draw)
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   drawBall()
   drawPaddle()
@@ -173,7 +174,6 @@ const draw = () => {
 
   movePaddle()
   moveBall()
-  requestAnimationFrame(draw)
 }
 
 const keyDownHandler = ({ key }) => {
