@@ -12,5 +12,8 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "wrangler": "^0.0.2"
+  },
+  "devDependency": {
+    "file-loader": "^5.1.0"
   }
 }
