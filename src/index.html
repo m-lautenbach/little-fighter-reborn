@@ -3,21 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <title> Canvas Workshop</title>
+  <script type="javascript" src="http://greggman.github.io/webgl-fundamentals/webgl/resources/webgl-utils.js"></script>
+  <script id="2d-vertex-shader" type="x-shader/x-vertex">
+attribute vec2 a_position;
+
+void main() {
+  gl_Position = vec4(a_position, 0, 1);
+}
+
+  </script>
+
+  <script id="2d-fragment-shader" type="x-shader/x-fragment">
+void main() {
+  gl_FragColor = vec4(0,1,0,1);  // green
+}
+
+  </script>
   <style>
     * {
       padding: 0;
       margin: 0;
     }
-
-    canvas {
-      background: #eee;
-      display: block;
-      margin: 0 auto;
-    }
   </style>
 </head>
 <body>
-
-<canvas id="myCanvas" width="480" height="320"></canvas>
+<canvas id="canvas" width="1000" height="1000"></canvas>
 </body>
 </html>
