@@ -4,7 +4,7 @@
     "watch": "webpack --watch --mode development",
     "dev": "webpack-dev-server --open",
     "preview": "wrangler preview --watch",
-    "pub": "wrangler publish"
+    "pub": "yarn build && wrangler publish"
   },
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",

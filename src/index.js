@@ -156,17 +156,22 @@ const moveBall = () => {
   ball.y += dy
 }
 
+let lost = false
+
 const draw = () => {
+  if (lost) {
+    return
+  }
   requestAnimationFrame(draw)
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   drawBall()
   drawPaddle()
   brickCollision()
   paddleCollision()
-  const lost = wallCollision()
+  lost = wallCollision()
   if (lost) {
-    console.error('GAME OVER')
-    return
+    alert('GAME OVER')
+    location.reload()
   }
   drawBricks()
   drawScore()
