@@ -160,6 +160,7 @@ const draw = () => {
   if (state.player.lost) {
     alert('GAME OVER')
     location.reload()
+    return
   }
   requestAnimationFrame(draw)
   ctx.clearRect(0, 0, canvas.width, canvas.height)
