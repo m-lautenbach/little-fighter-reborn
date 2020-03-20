@@ -11,6 +11,8 @@ module.exports = merge(common, {
       generateStatsFile: true,
       statsFilename: '../stats.json',
     }),
-    new CompressionPlugin(),
+    new CompressionPlugin({
+      deleteOriginalAssets: true,
+    }),
   ],
 })
