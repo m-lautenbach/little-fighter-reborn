@@ -40,3 +40,5 @@ ReactDOM.render(
   </div>,
   document.getElementById('react'),
 )
+
+phaser.start()
