@@ -158,7 +158,6 @@ const moveBall = () => {
 
 const draw = () => {
   if (state.player.lost) {
-    alert('GAME OVER')
     location.reload()
     return
   }
