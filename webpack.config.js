@@ -40,6 +40,7 @@ module.exports = {
     new BundleAnalyzerPlugin({
       analyzerMode: 'disabled',
       generateStatsFile: true,
+      statsFilename: '../stats.json',
     }),
     new CompressionPlugin(),
   ],

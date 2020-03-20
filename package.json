@@ -6,7 +6,7 @@
     "dev": "webpack-dev-server --open",
     "preview": "wrangler preview --watch",
     "pub": "yarn build && wrangler publish",
-    "a": "webpack-bundle-analyzer --port 4200 dist/stats.json"
+    "a": "webpack-bundle-analyzer --port 4200 ./stats.json"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
