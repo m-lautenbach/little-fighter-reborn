@@ -1,8 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -37,15 +35,5 @@ module.exports = {
     new CopyPlugin([
       { from: './src/favicon.png' },
     ]),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true,
-      statsFilename: '../stats.json',
-    }),
-    new CompressionPlugin(),
   ],
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-  },
 }

@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "webpack --mode production",
-    "watch": "webpack --watch --mode development",
-    "dev": "webpack-dev-server --open",
+    "build": "webpack --config webpack.prod.js",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "preview": "wrangler preview --watch",
     "pub": "yarn build && wrangler publish",
     "a": "webpack-bundle-analyzer --port 4200 ./stats.json"
@@ -23,6 +23,7 @@
     "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2",
     "wrangler": "^0.0.2"
   },
   "devDependency": {
