@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -40,6 +41,7 @@ module.exports = {
       analyzerMode: 'disabled',
       generateStatsFile: true,
     }),
+    new CompressionPlugin(),
   ],
   devtool: 'inline-source-map',
   devServer: {
