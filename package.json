@@ -4,7 +4,7 @@
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch --config webpack.dev.js",
     "dev": "webpack-dev-server --open --config webpack.dev.js",
-    "preview": "wrangler preview --watch",
+    "preview": "yarn build && wrangler preview --watch",
     "pub": "yarn build && wrangler publish",
     "a": "webpack-bundle-analyzer --port 4200 ./stats.json"
   },
@@ -13,7 +13,6 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
-    "compression-webpack-plugin": "^3.1.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "file-loader": "^6.0.0",
