@@ -166,6 +166,10 @@ const mouseMoveHandler = ({ clientX }) => {
   }
 }
 
+const touchMoveHandler = ({ changedTouches: [{ clientX }] }) => {
+  mouseMoveHandler({ clientX })
+}
+
 export const start = () => {
   for (let existingCanvas of document.getElementsByTagName('canvas')) {
     existingCanvas.remove()
@@ -220,6 +224,7 @@ export const start = () => {
   document.addEventListener('keydown', keyDownHandler)
   document.addEventListener('keyup', keyUpHandler)
   document.addEventListener('mousemove', mouseMoveHandler)
+  document.addEventListener('touchmove', touchMoveHandler)
 
   if (!state.game.running) {
     state.game.running = true
