@@ -1,5 +1,3 @@
-import * as Phaser from 'phaser'
-
 function preload() {
 }
 
@@ -8,7 +6,9 @@ function create() {
 
 let game
 
-export const start = () => {
+export const start = async () => {
+  const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
+
   for (let existingCanvas of document.getElementsByTagName('canvas')) {
     existingCanvas.remove()
   }
