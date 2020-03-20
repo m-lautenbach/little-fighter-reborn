@@ -1,41 +1,8 @@
-const canvas = document.getElementById('game')
-const ctx = canvas.getContext('2d')
+import { path } from 'ramda'
 
-const state = {
-  ball: {
-    x: canvas.width / 2,
-    y: canvas.height - 30,
-    dx: 2,
-    dy: -2,
-    radius: 10,
-  },
-  paddle: {
-    height: 10,
-    width: 75,
-    x: (canvas.width - 75) / 2,
-    dx: 7,
-  },
-  input: {
-    leftPressed: false,
-    rightPressed: false,
-  },
-  player: {
-    lives: 2,
-    score: 0,
-    lost: false,
-  },
-  bricks: [...Array(5).keys()].flatMap(
-    (columnIndex) => [...Array(3).keys()].map(
-      (rowIndex) => ({
-        x: columnIndex * (75 + 10) + 30,
-        y: rowIndex * (20 + 10) + 30,
-        width: 75,
-        height: 20,
-        status: 1,
-      }),
-    ),
-  ),
-}
+let ctx
+let canvas
+let state
 
 const drawBall = () => {
   const { ball: { x, y, radius } } = state
@@ -156,12 +123,15 @@ const moveBall = () => {
   ball.y += dy
 }
 
-const draw = () => {
+const run = () => {
+  if (!state.game.running) {
+    return
+  }
   if (state.player.lost) {
     location.reload()
     return
   }
-  requestAnimationFrame(draw)
+  requestAnimationFrame(run)
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   drawBall()
   drawPaddle()
@@ -197,9 +167,68 @@ const mouseMoveHandler = ({ clientX }) => {
 }
 
 export const start = () => {
+  for (let existingCanvas of document.getElementsByTagName('canvas')) {
+    existingCanvas.remove()
+  }
+
+  canvas = document.createElement('CANVAS')
+  canvas.setAttribute('width', '480px')
+  canvas.setAttribute('height', '320px')
+  document.body.appendChild(canvas)
+
+  state = {
+    ball: {
+      x: canvas.width / 2,
+      y: canvas.height - 30,
+      dx: 2,
+      dy: -2,
+      radius: 10,
+    },
+    paddle: {
+      height: 10,
+      width: 75,
+      x: (canvas.width - 75) / 2,
+      dx: 7,
+    },
+    input: {
+      leftPressed: false,
+      rightPressed: false,
+    },
+    player: {
+      lives: 2,
+      score: 0,
+      lost: false,
+    },
+    game: {
+      running: path(['game', 'running'], state),
+    },
+    bricks: [...Array(5).keys()].flatMap(
+      (columnIndex) => [...Array(3).keys()].map(
+        (rowIndex) => ({
+          x: columnIndex * (75 + 10) + 30,
+          y: rowIndex * (20 + 10) + 30,
+          width: 75,
+          height: 20,
+          status: 1,
+        }),
+      ),
+    ),
+  }
+
+  ctx = canvas.getContext('2d')
+
   document.addEventListener('keydown', keyDownHandler)
   document.addEventListener('keyup', keyUpHandler)
   document.addEventListener('mousemove', mouseMoveHandler)
 
-  draw()
+  if (!state.game.running) {
+    state.game.running = true
+    run()
+  }
+}
+
+export const stop = () => {
+  if (state) {
+    state.game.running = false
+  }
 }
