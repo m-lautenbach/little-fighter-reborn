@@ -34,28 +34,28 @@ export const start = async () => {
   }
 
   function create() {
-    const addText = (text) => this.add.text(
-      this.physics.world.bounds.width * .5,
-      this.physics.world.bounds.height * .65,
-      text,
-      {
-        fontFamily: 'Monaco, Courier, monospace',
-        fontSize: '50px',
-        align: 'center',
-        fill: '#4fff71',
-      },
-    )
+    const addText = (text, initial = false) => {
+      text = this.add.text(
+        this.physics.world.bounds.width * .5,
+        this.physics.world.bounds.height * (initial ? .65 : .45),
+        text,
+        {
+          fontFamily: 'Monaco, Courier, monospace',
+          fontSize: '50px',
+          align: 'center',
+          fill: '#4fff71',
+        },
+      )
+      text.setOrigin(.5)
+      text.setVisible(initial)
+      return text
+    }
 
-    openingText = addText('LEFT / RIGHT TO MOVE\nSPACE TO RELEASE')
-    openingText.setOrigin(.5)
+    openingText = addText('LEFT / RIGHT TO MOVE\nSPACE TO RELEASE', true)
 
     gameOverText = addText('GAME OVER :\'(')
-    gameOverText.setOrigin(.5)
-    gameOverText.setVisible(false)
 
     playerWonText = addText('!!! YOU WIN !!!')
-    playerWonText.setOrigin(.5)
-    playerWonText.setVisible(false)
 
     player = this.physics.add.sprite(
       width / 2,
@@ -151,10 +151,4 @@ export const start = async () => {
       },
     },
   })
-}
-
-export const stop = () => {
-  if (game) {
-    game.stopped = true
-  }
 }
