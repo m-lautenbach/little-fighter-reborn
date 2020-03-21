@@ -12,6 +12,7 @@ let game
 export const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
   let player, ball, bricks1, bricks2, bricks3, cursors
+  let gameStarted = false
 
   function preload() {
     this.load.image('ball', ballSprite)
@@ -47,9 +48,35 @@ export const start = async () => {
       repeat: 9,
       setXY: { x: 45, y: 210, stepX: 70 },
     })
+    cursors = this.input.keyboard.createCursorKeys()
   }
 
+  const isGameOver = (world) => ball.body.y > world.bounds.height
+  const isWon = () => bricks1.countActive() + bricks2.countActive() + bricks3.countActive() === 0
+
   function update() {
+    if (!gameStarted) {
+      ball.setX(player.x)
+
+      if (cursors.space.isDown) {
+        gameStarted = true
+        ball.setVelocityY(-200)
+      }
+    }
+
+    if (isGameOver(this.physics.world)) {
+
+    } else if (isWon()) {
+
+    } else {
+      if (cursors.left.isDown) {
+        player.body.setVelocityX(-350)
+      } else if (cursors.right.isDown) {
+        player.body.setVelocityX(350)
+      } else {
+        player.body.setVelocityX(0)
+      }
+    }
   }
 
   for (let existingCanvas of document.getElementsByTagName('canvas')) {
