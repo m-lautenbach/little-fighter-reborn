@@ -9,6 +9,16 @@ const height = 480
 
 let game
 
+const hitBrick = (ball, brick) => brick.disableBody(true, true)
+const hitPlayer = (ball, player) => {
+  ball.setVelocityY(ball.body.velocity.y - 5)
+
+  ball.setVelocityX(
+    (Math.abs(ball.body.velocity.x) + 5) *
+    (ball.x < player.x ? -1 : 1),
+  )
+}
+
 export const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
   let player, ball, bricks1, bricks2, bricks3, cursors
@@ -36,19 +46,33 @@ export const start = async () => {
     bricks1 = this.physics.add.group({
       key: 'brick1',
       repeat: 9,
+      immovable: true,
       setXY: { x: 45, y: 70, stepX: 70 },
     })
     bricks3 = this.physics.add.group({
       key: 'brick3',
       repeat: 9,
+      immovable: true,
       setXY: { x: 45, y: 140, stepX: 70 },
     })
     bricks2 = this.physics.add.group({
       key: 'brick2',
       repeat: 9,
+      immovable: true,
       setXY: { x: 45, y: 210, stepX: 70 },
     })
     cursors = this.input.keyboard.createCursorKeys()
+    player.setCollideWorldBounds(true)
+    ball.setCollideWorldBounds(true)
+    ball.setBounce(1, 1)
+    this.physics.world.checkCollision.down = false
+    const addColl =
+      (bricks) => this.physics.add.collider(ball, bricks, hitBrick, null, this)
+    addColl(bricks1)
+    addColl(bricks2)
+    addColl(bricks3)
+    player.setImmovable(true)
+    this.physics.add.collider(ball, player, hitPlayer, null, this)
   }
 
   const isGameOver = (world) => ball.body.y > world.bounds.height
@@ -61,6 +85,7 @@ export const start = async () => {
       if (cursors.space.isDown) {
         gameStarted = true
         ball.setVelocityY(-200)
+        ball.setVelocityX(-200 + 400 * Math.random())
       }
     }
 
@@ -84,6 +109,7 @@ export const start = async () => {
   }
 
   game = new Phaser.Game({
+    debug: true,
     type: Phaser.AUTO,
     width,
     height,
