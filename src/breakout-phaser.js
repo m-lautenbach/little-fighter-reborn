@@ -117,9 +117,11 @@ export const start = async () => {
     if (isGameOver(this.physics.world)) {
       gameOverText.setVisible(true)
       ball.disableBody(true, true)
+      player.disableBody(true, true)
     } else if (isWon()) {
       playerWonText.setVisible(true)
       ball.disableBody(true, true)
+      player.disableBody(true, true)
     } else {
       if (cursors.left.isDown) {
         player.body.setVelocityX(-350)
