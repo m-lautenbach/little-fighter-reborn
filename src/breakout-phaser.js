@@ -14,7 +14,7 @@ const hitPlayer = (ball, player) => {
   ball.setVelocityY(ball.body.velocity.y - 5)
 
   ball.setVelocityX(
-    (Math.abs(ball.body.velocity.x) + Math.abs(ball.x - player.x)) *
+    Math.abs(ball.body.velocity.x + (ball.x - player.x) * 2) *
     (ball.x < player.x ? -1 : 1),
   )
 }
@@ -37,7 +37,7 @@ export const start = async () => {
     const addText = (text, initial = false) => {
       text = this.add.text(
         this.physics.world.bounds.width * .5,
-        this.physics.world.bounds.height * (initial ? .65 : .45),
+        this.physics.world.bounds.height * (initial ? .65 : .5),
         text,
         {
           fontFamily: 'Monaco, Courier, monospace',
@@ -115,9 +115,9 @@ export const start = async () => {
     }
 
     if (isGameOver(this.physics.world)) {
+      [...bricks1.getChildren(), ...bricks2.getChildren(), ...bricks3.getChildren(), ball, player]
+        .forEach(object => object.disableBody(true, true))
       gameOverText.setVisible(true)
-      ball.disableBody(true, true)
-      player.disableBody(true, true)
     } else if (isWon()) {
       playerWonText.setVisible(true)
       ball.disableBody(true, true)
