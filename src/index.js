@@ -27,15 +27,6 @@ ReactDOM.render(
       >
         Start Vanilla JS version
       </Button>
-      <Button
-        type="primary"
-        onClick={() => {
-          vanilla.stop()
-          phaser.start()
-        }}
-      >
-        Start Phaser version
-      </Button>
     </div>
   </div>,
   document.getElementById('react'),
