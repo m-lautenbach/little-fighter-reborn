@@ -22,6 +22,7 @@ const hitPlayer = (ball, player) => {
 export const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
   let player, ball, bricks1, bricks2, bricks3, cursors
+  let openingText, gameOverText, playerWonText
   let gameStarted = false
 
   function preload() {
@@ -33,6 +34,18 @@ export const start = async () => {
   }
 
   function create() {
+    openingText = this.add.text(
+      this.physics.world.bounds.width * .5,
+      this.physics.world.bounds.height * .65,
+      'PRESS SPACE TO RELEASE',
+      {
+        fontFamily: 'Monaco, Courier, monospace',
+        fontSize: '50px',
+        fill: '#4fff71',
+      },
+    )
+    openingText.setOrigin(.5)
+
     player = this.physics.add.sprite(
       width / 2,
       height - 20,
@@ -47,19 +60,19 @@ export const start = async () => {
       key: 'brick1',
       repeat: 9,
       immovable: true,
-      setXY: { x: 45, y: 70, stepX: 70 },
+      setXY: { x: 45, y: 50, stepX: 70 },
     })
     bricks3 = this.physics.add.group({
       key: 'brick3',
       repeat: 9,
       immovable: true,
-      setXY: { x: 45, y: 140, stepX: 70 },
+      setXY: { x: 45, y: 120, stepX: 70 },
     })
     bricks2 = this.physics.add.group({
       key: 'brick2',
       repeat: 9,
       immovable: true,
-      setXY: { x: 45, y: 210, stepX: 70 },
+      setXY: { x: 45, y: 190, stepX: 70 },
     })
     cursors = this.input.keyboard.createCursorKeys()
     player.setCollideWorldBounds(true)
@@ -84,6 +97,7 @@ export const start = async () => {
 
       if (cursors.space.isDown) {
         gameStarted = true
+        openingText.setVisible(false)
         ball.setVelocityY(-200)
         ball.setVelocityX(-200 + 400 * Math.random())
       }
@@ -113,7 +127,7 @@ export const start = async () => {
     type: Phaser.AUTO,
     width,
     height,
-    backgroundColor: '#d8d8d8',
+    backgroundColor: 'rgba(0,0,0,0.93)',
     scene: { preload, create, update },
     physics: {
       default: 'arcade',
