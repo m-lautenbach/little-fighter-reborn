@@ -4,11 +4,14 @@ import brick1Sprite from './assets/images/brick1_64_32.png'
 import brick2Sprite from './assets/images/brick2_64_32.png'
 import brick3Sprite from './assets/images/brick3_64_32.png'
 
+const width = 720
+const height = 480
+
 let game
-let ball
 
 export const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
+  let player, ball, bricks1, bricks2, bricks3, cursors
 
   function preload() {
     this.load.image('ball', ballSprite)
@@ -19,12 +22,34 @@ export const start = async () => {
   }
 
   function create() {
-    ball = this.add.sprite(50, 50, 'ball')
+    player = this.physics.add.sprite(
+      width / 2,
+      height - 20,
+      'paddle',
+    )
+    ball = this.physics.add.sprite(
+      width / 2,
+      height - 20 - 16 - 16,
+      'ball',
+    )
+    bricks1 = this.physics.add.group({
+      key: 'brick1',
+      repeat: 9,
+      setXY: { x: 45, y: 70, stepX: 70 },
+    })
+    bricks3 = this.physics.add.group({
+      key: 'brick3',
+      repeat: 9,
+      setXY: { x: 45, y: 140, stepX: 70 },
+    })
+    bricks2 = this.physics.add.group({
+      key: 'brick2',
+      repeat: 9,
+      setXY: { x: 45, y: 210, stepX: 70 },
+    })
   }
 
   function update() {
-    ball.x += 1
-    ball.y += 1
   }
 
   for (let existingCanvas of document.getElementsByTagName('canvas')) {
@@ -33,13 +58,9 @@ export const start = async () => {
 
   game = new Phaser.Game({
     type: Phaser.AUTO,
-    width: 480,
-    height: 320,
-    scale: {
-      mode: Phaser.Scale.FIT,
-      autoCenter: Phaser.Scale.CENTER_BOTH,
-    },
-    backgroundColor: '#eee',
+    width,
+    height,
+    backgroundColor: '#d8d8d8',
     scene: { preload, create, update },
     physics: {
       default: 'arcade',
