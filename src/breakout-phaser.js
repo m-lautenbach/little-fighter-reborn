@@ -14,7 +14,7 @@ const hitPlayer = (ball, player) => {
   ball.setVelocityY(ball.body.velocity.y - 5)
 
   ball.setVelocityX(
-    (Math.abs(ball.body.velocity.x) + 5) *
+    (Math.abs(ball.body.velocity.x) + Math.abs(ball.x - player.x)) *
     (ball.x < player.x ? -1 : 1),
   )
 }
@@ -34,17 +34,28 @@ export const start = async () => {
   }
 
   function create() {
-    openingText = this.add.text(
+    const addText = (text) => this.add.text(
       this.physics.world.bounds.width * .5,
       this.physics.world.bounds.height * .65,
-      'PRESS SPACE TO RELEASE',
+      text,
       {
         fontFamily: 'Monaco, Courier, monospace',
         fontSize: '50px',
+        align: 'center',
         fill: '#4fff71',
       },
     )
+
+    openingText = addText('LEFT / RIGHT TO MOVE\nSPACE TO RELEASE')
     openingText.setOrigin(.5)
+
+    gameOverText = addText('GAME OVER :\'(')
+    gameOverText.setOrigin(.5)
+    gameOverText.setVisible(false)
+
+    playerWonText = addText('!!! YOU WIN !!!')
+    playerWonText.setOrigin(.5)
+    playerWonText.setVisible(false)
 
     player = this.physics.add.sprite(
       width / 2,
@@ -104,9 +115,11 @@ export const start = async () => {
     }
 
     if (isGameOver(this.physics.world)) {
-
+      gameOverText.setVisible(true)
+      ball.disableBody(true, true)
     } else if (isWon()) {
-
+      playerWonText.setVisible(true)
+      ball.disableBody(true, true)
     } else {
       if (cursors.left.isDown) {
         player.body.setVelocityX(-350)
