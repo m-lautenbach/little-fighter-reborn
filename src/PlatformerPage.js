@@ -6,8 +6,6 @@ const { Title, Paragraph } = Typography
 const width = 800
 const height = 600
 
-let game
-
 const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
 
@@ -20,7 +18,7 @@ const start = async () => {
   function update() {
   }
 
-  game = new Phaser.Game({
+  new Phaser.Game({
     type: Phaser.AUTO,
     width,
     height,

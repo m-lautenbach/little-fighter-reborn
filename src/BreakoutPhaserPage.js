@@ -14,7 +14,6 @@ const { Title, Paragraph } = Typography
 const width = 720
 const height = 480
 
-let game
 let acceleration = 1
 
 const hitBrick = (ball, brick) => brick.disableBody(true, true)
@@ -141,7 +140,7 @@ const start = async () => {
     }
   }
 
-  game = new Phaser.Game({
+  new Phaser.Game({
     debug: true,
     type: Phaser.AUTO,
     width,
