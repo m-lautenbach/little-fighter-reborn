@@ -177,10 +177,6 @@ const touchMoveHandler = ({ changedTouches: [{ clientX }] }) => {
 }
 
 const start = () => {
-  for (let existingCanvas of document.getElementsByTagName('canvas')) {
-    existingCanvas.remove()
-  }
-
   canvas = document.createElement('CANVAS')
   canvas.setAttribute('width', '480px')
   canvas.setAttribute('height', '320px')

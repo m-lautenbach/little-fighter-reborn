@@ -5,15 +5,18 @@ import { Menu } from 'antd'
 
 import BreakoutPhaserPage from './BreakoutPhaserPage'
 import BreakoutVanillaPage from './BreakoutVanillaPage'
+import PlatformerPhaser from './PlatformerPage'
 
 const TABS = {
   BREAKOUT_PHASER: '#breakout-phaser',
   BREAKOUT_VANILLA_JS: '#breakout-vanilla-js',
+  PLATFORMER: '#platformer',
 }
 
 const PageForTab = {
   [TABS.BREAKOUT_PHASER]: BreakoutPhaserPage,
   [TABS.BREAKOUT_VANILLA_JS]: BreakoutVanillaPage,
+  [TABS.PLATFORMER]: PlatformerPhaser,
 }
 
 const activeTab = Object.values(TABS).includes(location.hash) ? location.hash : TABS.BREAKOUT_PHASER
@@ -36,6 +39,9 @@ ReactDOM.render(
         window.location.reload()
       }}
     >
+      <Menu.Item key={TABS.PLATFORMER}>
+        Platformer (Work in Progress)
+      </Menu.Item>
       <Menu.Item key={TABS.BREAKOUT_PHASER}>
         Breakout - Phaser Version
       </Menu.Item>

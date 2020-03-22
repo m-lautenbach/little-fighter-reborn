@@ -141,10 +141,6 @@ const start = async () => {
     }
   }
 
-  for (let existingCanvas of document.getElementsByTagName('canvas')) {
-    existingCanvas.remove()
-  }
-
   game = new Phaser.Game({
     debug: true,
     type: Phaser.AUTO,
