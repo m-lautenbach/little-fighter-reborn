@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
+import skyImage from './assets/sky.png'
+
 const { Title, Paragraph } = Typography
 
 const width = 800
@@ -10,9 +12,11 @@ const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
 
   function preload() {
+    this.load.image('sky', skyImage)
   }
 
   function create() {
+    this.add.image(0, 0, 'sky').setOrigin(0, 0)
   }
 
   function update() {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { path } from 'ramda'
 import { Typography, Alert } from 'antd'
 
-import logo from './assets/images/logo-vanilla-js.png'
+import logo from './logo.png'
 
 const { Title, Paragraph } = Typography
 

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { Typography, Alert } from 'antd'
 
-import logo from './assets/images/paddle_128_32.png'
+import logo from './assets/paddle_128_32.png'
 
-import paddleSprite from './assets/images/paddle_128_32.png'
-import ballSprite from './assets/images/ball_32_32.png'
-import brick1Sprite from './assets/images/brick1_64_32.png'
-import brick2Sprite from './assets/images/brick2_64_32.png'
-import brick3Sprite from './assets/images/brick3_64_32.png'
+import paddleSprite from './assets/paddle_128_32.png'
+import ballSprite from './assets/ball_32_32.png'
+import brick1Sprite from './assets/brick1_64_32.png'
+import brick2Sprite from './assets/brick2_64_32.png'
+import brick3Sprite from './assets/brick3_64_32.png'
 
 const { Title, Paragraph } = Typography
 

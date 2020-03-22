@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import 'antd/dist/antd.css'
 import { Menu } from 'antd'
 
-import BreakoutPhaserPage from './BreakoutPhaserPage'
-import BreakoutVanillaPage from './BreakoutVanillaPage'
-import PlatformerPhaser from './PlatformerPage'
+import BreakoutPhaserPage from './BreakoutPhaser/Page'
+import BreakoutVanillaPage from './BreakoutVanilla/Page'
+import PlatformerPhaser from './Platformer/Page'
 
 const TABS = {
   BREAKOUT_PHASER: '#breakout-phaser',
