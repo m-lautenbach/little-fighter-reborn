@@ -16,7 +16,7 @@ const hitPlayer = (ball, player) => {
 
   acceleration = Math.min(acceleration * 1.2, 3)
   ball.setVelocityX(
-    (ball.x - player.x) * 3 * acceleration,
+    (ball.x - player.x) * 2 * acceleration,
   )
 }
 
