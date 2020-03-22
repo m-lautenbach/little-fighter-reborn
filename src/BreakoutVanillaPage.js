@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { path } from 'ramda'
-import { Typography } from 'antd'
+import { Typography, Alert } from 'antd'
 
 import logo from './assets/images/logo-vanilla-js.png'
 
-const { Title } = Typography
+const { Title, Paragraph } = Typography
 
 let ctx
 let canvas
@@ -243,7 +243,17 @@ export default () => {
     const ignored = start()
   }, [])
 
-  return <Title style={{ margin: '2rem' }}>
-    <img src={logo} alt="logo" /> BREAKOUT - VANILLA JS VERSION <img src={logo} alt="logo" />
-  </Title>
+  return <>
+    <Title style={{ margin: '2rem' }}>
+      <img src={logo} alt="logo" /> BREAKOUT - VANILLA JS VERSION <img src={logo} alt="logo" />
+    </Title>
+    <Paragraph>
+      Based on this tutorial: <a
+      target="_blank" href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript"
+    >2D breakout game using pure JavaScript</a>
+    </Paragraph>
+    <Paragraph>
+      <Alert type="info" message="Supports mobile devices 😎" />
+    </Paragraph>
+  </>
 }

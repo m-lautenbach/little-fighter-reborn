@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Typography } from 'antd'
+import { Typography, Alert } from 'antd'
 
 import logo from './assets/images/paddle_128_32.png'
 
@@ -9,7 +9,7 @@ import brick1Sprite from './assets/images/brick1_64_32.png'
 import brick2Sprite from './assets/images/brick2_64_32.png'
 import brick3Sprite from './assets/images/brick3_64_32.png'
 
-const { Title } = Typography
+const { Title, Paragraph } = Typography
 
 const width = 720
 const height = 480
@@ -166,7 +166,17 @@ export default () => {
     const ignored = start()
   }, [])
 
-  return <Title style={{ margin: '2rem' }}>
-    <img src={logo} alt="logo" /> BREAKOUT - PHASER VERSION <img src={logo} alt="logo" />
-  </Title>
+  return <>
+    <Title style={{ margin: '2rem' }}>
+      <img src={logo} alt="logo" /> BREAKOUT - PHASER VERSION <img src={logo} alt="logo" />
+    </Title>
+    <Paragraph>
+      From this tutorial: <a target="_blank" href="https://stackabuse.com/introduction-to-phaser-3-building-breakout">Introduction
+      to
+      Phaser 3: Building Breakout</a>
+    </Paragraph>
+    <Paragraph>
+      <Alert message="No mobile support for now! 😢" type="warning" />
+    </Paragraph>
+  </>
 }
