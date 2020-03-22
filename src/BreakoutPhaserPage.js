@@ -1,8 +1,15 @@
+import React, { useEffect } from 'react'
+import { Typography } from 'antd'
+
+import logo from './assets/images/paddle_128_32.png'
+
 import paddleSprite from './assets/images/paddle_128_32.png'
 import ballSprite from './assets/images/ball_32_32.png'
 import brick1Sprite from './assets/images/brick1_64_32.png'
 import brick2Sprite from './assets/images/brick2_64_32.png'
 import brick3Sprite from './assets/images/brick3_64_32.png'
+
+const { Title } = Typography
 
 const width = 720
 const height = 480
@@ -20,7 +27,7 @@ const hitPlayer = (ball, player) => {
   )
 }
 
-export const start = async () => {
+const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
   let player, ball, bricks1, bricks2, bricks3, cursors
   let openingText, gameOverText, playerWonText
@@ -152,4 +159,14 @@ export const start = async () => {
       },
     },
   })
+}
+
+export default () => {
+  useEffect(() => {
+    const ignored = start()
+  }, [])
+
+  return <Title style={{ margin: '2rem' }}>
+    <img src={logo} alt="logo" /> BREAKOUT - PHASER VERSION <img src={logo} alt="logo" />
+  </Title>
 }

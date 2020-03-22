@@ -1,4 +1,10 @@
+import React, { useEffect } from 'react'
 import { path } from 'ramda'
+import { Typography } from 'antd'
+
+import logo from './assets/images/paddle_128_32.png'
+
+const { Title } = Typography
 
 let ctx
 let canvas
@@ -170,7 +176,7 @@ const touchMoveHandler = ({ changedTouches: [{ clientX }] }) => {
   mouseMoveHandler({ clientX })
 }
 
-export const start = () => {
+const start = () => {
   for (let existingCanvas of document.getElementsByTagName('canvas')) {
     existingCanvas.remove()
   }
@@ -232,8 +238,12 @@ export const start = () => {
   }
 }
 
-export const stop = () => {
-  if (state) {
-    state.game.running = false
-  }
+export default () => {
+  useEffect(() => {
+    const ignored = start()
+  }, [])
+
+  return <Title style={{ margin: '2rem' }}>
+    <img src={logo} alt="logo" /> BREAKOUT - VANILLA JS VERSION <img src={logo} alt="logo" />
+  </Title>
 }
