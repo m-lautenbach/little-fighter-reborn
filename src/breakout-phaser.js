@@ -8,14 +8,15 @@ const width = 720
 const height = 480
 
 let game
+let acceleration = 1
 
 const hitBrick = (ball, brick) => brick.disableBody(true, true)
 const hitPlayer = (ball, player) => {
   ball.setVelocityY(ball.body.velocity.y - 5)
 
+  acceleration = Math.min(acceleration * 1.2, 3)
   ball.setVelocityX(
-    Math.abs(ball.body.velocity.x + (ball.x - player.x) * 2) *
-    (ball.x < player.x ? -1 : 1),
+    (ball.x - player.x) * 3 * acceleration,
   )
 }
 
@@ -124,9 +125,9 @@ export const start = async () => {
       player.disableBody(true, true)
     } else {
       if (cursors.left.isDown) {
-        player.body.setVelocityX(-350)
+        player.body.setVelocityX(-650)
       } else if (cursors.right.isDown) {
-        player.body.setVelocityX(350)
+        player.body.setVelocityX(650)
       } else {
         player.body.setVelocityX(0)
       }
