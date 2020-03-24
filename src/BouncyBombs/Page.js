@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
+import { random } from 'lodash'
 
 import skyImage from './assets/sky.png'
 import groundSprite from './assets/ground.png'
@@ -27,12 +28,12 @@ const start = async () => {
         (child) => child.enableBody(true, child.x, 0, true, true),
       )
       const x = (player.x < 400) ?
-        Phaser.Math.Between(400, 800) :
-        Phaser.Math.Between(0, 400)
+        random(400, 800) :
+        random(0, 400)
       const bomb = bombs.create(x, 16, 'bomb')
       bomb.setBounce(1)
       bomb.setCollideWorldBounds(true)
-      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20)
+      bomb.setVelocity(random(-200, 200), 20)
     }
   }
 
@@ -89,7 +90,7 @@ const start = async () => {
     )
 
     stars.children.iterate(
-      child => child.setBounceY(Phaser.Math.FloatBetween(.4, .8)),
+      child => child.setBounceY(random(.4, .8, true)),
     )
     player.setCollideWorldBounds(true)
     this.physics.add.collider(player, platforms)

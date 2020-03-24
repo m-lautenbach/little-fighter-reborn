@@ -31,7 +31,8 @@
   "dependencies": {
     "antd": "^4.0.3",
     "dayjs": "^1.8.23",
-    "phaser": "^3.22.0",
+    "lodash": "^4.17.15",
+    "phaser": "@3.23.0-beta1",
     "ramda": "^0.27.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
