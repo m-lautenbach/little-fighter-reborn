@@ -169,7 +169,7 @@ export default () => {
   }, [])
 
   return <>
-    <Title style={{ margin: '2rem' }}>BOUNCY BOMBS (WORK IN PROGRESS)</Title>
+    <Title style={{ margin: '2rem' }}>BOUNCY BOMBS</Title>
     <Paragraph>
       From this tutorial: <a target="_blank" href="https://phaser.io/tutorials/making-your-first-phaser-3-game">Making
       your first Phaser 3 game</a>

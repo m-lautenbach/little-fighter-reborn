@@ -19,7 +19,9 @@ const PageForTab = {
   [TABS.BOUNCY_BOMBS]: BouncyBombs,
 }
 
-const activeTab = Object.values(TABS).includes(location.hash) ? location.hash : TABS.BREAKOUT_PHASER
+const activeTab =
+  Object.values(TABS).includes(location.hash) ?
+    location.hash : TABS.BOUNCY_BOMBS
 
 ReactDOM.render(
   <div
@@ -40,7 +42,7 @@ ReactDOM.render(
       }}
     >
       <Menu.Item key={TABS.BOUNCY_BOMBS}>
-        Platformer (Work in Progress)
+        Bouncy Bombs
       </Menu.Item>
       <Menu.Item key={TABS.BREAKOUT_PHASER}>
         Breakout - Phaser Version
