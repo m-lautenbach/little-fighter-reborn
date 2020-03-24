@@ -5,18 +5,18 @@ import { Menu } from 'antd'
 
 import BreakoutPhaserPage from './BreakoutPhaser/Page'
 import BreakoutVanillaPage from './BreakoutVanilla/Page'
-import PlatformerPhaser from './Platformer/Page'
+import BouncyBombs from './BouncyBombs/Page'
 
 const TABS = {
   BREAKOUT_PHASER: '#breakout-phaser',
   BREAKOUT_VANILLA_JS: '#breakout-vanilla-js',
-  PLATFORMER: '#platformer',
+  BOUNCY_BOMBS: '#bouncy-bombs',
 }
 
 const PageForTab = {
   [TABS.BREAKOUT_PHASER]: BreakoutPhaserPage,
   [TABS.BREAKOUT_VANILLA_JS]: BreakoutVanillaPage,
-  [TABS.PLATFORMER]: PlatformerPhaser,
+  [TABS.BOUNCY_BOMBS]: BouncyBombs,
 }
 
 const activeTab = Object.values(TABS).includes(location.hash) ? location.hash : TABS.BREAKOUT_PHASER
@@ -39,7 +39,7 @@ ReactDOM.render(
         window.location.reload()
       }}
     >
-      <Menu.Item key={TABS.PLATFORMER}>
+      <Menu.Item key={TABS.BOUNCY_BOMBS}>
         Platformer (Work in Progress)
       </Menu.Item>
       <Menu.Item key={TABS.BREAKOUT_PHASER}>

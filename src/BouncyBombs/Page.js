@@ -4,6 +4,8 @@ import { Typography } from 'antd'
 import skyImage from './assets/sky.png'
 import groundSprite from './assets/ground.png'
 import playerSpriteSheet from './assets/player.png'
+import starSprite from './assets/star.png'
+import bombSprite from './assets/bomb.png'
 
 const { Title, Paragraph } = Typography
 
@@ -12,11 +14,40 @@ const height = 600
 
 const start = async () => {
   const Phaser = await import(/* webpackChunkName: "phaser" */ 'phaser')
-  let platforms, player, cursors
+  let platforms, player, cursors, stars, score = 0, scoreText, bombs, gameOver
+
+  const collectStar = (player, star) => {
+    star.disableBody(true, true)
+
+    score += 10
+    scoreText.setText(`SCORE ${score}`)
+
+    if (stars.countActive(true) === 0) {
+      stars.children.iterate(
+        (child) => child.enableBody(true, child.x, 0, true, true),
+      )
+      const x = (player.x < 400) ?
+        Phaser.Math.Between(400, 800) :
+        Phaser.Math.Between(0, 400)
+      const bomb = bombs.create(x, 16, 'bomb')
+      bomb.setBounce(1)
+      bomb.setCollideWorldBounds(true)
+      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20)
+    }
+  }
+
+  function hitBomb(player) {
+    this.physics.pause()
+    player.setTint(0xff0000)
+    player.anims.play('turn')
+    gameOver = true
+  }
 
   function preload() {
     this.load.image('sky', skyImage)
     this.load.image('ground', groundSprite)
+    this.load.image('star', starSprite)
+    this.load.image('bomb', bombSprite)
     this.load.spritesheet(
       'player',
       playerSpriteSheet,
@@ -37,9 +68,34 @@ const start = async () => {
     player = this.physics
       .add.sprite(100, 450, 'player')
       .setScale(4)
-    player.setCollideWorldBounds(true)
+    stars = this.physics.add.group({
+      key: 'star',
+      repeat: 11,
+      setXY: { x: 12, y: 0, stepX: 70 },
+    })
+    bombs = this.physics.add.group()
+    this.physics.add.collider(bombs, platforms)
+    this.physics.add.collider(player, bombs, hitBomb, null, this)
 
+    scoreText = this.add.text(
+      16, 16,
+      `SCORE ${score}`,
+      {
+        fontFamily: 'Impact ',
+        fontSize: '32px',
+        fill: '#000',
+        resolution: 1,
+      },
+    )
+
+    stars.children.iterate(
+      child => child.setBounceY(Phaser.Math.FloatBetween(.4, .8)),
+    )
+    player.setCollideWorldBounds(true)
     this.physics.add.collider(player, platforms)
+    this.physics.add.collider(stars, platforms)
+
+    this.physics.add.overlap(player, stars, collectStar, null, this)
 
     this.anims.create({
       key: 'left',
@@ -113,7 +169,7 @@ export default () => {
   }, [])
 
   return <>
-    <Title style={{ margin: '2rem' }}>PLATFORMER (WORK IN PROGRESS)</Title>
+    <Title style={{ margin: '2rem' }}>BOUNCY BOMBS (WORK IN PROGRESS)</Title>
     <Paragraph>
       From this tutorial: <a target="_blank" href="https://phaser.io/tutorials/making-your-first-phaser-3-game">Making
       your first Phaser 3 game</a>
