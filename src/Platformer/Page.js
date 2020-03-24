@@ -37,7 +37,6 @@ const start = async () => {
     player = this.physics
       .add.sprite(100, 450, 'player')
       .setScale(4)
-    player.setBounce(.2)
     player.setCollideWorldBounds(true)
 
     this.physics.add.collider(player, platforms)
