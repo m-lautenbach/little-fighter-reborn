@@ -39,7 +39,7 @@ const start = async () => {
   function hitBomb(player) {
     this.physics.pause()
     player.setTint(0xff0000)
-    player.anims.play('turn')
+    player.anims.play('dead')
     gameOver = true
   }
 
@@ -118,6 +118,12 @@ const start = async () => {
     })
 
     this.anims.create({
+      key: 'dead',
+      frames: [{ key: 'player', frame: 4 }],
+      frameRate: 20,
+    })
+
+    this.anims.create({
       key: 'right',
       frames: this.anims.generateFrameNumbers(
         'player',
@@ -131,6 +137,8 @@ const start = async () => {
   }
 
   function update() {
+    if (gameOver) return
+
     if (cursors.left.isDown) {
       player.setVelocityX(-160)
       player.anims.play('left', true)
