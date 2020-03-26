@@ -1,14 +1,70 @@
 import Phaser from 'phaser'
-import { random, range, sample } from 'lodash'
+import { random, range, sample, padStart } from 'lodash'
+import Projectile from './Projectile'
+import Explosion from './Explosion'
+
+const gameSettings = {
+  playerSpeed: 200,
+}
 
 export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
   constructor() {
     super('playGame')
   }
 
-  destroyShip(pointer, gameObject) {
-    gameObject.setTexture('explosion')
-    gameObject.play('explode')
+  pickPowerUp(_, powerUp) {
+    powerUp.disableBody(true, true)
+    this.score += 50
+  }
+
+  resetPlayer() {
+    this.player.enableBody(
+      true,
+      gameDimensions.width / 2 - 8,
+      gameDimensions.height + 64,
+      true,
+      true,
+    )
+
+    this.player.alpha = .5
+
+    this.tweens.add({
+      targets: this.player,
+      y: gameDimensions.height - 64,
+      ease: 'Power1',
+      duration: 1500,
+      repeat: 0,
+      onComplete: () => {
+        this.player.alpha = 1
+      },
+      callbackScope: this,
+    })
+  }
+
+  hurtPlayer(player, enemy) {
+    if (this.player.alpha < 1) {
+      return
+    }
+
+    new Explosion(this, enemy.x, enemy.y)
+    this.resetShipPosition(enemy)
+    this.score = Math.max(0, this.score - 100)
+
+    player.disableBody(true, true)
+    this.time.addEvent({
+      delay: 1000,
+      callback: this.resetPlayer,
+      callbackScope: this,
+      loop: false,
+    })
+  }
+
+  hitEnemy(projectile, enemy) {
+    new Explosion(this, enemy.x, enemy.y)
+
+    projectile.destroy()
+    this.resetShipPosition(enemy)
+    this.score += 15
   }
 
   create() {
@@ -37,50 +93,19 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
       'ship3',
     )
 
-    this.anims.create({
-      key: 'explode',
-      frames: this.anims.generateFrameNumbers('explosion'),
-      frameRate: 20,
-      repeat: 0,
-      hideOnComplete: true,
-    })
+    this.enemies = this.physics.add.group()
+    this.enemies.add(this.ship1)
+    this.enemies.add(this.ship2)
+    this.enemies.add(this.ship3)
 
-    const that = this
+    this.powerUps = this.physics.add.group()
+
     range(1, 4).forEach(
       (index) => {
-        that.anims.create({
-          key: `ship${index}_anim`,
-          frames: that.anims.generateFrameNumbers(`ship${index}`),
-          frameRate: 20,
-          repeat: -1,
-        })
         this[`ship${index}`].play(`ship${index}_anim`)
         this[`ship${index}`].setInteractive()
       },
     )
-
-    this.input.on('gameobjectdown', this.destroyShip, this)
-
-    this.anims.create({
-      key: 'red',
-      frames: this.anims.generateFrameNumbers(
-        'power-up',
-        { start: 0, end: 1 },
-      ),
-      frameRate: 20,
-      repeat: -1,
-    })
-    this.anims.create({
-      key: 'gray',
-      frames: this.anims.generateFrameNumbers(
-        'power-up',
-        { start: 2, end: 3 },
-      ),
-      frameRate: 20,
-      repeat: -1,
-    })
-
-    this.powerUps = this.physics.add.group()
 
     range(4).forEach(() => {
       const powerUp = this.physics.add.sprite(16, 16, 'power-up')
@@ -96,6 +121,49 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
       powerUp.setCollideWorldBounds(true)
       powerUp.setBounce(1)
     })
+
+    this.player = this.physics.add.sprite(
+      gameDimensions.width / 2 - 8,
+      gameDimensions.height - 64,
+      'player',
+    )
+    this.player.play('thrust')
+    this.cursorKeys = this.input.keyboard.createCursorKeys()
+    this.player.setCollideWorldBounds(true)
+
+    this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
+    this.projectiles = this.add.group()
+
+    this.physics.add.collider(
+      this.projectiles,
+      this.powerUps,
+      (projectile) => projectile.destroy(),
+    )
+    this.physics.add.overlap(
+      this.player,
+      this.powerUps,
+      this.pickPowerUp,
+      null, this,
+    )
+    this.physics.add.overlap(
+      this.player,
+      this.enemies,
+      this.hurtPlayer,
+      null, this,
+    )
+    this.physics.add.overlap(
+      this.projectiles,
+      this.enemies,
+      this.hitEnemy,
+      null, this,
+    )
+
+    const graphics = this.add.graphics()
+    graphics.fillStyle('#000', 1)
+    graphics.fillRect(0, 0, gameDimensions.width, 20)
+
+    this.score = 0
+    this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', '', 16)
   }
 
   resetShipPosition(ship) {
@@ -110,11 +178,45 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
     }
   }
 
+  movePlayer() {
+    if (this.cursorKeys.left.isDown && !this.cursorKeys.right.isDown) {
+      this.player.setVelocityX(-gameSettings.playerSpeed)
+    } else if (this.cursorKeys.right.isDown && !this.cursorKeys.left.isDown) {
+      this.player.setVelocityX(gameSettings.playerSpeed)
+    } else {
+      this.player.setVelocityX(0)
+    }
+
+    if (this.cursorKeys.up.isDown && !this.cursorKeys.down.isDown) {
+      this.player.setVelocityY(-gameSettings.playerSpeed)
+    } else if (this.cursorKeys.down.isDown && !this.cursorKeys.up.isDown) {
+      this.player.setVelocityY(gameSettings.playerSpeed)
+    } else {
+      this.player.setVelocityY(0)
+    }
+  }
+
+  shoot() {
+    const projectile = new Projectile(this)
+    this.add.existing(projectile)
+    this.projectiles.add(projectile)
+  }
+
   update() {
     this.moveShip(this.ship1, 3)
     this.moveShip(this.ship2, 2)
     this.moveShip(this.ship3, 1)
 
     this.background.tilePositionY -= .5
+
+    this.movePlayer()
+
+    if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
+      this.shoot()
+    }
+    this.projectiles.getChildren().forEach(
+      projectile => projectile.update(),
+    )
+    this.scoreLabel.text = `SCORE ${padStart(this.score, 6, '0')}`
   }
 }
