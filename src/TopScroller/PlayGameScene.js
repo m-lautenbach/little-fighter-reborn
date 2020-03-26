@@ -26,8 +26,6 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
       true,
     )
 
-    this.player.alpha = .5
-
     this.tweens.add({
       targets: this.player,
       y: gameDimensions.height - 64,
@@ -45,6 +43,7 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
     if (this.player.alpha < 1) {
       return
     }
+    this.player.alpha = .5
 
     new Explosion(this, enemy.x, enemy.y)
     this.resetShipPosition(enemy)
@@ -179,6 +178,9 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
   }
 
   movePlayer() {
+    if (this.player.alpha < 1) {
+      return
+    }
     if (this.cursorKeys.left.isDown && !this.cursorKeys.right.isDown) {
       this.player.setVelocityX(-gameSettings.playerSpeed)
     } else if (this.cursorKeys.right.isDown && !this.cursorKeys.left.isDown) {
@@ -197,6 +199,9 @@ export default (gameDimensions) => class PlayGameScene extends Phaser.Scene {
   }
 
   shoot() {
+    if (this.player.alpha < 1) {
+      return
+    }
     const projectile = new Projectile(this)
     this.add.existing(projectile)
     this.projectiles.add(projectile)
