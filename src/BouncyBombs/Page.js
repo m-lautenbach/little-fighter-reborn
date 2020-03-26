@@ -7,6 +7,7 @@ import groundSprite from './assets/ground.png'
 import playerSpriteSheet from './assets/player.png'
 import starSprite from './assets/star.png'
 import bombSprite from './assets/bomb.png'
+import { getFrameRange } from '../utils/frames'
 
 const { Title, Paragraph } = Typography
 
@@ -100,20 +101,14 @@ const start = async () => {
 
     this.anims.create({
       key: 'left',
-      frames: this.anims.generateFrameNumbers(
-        'player',
-        { start: 0, end: 3 },
-      ),
+      frames: getFrameRange('player', 0, 3),
       frameRate: 10,
       repeat: -1,
     })
 
     this.anims.create({
       key: 'turn',
-      frames: this.anims.generateFrameNumbers(
-        'player',
-        { start: 4, end: 5 },
-      ),
+      frames: getFrameRange('player', 4, 5),
       frameRate: 1,
       repeat: -1,
     })
@@ -126,10 +121,7 @@ const start = async () => {
 
     this.anims.create({
       key: 'right',
-      frames: this.anims.generateFrameNumbers(
-        'player',
-        { start: 6, end: 9 },
-      ),
+      frames: getFrameRange('player', 6, 9),
       frameRate: 10,
       repeat: -1,
     })
