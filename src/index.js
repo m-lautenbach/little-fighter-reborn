@@ -7,8 +7,10 @@ import BreakoutPhaserPage from './BreakoutPhaser/Page'
 import BreakoutVanillaPage from './BreakoutVanilla/Page'
 import BouncyBombs from './BouncyBombs/Page'
 import TopScrollerPage from './TopScroller/Page'
+import NativeExperimentsPage from './NativeExperiments/Page'
 
 const TABS = {
+  NATIVE_EXPERIMENTS: '#native-experiments',
   TOP_SCROLLER: '#top-scroller',
   BREAKOUT_PHASER: '#breakout-phaser',
   BREAKOUT_VANILLA_JS: '#breakout-vanilla-js',
@@ -16,6 +18,7 @@ const TABS = {
 }
 
 const PageForTab = {
+  [TABS.NATIVE_EXPERIMENTS]: NativeExperimentsPage,
   [TABS.TOP_SCROLLER]: TopScrollerPage,
   [TABS.BREAKOUT_PHASER]: BreakoutPhaserPage,
   [TABS.BREAKOUT_VANILLA_JS]: BreakoutVanillaPage,
@@ -44,6 +47,9 @@ ReactDOM.render(
         window.location.reload()
       }}
     >
+      <Menu.Item key={TABS.NATIVE_EXPERIMENTS}>
+        Native Experiments
+      </Menu.Item>
       <Menu.Item key={TABS.TOP_SCROLLER}>
         TopScroller 3000
       </Menu.Item>
