@@ -33,10 +33,9 @@ const loadImage = (source) => {
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  const sprites = await Promise.all([spriteSource1, spriteSource2, spriteSource3].map(loadImage))
-  sprites.forEach(
-    (sprite, index) => ctx.drawImage(sprite, 0, 100 * index),
-  )
+  ctx.imageSmoothingEnabled = false
+  const [player, paddle, brick] = await Promise.all([spriteSource1, spriteSource2, spriteSource3].map(loadImage))
+  ctx.drawImage(player, 100, 100, 320, 48)
 }
 
 export default () => {
