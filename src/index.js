@@ -6,14 +6,17 @@ import { Menu } from 'antd'
 import BreakoutPhaserPage from './BreakoutPhaser/Page'
 import BreakoutVanillaPage from './BreakoutVanilla/Page'
 import BouncyBombs from './BouncyBombs/Page'
+import TopScrollerPage from './TopScroller/Page'
 
 const TABS = {
+  TOP_SCROLLER: '#top-scroller',
   BREAKOUT_PHASER: '#breakout-phaser',
   BREAKOUT_VANILLA_JS: '#breakout-vanilla-js',
   BOUNCY_BOMBS: '#bouncy-bombs',
 }
 
 const PageForTab = {
+  [TABS.TOP_SCROLLER]: TopScrollerPage,
   [TABS.BREAKOUT_PHASER]: BreakoutPhaserPage,
   [TABS.BREAKOUT_VANILLA_JS]: BreakoutVanillaPage,
   [TABS.BOUNCY_BOMBS]: BouncyBombs,
@@ -41,6 +44,9 @@ ReactDOM.render(
         window.location.reload()
       }}
     >
+      <Menu.Item key={TABS.TOP_SCROLLER}>
+        TopScroller 3000
+      </Menu.Item>
       <Menu.Item key={TABS.BOUNCY_BOMBS}>
         Bouncy Bombs
       </Menu.Item>
