@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Typography } from 'antd'
+import { Typography, Alert } from 'antd'
 import { random } from 'lodash'
 
 import skyImage from './assets/sky.png'
@@ -174,6 +174,9 @@ export default () => {
     <Paragraph>
       From this tutorial: <a target="_blank" href="https://phaser.io/tutorials/making-your-first-phaser-3-game">Making
       your first Phaser 3 game</a>
+    </Paragraph>
+    <Paragraph>
+      <Alert message="No mobile support for now! 😢" type="warning" />
     </Paragraph>
   </>
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Typography } from 'antd'
+import { Typography, Alert } from 'antd'
 
 import BootGameScene from './BootGameScene'
 import PlayGameScene from './PlayGameScene'
@@ -41,6 +41,9 @@ export default () => {
       From this tutorial: <a
       target="_blank" href="https://www.youtube.com/watch?v=gFXx7lgxK9A&list=PLDyH9Tk5ZdFzEu_izyqgPFtHJJXkc79no&index=2"
     >Getting Started with Phaser 3</a>
+    </Paragraph>
+    <Paragraph>
+      <Alert message="No mobile support for now! 😢" type="warning" />
     </Paragraph>
   </>
 }
