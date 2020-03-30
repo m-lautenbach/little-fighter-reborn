@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
+import { pathOr } from 'ramda'
 import { Typography } from 'antd'
-
-import spriteSource1 from './assets/player.png'
-import spriteSource2 from './assets/paddle_128_32.png'
-import spriteSource3 from './assets/brick1_64_32.png'
 
 const { Title } = Typography
 
-const dimensions = { width: '480px', height: '320px' }
+const dimensions = { width: 480, height: 320 }
 
 const createCanvas = () => {
   const canvas = document.createElement('CANVAS')
-  canvas.setAttribute('width', dimensions.width)
-  canvas.setAttribute('height', dimensions.height)
+  canvas.setAttribute('width', `${dimensions.width}px`)
+  canvas.setAttribute('height', `${dimensions.height}px`)
   document.body.appendChild(canvas)
   return canvas
 }
@@ -30,12 +27,25 @@ const loadImage = (source) => {
   )
 }
 
+let state = {
+  background: {
+    color: '#000000',
+  },
+  rendering: {
+    imageSmoothing: false,
+  },
+}
+
+const render = (ctx, state) => {
+  ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
+  ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
+  ctx.fillRect(0, 0, dimensions.width, dimensions.height)
+}
+
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  ctx.imageSmoothingEnabled = false
-  const [player, paddle, brick] = await Promise.all([spriteSource1, spriteSource2, spriteSource3].map(loadImage))
-  ctx.drawImage(player, 100, 100, 320, 48)
+  render(ctx, state)
 }
 
 export default () => {
