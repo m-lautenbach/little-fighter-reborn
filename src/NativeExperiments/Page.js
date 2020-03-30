@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { pathOr } from 'ramda'
+import { assoc, pathOr, propOr } from 'ramda'
 import { Typography } from 'antd'
 
 const { Title } = Typography
@@ -14,38 +14,47 @@ const createCanvas = () => {
   return canvas
 }
 
-const loadImage = (source) => {
-  return new Promise(
-    (resolve) => {
-      const img = new Image()
-      img.addEventListener(
-        'load',
-        () => resolve(img),
-      )
-      img.src = source
-    },
-  )
-}
-
 let state = {
+  timestamp: Date.now(),
+  debug: {
+    draw: {
+      boundingBox: true,
+    },
+  },
   background: {
-    color: '#000000',
+    color: '#ccfbff',
   },
   rendering: {
     imageSmoothing: false,
   },
+  objects: [
+    {
+      shape: 'rectangle',
+      position: { x: 20, y: 20 },
+      dimensions: { width: 100, height: 200 },
+    },
+  ],
 }
 
-const render = (ctx, state) => {
+const nextState = (state) => assoc('timestamp', Date.now(), state)
+
+const render = (ctx, state) => () => {
+  requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
   ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
   ctx.fillRect(0, 0, dimensions.width, dimensions.height)
+  propOr([], 'objects', state).forEach(
+    ({ position: { x, y }, dimensions: { width, height } }) => {
+      ctx.strokeStyle = '#ff00e0'
+      ctx.strokeRect(x, y, width, height)
+    },
+  )
 }
 
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  render(ctx, state)
+  render(ctx, state)()
 }
 
 export default () => {
