@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { assoc, pathOr, propOr } from 'ramda'
+import { add, always, evolve, map, multiply, pathOr, pipe, propOr } from 'ramda'
 import { Typography } from 'antd'
 
 const { Title } = Typography
 
-const dimensions = { width: 480, height: 320 }
+const dimensions = { width: 800, height: 600 }
 
 const createCanvas = () => {
   const canvas = document.createElement('CANVAS')
@@ -14,29 +14,69 @@ const createCanvas = () => {
   return canvas
 }
 
-let state = {
+let initialState = {
   timestamp: Date.now(),
   debug: {
     draw: {
       boundingBox: true,
     },
   },
+  world: {
+    gravity: 980,
+  },
   background: {
     color: '#ccfbff',
   },
   rendering: {
-    imageSmoothing: false,
+    frame: 0,
+    imageSmoothing: true,
   },
   objects: [
     {
-      shape: 'rectangle',
       position: { x: 20, y: 20 },
-      dimensions: { width: 100, height: 200 },
+      dimensions: { width: 20, height: 50 },
+      velocity: { x: 400, y: 0 },
+    },
+    {
+      static: true,
+      position: { x: 0, y: dimensions.height - 30 },
+      dimensions: { width: dimensions.width, height: 30 },
     },
   ],
 }
 
-const nextState = (state) => assoc('timestamp', Date.now(), state)
+const logFPS = (numberOfFrames, currentTimestamp) => console.log('fps', numberOfFrames / ((currentTimestamp - initialState.timestamp) / 1000))
+
+const nextState = (state) => {
+  const newTimestamp = Date.now()
+  const passedSeconds = (newTimestamp - state.timestamp) / 1000
+
+  return evolve({
+    timestamp: always(newTimestamp),
+    rendering: {
+      frame: add(1),
+    },
+    objects: map(
+      (object) => {
+        const updatePosition = (dimension) => ({
+          [dimension]: add(
+            passedSeconds *
+            pathOr(0, ['velocity', dimension], object),
+          ),
+        })
+        return evolve({
+          velocity: {
+            y: add(object.static ? 0 : passedSeconds * pathOr(0, ['world', 'gravity'], state)),
+          },
+          position: {
+            ...updatePosition('x'),
+            ...updatePosition('y'),
+          },
+        })(object)
+      },
+    ),
+  })(state)
+}
 
 const render = (ctx, state) => () => {
   requestAnimationFrame(render(ctx, nextState(state)))
@@ -44,8 +84,8 @@ const render = (ctx, state) => () => {
   ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
   ctx.fillRect(0, 0, dimensions.width, dimensions.height)
   propOr([], 'objects', state).forEach(
-    ({ position: { x, y }, dimensions: { width, height } }) => {
-      ctx.strokeStyle = '#ff00e0'
+    ({ type, position: { x, y }, dimensions: { width, height } }) => {
+      ctx.strokeStyle = type === 'static' ? '#ff00e0' : '#00ffc3'
       ctx.strokeRect(x, y, width, height)
     },
   )
@@ -54,7 +94,7 @@ const render = (ctx, state) => () => {
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  render(ctx, state)()
+  render(ctx, initialState)()
 }
 
 export default () => {
