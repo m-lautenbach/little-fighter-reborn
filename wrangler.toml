@@ -1,4 +1,4 @@
-name = "vanilla-breakout"
+name = "web-games"
 type = "webpack"
 account_id = "c7324fba23408f51251e4513e3f61ddb"
 route = "mlautenbach.com/*"
