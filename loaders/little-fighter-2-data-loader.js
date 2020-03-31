@@ -1,12 +1,12 @@
 const fs = require('fs')
 const path = require('path')
-
+const { once } = require('lodash')
 const nearley = require('nearley')
 const compile = require('nearley/lib/compile')
 const generate = require('nearley/lib/generate')
 const nearleyGrammar = require('nearley/lib/nearley-language-bootstrapped')
 
-function compileGrammar(sourceCode) {
+const compileGrammar = once((sourceCode) => {
   // Parse the grammar source into an AST
   const grammarParser = new nearley.Parser(nearleyGrammar)
   grammarParser.feed(sourceCode)
@@ -22,7 +22,7 @@ function compileGrammar(sourceCode) {
   eval(grammarJs)
 
   return module.exports
-}
+})
 
 const fixSlashes = (path) => path.replace(/\\/g, '/')
 
