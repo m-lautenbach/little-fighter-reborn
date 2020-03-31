@@ -47,7 +47,6 @@ module.exports = function (source) {
     if (err) return callback(err)
 
     const grammar = compileGrammar(grammarSource)
-    // TODO: fix grammar for float without zero
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar))
     try {
       parser.feed(source)

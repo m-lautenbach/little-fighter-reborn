@@ -71,7 +71,7 @@ value ->
 string -> [a-zA-Z_] [a-zA-Z0-9_\\.]:+ {% function(d) {return {v: [d[0]].concat(d[1]).join('') }} %}
 
 float ->
-  int "." uInt  {% function(d) {return {v: parseFloat(`${d[0].v}${d[1]}${d[2].v}`)}} %}
+  int:? "." uInt  {% function(d) {return {v: parseFloat(`${d[0].v}${d[1]}${d[2].v}`)}} %}
 
 int -> [\-]:? uInt         {% function(d) {return {v: (d[0] ? -1 : 1) * d[1].v}} %}
 
