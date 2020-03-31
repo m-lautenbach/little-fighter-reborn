@@ -92,7 +92,7 @@ const render = (ctx, state) => () => {
 }
 
 const start = async () => {
-  console.log(freezeData)
+  console.log(require(`./assets/littlefighters2/${freezeData.bmp.head}`))
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
   render(ctx, initialState)()
