@@ -28,6 +28,15 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.lfdata$/,
+        use: [
+          'json-loader',
+          {
+            loader: path.resolve('loaders/little-fighter-2-data-loader.js'),
+          },
+        ],
+      },
     ],
   },
   plugins: [

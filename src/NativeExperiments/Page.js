@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
-import { add, always, evolve, map, multiply, pathOr, pipe, propOr } from 'ramda'
+import { add, always, evolve, map, pathOr, propOr } from 'ramda'
 import { Typography } from 'antd'
+
+import freezeData from './assets/littlefighters2/sprite/sys/freeze.lfdata'
 
 const { Title } = Typography
 
@@ -44,8 +46,6 @@ let initialState = {
     },
   ],
 }
-
-const logFPS = (numberOfFrames, currentTimestamp) => console.log('fps', numberOfFrames / ((currentTimestamp - initialState.timestamp) / 1000))
 
 const nextState = (state) => {
   const newTimestamp = Date.now()
@@ -92,6 +92,7 @@ const render = (ctx, state) => () => {
 }
 
 const start = async () => {
+  console.log(freezeData)
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
   render(ctx, initialState)()
