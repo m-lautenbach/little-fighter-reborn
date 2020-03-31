@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { add, always, evolve, map, pathOr, propOr } from 'ramda'
 import { Typography } from 'antd'
 
-import freezeData from './assets/littlefighters2/sprite/sys/freeze.lfdata'
+import freezeData from './assets/littlefighters2/freeze.lfdata'
 
 const { Title } = Typography
 
@@ -92,7 +92,7 @@ const render = (ctx, state) => () => {
 }
 
 const start = async () => {
-  console.log(require(`./assets/littlefighters2/${freezeData.bmp.head}`))
+  console.log(`./assets/littlefighters2/${freezeData.bmp.head}`)
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
   render(ctx, initialState)()
