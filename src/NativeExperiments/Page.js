@@ -3,8 +3,7 @@ import { add, always, evolve, map, pathOr, propOr } from 'ramda'
 import { Typography } from 'antd'
 
 import freezeData from './assets/littlefighters2/freeze.lfdata'
-
-require.context('./assets/littlefighters2', false, /\.bmp$/)
+import loadImage from './loadImage'
 
 const { Title } = Typography
 
@@ -35,6 +34,12 @@ let initialState = {
     frame: 0,
     imageSmoothing: true,
   },
+  images: [
+    {
+      position: { x: 100, y: 100 },
+      source: 'freezeHead',
+    },
+  ],
   objects: [
     {
       position: { x: 20, y: 20 },
@@ -80,6 +85,8 @@ const nextState = (state) => {
   })(state)
 }
 
+const images = {}
+
 const render = (ctx, state) => () => {
   requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
@@ -91,10 +98,17 @@ const render = (ctx, state) => () => {
       ctx.strokeRect(x, y, width, height)
     },
   )
+  propOr([], 'images', state).forEach(
+    ({ position: { x, y }, source }) => {
+      ctx.drawImage(images[source], x, y)
+    },
+  )
 }
 
 const start = async () => {
-  console.log(require('./assets/littlefighters2/' + freezeData.bmp.head).default)
+  const freezeHead = require('./assets/littlefighters2/' + freezeData.bmp.head).default
+  images.freezeHead = await loadImage(freezeHead)
+
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
   render(ctx, initialState)()
