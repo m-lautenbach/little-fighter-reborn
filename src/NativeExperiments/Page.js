@@ -4,6 +4,8 @@ import { Typography } from 'antd'
 
 import freezeData from './assets/littlefighters2/freeze.lfdata'
 
+require.context('./assets/littlefighters2', false, /\.bmp$/)
+
 const { Title } = Typography
 
 const dimensions = { width: 800, height: 600 }
@@ -92,9 +94,7 @@ const render = (ctx, state) => () => {
 }
 
 const start = async () => {
-  console.log(freezeData)
-  console.log(`./assets/littlefighters2/${freezeData.bmp.head}`)
-  console.log(require(`./assets/littlefighters2/${freezeData.bmp.head}`))
+  console.log(require('./assets/littlefighters2/' + freezeData.bmp.head).default)
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
   render(ctx, initialState)()

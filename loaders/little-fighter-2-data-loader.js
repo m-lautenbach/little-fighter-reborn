@@ -37,24 +37,22 @@ const fixSlashesRecursive = (object) => {
   return object
 }
 
+const loadParser = (grammarPath) => {
+  const grammarSource = fs.readFileSync(grammarPath, 'utf-8')
+
+  const grammar = compileGrammar(grammarSource)
+  return new nearley.Parser(nearley.Grammar.fromCompiled(grammar))
+}
+
 module.exports = function (source) {
   const callback = this.async()
   const grammarPath = path.resolve(__dirname, 'lf-data-parser.ne')
 
   this.addDependency(grammarPath)
 
-  fs.readFile(grammarPath, 'utf-8', function (err, grammarSource) {
-    if (err) return callback(err)
+  const parser = loadParser(grammarPath)
 
-    const grammar = compileGrammar(grammarSource)
-    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar))
-    try {
-      parser.feed(source)
-    } catch (e) {
-      console.error(`Parsing failed for ${source}`)
-      throw e
-    }
+  parser.feed(source)
 
-    callback(null, fixSlashesRecursive(parser.results[0]))
-  })
+  callback(null, fixSlashesRecursive(parser.results[0]))
 }
