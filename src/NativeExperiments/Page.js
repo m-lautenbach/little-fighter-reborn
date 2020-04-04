@@ -130,7 +130,7 @@ const drawActor = (ctx, actor, frameIndex = 0) => () => {
   if (frame) {
     clearCanvas(ctx)
     const { x: sourceX, y: sourceY, wait } = frame
-    ctx.drawImage(images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, w, h)
+    ctx.drawImage(images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, 2 * w, 2 * h)
     setTimeout(drawNext, wait * 50)
   } else {
     drawNext()
