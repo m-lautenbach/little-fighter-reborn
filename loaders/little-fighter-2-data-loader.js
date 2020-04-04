@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { once } = require('lodash')
+const { once, flow } = require('lodash')
 const nearley = require('nearley')
 const compile = require('nearley/lib/compile')
 const generate = require('nearley/lib/generate')
@@ -25,13 +25,15 @@ const compileGrammar = once((sourceCode) => {
 })
 
 const fixSlashes = (path) => path.replace(/\\/g, '/')
+const fixImageFormat = (path) => path.replace(/\.bmp$/g, '.png')
+const fix = flow(fixSlashes, fixImageFormat)
 
-const fixSlashesRecursive = (object) => {
+const fixRecursive = (object) => {
   for (let [key, value] of Object.entries(object)) {
     if (typeof value === 'string') {
-      object[key] = fixSlashes(value)
+      object[key] = fix(value)
     } else if (typeof value === 'object') {
-      object[key] = fixSlashesRecursive(value)
+      object[key] = fixRecursive(value)
     }
   }
   return object
@@ -54,5 +56,5 @@ module.exports = function (source) {
 
   parser.feed(source)
 
-  callback(null, fixSlashesRecursive(parser.results[0]))
+  callback(null, fixRecursive(parser.results[0]))
 }
