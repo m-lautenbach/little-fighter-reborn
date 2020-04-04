@@ -7,8 +7,7 @@ import {
   pathOr,
   propOr,
   prop,
-  range,
-  zipObj, indexBy,
+  indexBy,
 } from 'ramda'
 import { Typography } from 'antd'
 
@@ -121,22 +120,28 @@ const frameMap =
     ),
   )
 
+const clearCanvas = (ctx) => ctx.fillRect(0, 0, dimensions.width, dimensions.height)
+
 const drawActor = (ctx, actor, frameIndex = 0) => () => {
   // const { character, animation } = actor
 
   const frame = frameMap[frameIndex]
+  const drawNext = drawActor(ctx, actor, (frameIndex + 1) % end)
   if (frame) {
-    const { x: sourceX, y: sourceY } = frame
+    clearCanvas(ctx)
+    const { x: sourceX, y: sourceY, wait } = frame
     ctx.drawImage(images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, w, h)
+    setTimeout(drawNext, wait * 50)
+  } else {
+    drawNext()
   }
-  setTimeout(drawActor(ctx, actor, (frameIndex + 1) % end), 300)
 }
 
 const render = (ctx, state) => () => {
   // requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
   ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
-  ctx.fillRect(0, 0, dimensions.width, dimensions.height)
+  clearCanvas(ctx)
   propOr([], 'objects', state).forEach(
     ({ type, position: { x, y }, dimensions: { width, height } }) => {
       ctx.strokeStyle = type === 'static' ? '#ff00e0' : '#00ffc3'
