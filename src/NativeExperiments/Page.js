@@ -1,5 +1,15 @@
 import React, { useEffect } from 'react'
-import { add, always, evolve, map, pathOr, propOr } from 'ramda'
+import {
+  add,
+  always,
+  evolve,
+  map,
+  pathOr,
+  propOr,
+  prop,
+  range,
+  zipObj, indexBy,
+} from 'ramda'
 import { Typography } from 'antd'
 
 import freezeData from './assets/littlefighters2/freeze.lfdata'
@@ -15,6 +25,12 @@ const createCanvas = () => {
   canvas.setAttribute('height', `${dimensions.height}px`)
   document.body.appendChild(canvas)
   return canvas
+}
+
+const staticState = {
+  characters: {
+    freeze: freezeData,
+  },
 }
 
 let initialState = {
@@ -34,18 +50,19 @@ let initialState = {
     frame: 0,
     imageSmoothing: true,
   },
-  images: [
+  actors: [
     {
-      position: { x: 100, y: 100 },
-      source: 'freezeHead',
+      character: 'freeze',
+      position: { x: 20, y: 20 },
+      animation: 'standing',
     },
   ],
   objects: [
-    {
-      position: { x: 20, y: 20 },
-      dimensions: { width: 20, height: 50 },
-      velocity: { x: 400, y: 0 },
-    },
+    // {
+    //   position: { x: 20, y: 20 },
+    //   dimensions: { width: 20, height: 50 },
+    //   velocity: { x: 400, y: 0 },
+    // },
     {
       static: true,
       position: { x: 0, y: dimensions.height - 30 },
@@ -87,8 +104,36 @@ const nextState = (state) => {
 
 const images = {}
 
+const { bmp: sheetData, frames } = staticState.characters['freeze']
+console.log({ sheetData, frames })
+const { w, h, row, end } = sheetData.frames_69
+const frameMap =
+  indexBy(
+    prop('index'),
+    map(
+      value =>
+        ({
+          ...value,
+          x: (value.index % row) * (w + 1),
+          y: Math.floor(value.index / row) * (h + 1),
+        }),
+      frames,
+    ),
+  )
+
+const drawActor = (ctx, actor, frameIndex = 0) => () => {
+  // const { character, animation } = actor
+
+  const frame = frameMap[frameIndex]
+  if (frame) {
+    const { x: sourceX, y: sourceY } = frame
+    ctx.drawImage(images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, w, h)
+  }
+  setTimeout(drawActor(ctx, actor, (frameIndex + 1) % end), 300)
+}
+
 const render = (ctx, state) => () => {
-  requestAnimationFrame(render(ctx, nextState(state)))
+  // requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
   ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
   ctx.fillRect(0, 0, dimensions.width, dimensions.height)
@@ -98,19 +143,15 @@ const render = (ctx, state) => () => {
       ctx.strokeRect(x, y, width, height)
     },
   )
-  propOr([], 'images', state).forEach(
-    ({ position: { x, y }, source }) => {
-      ctx.drawImage(images[source], x, y)
-    },
-  )
+  propOr([], 'actors', state).forEach(actor => drawActor(ctx, actor)())
 }
 
 const start = async () => {
-  const freezeHead = require('./assets/littlefighters2/' + freezeData.bmp.head).default
-  images.freezeHead = await loadImage(freezeHead)
-
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
+  const freezeSpritesheet = (await import('./assets/littlefighters2/' + freezeData.bmp.frames_69.file)).default
+  images.freezeSpritesheet = await loadImage(freezeSpritesheet)
+
   render(ctx, initialState)()
 }
 
