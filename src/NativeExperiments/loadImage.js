@@ -1,4 +1,5 @@
-export default (source) => {
+export default async (path) => {
+  const source = (await import('./assets/littlefighters2/' + path)).default
   return new Promise(
     (resolve) => {
       const img = new Image()

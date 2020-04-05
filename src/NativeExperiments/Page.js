@@ -6,12 +6,11 @@ import {
   map,
   pathOr,
   propOr,
-  prop,
-  indexBy,
+  prop, once,
+  indexBy, assocPath,
 } from 'ramda'
 import { Typography } from 'antd'
 
-import freezeData from './assets/littlefighters2/freeze.lfdata'
 import loadImage from './loadImage'
 
 const { Title } = Typography
@@ -26,11 +25,7 @@ const createCanvas = () => {
   return canvas
 }
 
-const staticState = {
-  characters: {
-    freeze: freezeData,
-  },
-}
+let assetCache = {}
 
 let initialState = {
   timestamp: Date.now(),
@@ -89,13 +84,11 @@ const nextState = (state) => {
   })(state)
 }
 
-const images = {}
-
-const { bmp: sheetData, frames } = staticState.characters['freeze']
-console.log({ sheetData, frames })
-const { w, h, row, end } = sheetData.frames_69
-const frameMap =
-  indexBy(
+const getFrameMap = once(() => {
+  const { bmp: sheetData, frames } = assetCache.data.characters.freeze
+  const { w, h, row } = sheetData.frames_69
+  console.log({ sheetData, frames })
+  return indexBy(
     prop('index'),
     map(
       value =>
@@ -107,18 +100,20 @@ const frameMap =
       frames,
     ),
   )
+})
 
 const clearCanvas = (ctx) => ctx.fillRect(0, 0, dimensions.width, dimensions.height)
 
 const drawActor = (ctx, actor, frameIndex = 0) => () => {
   // const { character, animation } = actor
 
-  const frame = frameMap[frameIndex]
+  const { w, h, end } = assetCache.data.characters.freeze.bmp.frames_69
+  const frame = getFrameMap()[frameIndex]
   const drawNext = drawActor(ctx, actor, (frameIndex + 1) % end)
   if (frame) {
     clearCanvas(ctx)
     const { x: sourceX, y: sourceY, wait } = frame
-    ctx.drawImage(images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, 2 * w, 2 * h)
+    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, 2 * w, 2 * h)
     setTimeout(drawNext, wait * 50)
   } else {
     drawNext()
@@ -136,8 +131,17 @@ const render = (ctx, state) => () => {
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  const freezeSpritesheet = (await import('./assets/littlefighters2/' + freezeData.bmp.frames_69.file)).default
-  images.freezeSpritesheet = await loadImage(freezeSpritesheet)
+  assetCache = assocPath(
+    ['data', 'characters', 'freeze'],
+    (await import('./assets/littlefighters2/freeze.lfdata')).default,
+    assetCache,
+  )
+  console.log(assetCache)
+  assetCache = assocPath(
+    ['images', 'freezeSpritesheet'],
+    await loadImage(assetCache.data.characters.freeze.bmp.frames_69.file),
+    assetCache,
+  )
 
   render(ctx, initialState)()
 }
