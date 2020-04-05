@@ -50,6 +50,7 @@ let initialState = {
     {
       character: 'freeze',
       position: { x: 20, y: 20 },
+      direction: 'left',
       animation: {
         id: 'standing',
         frame: 0,
@@ -92,6 +93,11 @@ const getUpdatedAnimation = () => {
   return (KeyA && KeyD || KeyW && KeyS || !KeyA && !KeyD && !KeyW && !KeyS) ? 'standing' : 'walking'
 }
 
+const updateDirection = (actor) => {
+  const { KeyA, KeyD } = inputState
+  return assoc('direction', KeyA && 'left' || KeyD && 'right' || actor.direction, actor)
+}
+
 const progressAnimation = (actor) => {
   const { animation: { id, frame, bounced, start } } = actor
   const { frames, loop } = getFrameMap()[id]
@@ -114,6 +120,23 @@ const progressAnimation = (actor) => {
   })(actor)
 }
 
+const updateAnimation = actor => {
+  const { animation: { id } } = actor
+  const updatedAnimation = getUpdatedAnimation()
+  if (updatedAnimation !== id) {
+    return evolve({
+      animation: {
+        frame: always(0),
+        start: always(Date.now()),
+        bounced: always(false),
+        id: always(updatedAnimation),
+      },
+    })(actor)
+  } else {
+    return progressAnimation(actor)
+  }
+}
+
 const nextState = (state) => {
   const newTimestamp = Date.now()
   const passedSeconds = (newTimestamp - state.timestamp) / 1000
@@ -124,22 +147,10 @@ const nextState = (state) => {
       frame: add(1),
     },
     actors: map(
-      actor => {
-        const { animation: { id } } = actor
-        const updatedAnimation = getUpdatedAnimation()
-        if (updatedAnimation !== id) {
-          return evolve({
-            animation: {
-              frame: always(0),
-              start: always(Date.now()),
-              bounced: always(false),
-              id: always(updatedAnimation),
-            },
-          })(actor)
-        } else {
-          return progressAnimation(actor)
-        }
-      },
+      pipe(
+        updateAnimation,
+        updateDirection,
+      ),
     ),
     objects: map(
       (object) => {
@@ -166,13 +177,20 @@ const nextState = (state) => {
 const clearCanvas = (ctx) => ctx.fillRect(0, 0, dimensions.width, dimensions.height)
 
 const drawActor = (ctx, actor) => () => {
-  const { character, animation: { id: animationId, frame }, position: { x, y } } = actor
+  const { character, animation: { id: animationId, frame }, position: { x, y }, direction } = actor
 
   const { w, h } = assetCache.data.characters[character].bmp.frames_69
   const { [animationId]: { frames } } = getFrameMap()
   clearCanvas(ctx)
   const { x: sourceX, y: sourceY } = frames[frame]
-  ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, x, y, 2 * w, 2 * h)
+  if (direction === 'left') {
+    ctx.translate(x + 2 * w, 0)
+    ctx.scale(-1, 1)
+    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, 0, y, 2 * w, 2 * h)
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
+  } else {
+    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, x, y, 2 * w, 2 * h)
+  }
 }
 
 const render = (ctx, state) => () => {
