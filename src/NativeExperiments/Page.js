@@ -89,13 +89,19 @@ const getFrameMap = once(() => {
 })
 
 const getUpdatedAnimation = () => {
-  const { KeyW, KeyA, KeyS, KeyD } = inputState
-  return (KeyA && KeyD || KeyW && KeyS || !KeyA && !KeyD && !KeyW && !KeyS) ? 'standing' : 'walking'
+  const { KeyW, KeyA, KeyS, KeyD, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
+  const left = KeyA || ArrowLeft
+  const right = KeyD || ArrowRight
+  const up = KeyW || ArrowUp
+  const down = KeyS || ArrowDown
+  return (left && right || up && down || !(left || right || up || down)) ? 'standing' : 'walking'
 }
 
 const updateDirection = (actor) => {
-  const { KeyA, KeyD } = inputState
-  return assoc('direction', KeyA && 'left' || KeyD && 'right' || actor.direction, actor)
+  const { KeyA, KeyD, ArrowLeft, ArrowRight } = inputState
+  const left = KeyA || ArrowLeft
+  const right = KeyD || ArrowRight
+  return assoc('direction', left && !right && 'left' || right && !left && 'right' || actor.direction, actor)
 }
 
 const progressAnimation = (actor) => {
