@@ -56,18 +56,6 @@ let initialState = {
       animation: 'standing',
     },
   ],
-  objects: [
-    // {
-    //   position: { x: 20, y: 20 },
-    //   dimensions: { width: 20, height: 50 },
-    //   velocity: { x: 400, y: 0 },
-    // },
-    {
-      static: true,
-      position: { x: 0, y: dimensions.height - 30 },
-      dimensions: { width: dimensions.width, height: 30 },
-    },
-  ],
 }
 
 const nextState = (state) => {
@@ -142,12 +130,6 @@ const render = (ctx, state) => () => {
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
   ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
   clearCanvas(ctx)
-  propOr([], 'objects', state).forEach(
-    ({ type, position: { x, y }, dimensions: { width, height } }) => {
-      ctx.strokeStyle = type === 'static' ? '#ff00e0' : '#00ffc3'
-      ctx.strokeRect(x, y, width, height)
-    },
-  )
   propOr([], 'actors', state).forEach(actor => drawActor(ctx, actor)())
 }
 
