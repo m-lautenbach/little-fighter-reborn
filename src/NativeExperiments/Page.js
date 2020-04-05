@@ -7,7 +7,7 @@ import {
   pathOr,
   propOr,
   prop, once,
-  indexBy, assocPath,
+  assocPath, groupBy, last, assoc, pipe, cond, T, F,
 } from 'ramda'
 import { Typography } from 'antd'
 
@@ -26,6 +26,8 @@ const createCanvas = () => {
 }
 
 let assetCache = {}
+
+let inputState = {}
 
 let initialState = {
   timestamp: Date.now(),
@@ -48,10 +50,42 @@ let initialState = {
     {
       character: 'freeze',
       position: { x: 20, y: 20 },
-      animation: 'standing',
+      animation: {
+        id: 'standing',
+        frame: 0,
+        bounced: false,
+        start: Date.now(),
+      },
     },
   ],
 }
+
+const getFrameMap = once(() => {
+  const { bmp: sheetData, frames } = assetCache.data.characters.freeze
+  const { w, h, row } = sheetData.frames_69
+  console.log({ sheetData, frames })
+  const animations = groupBy(
+    prop('animation'),
+    map(
+      value =>
+        ({
+          ...value,
+          x: (value.index % row) * (w + 1),
+          y: Math.floor(value.index / row) * (h + 1),
+        }),
+      frames,
+    ),
+  )
+  return map(
+    frames => {
+      return {
+        frames,
+        loop: last(frames).next === 999 ? 'bounce' : 'last',
+      }
+    },
+    animations,
+  )
+})
 
 const nextState = (state) => {
   const newTimestamp = Date.now()
@@ -62,6 +96,29 @@ const nextState = (state) => {
     rendering: {
       frame: add(1),
     },
+    actors: map(
+      actor => {
+        const { animation: { id, frame, bounced, start } } = actor
+        const { frames, loop } = getFrameMap()[id]
+        const currentFrameEnded = (frames[frame].wait * 30) < (Date.now() - start)
+        const isLastFrame = frame === (frames.length - 1)
+        const updatedBounced = cond([
+          [always(!bounced && isLastFrame), T],
+          [always(bounced && frame === 0), F],
+          [T, always(bounced)],
+        ])()
+        const nextFrame = loop === 'bounce' ?
+          (updatedBounced ? frame - 1 : frame + 1) :
+          (isLastFrame ? frame : frame + 1)
+        return evolve({
+          animation: pipe(
+            assoc('frame', currentFrameEnded ? nextFrame : frame),
+            assoc('start', currentFrameEnded ? Date.now() : start),
+            assoc('bounced', updatedBounced),
+          ),
+        })(actor)
+      },
+    ),
     objects: map(
       (object) => {
         const updatePosition = (dimension) => ({
@@ -84,44 +141,20 @@ const nextState = (state) => {
   })(state)
 }
 
-const getFrameMap = once(() => {
-  const { bmp: sheetData, frames } = assetCache.data.characters.freeze
-  const { w, h, row } = sheetData.frames_69
-  console.log({ sheetData, frames })
-  return indexBy(
-    prop('index'),
-    map(
-      value =>
-        ({
-          ...value,
-          x: (value.index % row) * (w + 1),
-          y: Math.floor(value.index / row) * (h + 1),
-        }),
-      frames,
-    ),
-  )
-})
-
 const clearCanvas = (ctx) => ctx.fillRect(0, 0, dimensions.width, dimensions.height)
 
-const drawActor = (ctx, actor, frameIndex = 0) => () => {
-  // const { character, animation } = actor
+const drawActor = (ctx, actor) => () => {
+  const { character, animation: { id: animationId, frame }, position: { x, y } } = actor
 
-  const { w, h, end } = assetCache.data.characters.freeze.bmp.frames_69
-  const frame = getFrameMap()[frameIndex]
-  const drawNext = drawActor(ctx, actor, (frameIndex + 1) % end)
-  if (frame) {
-    clearCanvas(ctx)
-    const { x: sourceX, y: sourceY, wait } = frame
-    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, 20, 20, 2 * w, 2 * h)
-    setTimeout(drawNext, wait * 50)
-  } else {
-    drawNext()
-  }
+  const { w, h } = assetCache.data.characters[character].bmp.frames_69
+  const { [animationId]: { frames } } = getFrameMap()
+  clearCanvas(ctx)
+  const { x: sourceX, y: sourceY } = frames[frame]
+  ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, x, y, 2 * w, 2 * h)
 }
 
 const render = (ctx, state) => () => {
-  // requestAnimationFrame(render(ctx, nextState(state)))
+  requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
   ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
   clearCanvas(ctx)
@@ -136,7 +169,6 @@ const start = async () => {
     (await import('./assets/littlefighters2/freeze.lfdata')).default,
     assetCache,
   )
-  console.log(assetCache)
   assetCache = assocPath(
     ['images', 'freezeSpritesheet'],
     await loadImage(assetCache.data.characters.freeze.bmp.frames_69.file),
@@ -144,6 +176,8 @@ const start = async () => {
   )
 
   render(ctx, initialState)()
+  document.onkeydown = ({ code }) => inputState[code] = Date.now()
+  document.onkeyup = ({ code }) => delete inputState[code]
 }
 
 export default () => {
