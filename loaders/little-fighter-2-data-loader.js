@@ -48,7 +48,7 @@ const loadParser = (grammarPath) => {
 
 module.exports = function (source) {
   const callback = this.async()
-  const grammarPath = path.resolve(__dirname, 'lf-data-parser.ne')
+  const grammarPath = path.resolve(__dirname, 'lf-character.ne')
 
   this.addDependency(grammarPath)
 
