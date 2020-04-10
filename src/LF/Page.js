@@ -52,7 +52,7 @@ let initialState = {
   actors: [
     {
       character: 'freeze',
-      position: { x: 20, y: 400 },
+      position: { x: 100, y: 400 },
       direction: 'left',
       animation: {
         id: 'standing',
@@ -183,7 +183,7 @@ const nextState = (state) => {
 }
 
 const drawBackground = (ctx) => {
-  ctx.fillStyle = '#000000'
+  ctx.fillStyle = '#ffffff'
   ctx.fillRect(0, 0, dimensions.width, dimensions.height / 2)
   ctx.fillStyle = '#104e10'
   ctx.fillRect(0, dimensions.height / 2, dimensions.width, dimensions.height)
@@ -202,19 +202,55 @@ const drawBackground = (ctx) => {
   )
 }
 
+let shadowCache = {}
+
 const drawActor = (ctx, actor) => () => {
   const { character, animation: { id: animationId, frame }, position: { x, y }, direction } = actor
 
   const { w, h } = assetCache.data.characters[character].bmp.frames_69
   const { [animationId]: { frames } } = getFrameMap()
   const { x: sourceX, y: sourceY } = frames[frame]
+
+  const shadowCanvas = document.getElementById('image-manipulation')
+  const ctx2 = shadowCanvas.getContext('2d')
+  const spritesheet = assetCache.images.freezeSpritesheet
+  ctx2.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
+  let shadow
+  if (shadowCache[frame]) {
+    shadow = shadowCache[frame]
+  } else {
+    shadow = ctx2.getImageData(0, 0, w, h)
+    shadow.data.forEach((value, index) => {
+      // is color
+      if ((index + 1) % 4 === 0) {
+        // if not fully transparent
+        if (value !== 0) {
+          shadow.data[index] = 150
+        }
+      } else {
+        // make black
+        shadow.data[index] = 50
+      }
+    })
+    shadowCache[frame] = shadow
+  }
+
+  ctx2.putImageData(shadow, 0, 0)
+  ctx.setTransform(1, 0, 0, 1, 0, 0)
+
   if (direction === 'left') {
+    ctx.setTransform(-1, 0, .5, .5, x + (w / 2), y + (h / 2))
+    ctx.drawImage(shadowCanvas, 0, 0)
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.translate(x + w, 0)
     ctx.scale(-1, 1)
-    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, 0, y, w, h)
+    ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, y, w, h)
     ctx.setTransform(1, 0, 0, 1, 0, 0)
   } else {
-    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, x, y, w, h)
+    ctx.setTransform(1, 0, .5, .5, x - (w / 2), y + (h / 2))
+    ctx.drawImage(shadowCanvas, 0, 0)
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
+    ctx.drawImage(spritesheet, sourceX, sourceY, w, h, x, y, w, h)
   }
 }
 
@@ -246,7 +282,8 @@ export default () => {
 
   return <>
     <Title style={{ margin: '2rem' }}>
-      Native experiments
+      LF2 Migration
     </Title>
+    <canvas id="image-manipulation" width="100" height="200" style={{ position: 'absolute', left: -200, top: 0 }} />
   </>
 }
