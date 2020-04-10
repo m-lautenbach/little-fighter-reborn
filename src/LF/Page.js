@@ -7,11 +7,12 @@ import {
   pathOr,
   propOr,
   prop, once,
-  assocPath, groupBy, last, assoc, pipe, cond, T, F,
+  groupBy, last, assoc, pipe, cond, T, F, range,
 } from 'ramda'
 import { Typography } from 'antd'
 
 import loadImage from './loadImage'
+import LionForest from './levels/LionForest'
 
 const { Title } = Typography
 
@@ -25,7 +26,12 @@ const createCanvas = () => {
   return canvas
 }
 
-let assetCache = {}
+let assetCache = {
+  data: {
+    characters: {},
+  },
+  images: {},
+}
 
 let inputState = {}
 
@@ -39,9 +45,6 @@ let initialState = {
   world: {
     gravity: 980,
   },
-  background: {
-    color: '#ccfbff',
-  },
   rendering: {
     frame: 0,
     imageSmoothing: true,
@@ -49,7 +52,7 @@ let initialState = {
   actors: [
     {
       character: 'freeze',
-      position: { x: 20, y: 20 },
+      position: { x: 20, y: 400 },
       direction: 'left',
       animation: {
         id: 'standing',
@@ -64,7 +67,6 @@ let initialState = {
 const getFrameMap = once(() => {
   const { bmp: sheetData, frames } = assetCache.data.characters.freeze
   const { w, h, row } = sheetData.frames_69
-  console.log({ sheetData, frames })
   const animations = groupBy(
     prop('animation'),
     map(
@@ -180,45 +182,56 @@ const nextState = (state) => {
   })(state)
 }
 
-const clearCanvas = (ctx) => ctx.fillRect(0, 0, dimensions.width, dimensions.height)
+const drawBackground = (ctx) => {
+  ctx.fillStyle = '#000000'
+  ctx.fillRect(0, 0, dimensions.width, dimensions.height / 2)
+  ctx.fillStyle = '#104e10'
+  ctx.fillRect(0, dimensions.height / 2, dimensions.width, dimensions.height)
+  LionForest.layers.forEach(
+    ({ x, y, loop, width }, index) => {
+      const image = assetCache.images.lionForestLayers[index]
+      ctx.drawImage(image, x, y)
+      if (loop) {
+        range(1, width / loop).forEach(
+          index => {
+            ctx.drawImage(image, x + index * loop, y)
+          },
+        )
+      }
+    },
+  )
+}
 
 const drawActor = (ctx, actor) => () => {
   const { character, animation: { id: animationId, frame }, position: { x, y }, direction } = actor
 
   const { w, h } = assetCache.data.characters[character].bmp.frames_69
   const { [animationId]: { frames } } = getFrameMap()
-  clearCanvas(ctx)
   const { x: sourceX, y: sourceY } = frames[frame]
   if (direction === 'left') {
-    ctx.translate(x + 2 * w, 0)
+    ctx.translate(x + w, 0)
     ctx.scale(-1, 1)
-    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, 0, y, 2 * w, 2 * h)
+    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, 0, y, w, h)
     ctx.setTransform(1, 0, 0, 1, 0, 0)
   } else {
-    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, x, y, 2 * w, 2 * h)
+    ctx.drawImage(assetCache.images.freezeSpritesheet, sourceX, sourceY, w, h, x, y, w, h)
   }
 }
 
 const render = (ctx, state) => () => {
   requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
-  ctx.fillStyle = pathOr('#ffffff', ['background', 'color'], state)
-  clearCanvas(ctx)
+  drawBackground(ctx)
   propOr([], 'actors', state).forEach(actor => drawActor(ctx, actor)())
 }
 
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  assetCache = assocPath(
-    ['data', 'characters', 'freeze'],
-    (await import('./assets/littlefighters2/freeze.lfdata')).default,
-    assetCache,
-  )
-  assetCache = assocPath(
-    ['images', 'freezeSpritesheet'],
-    await loadImage(assetCache.data.characters.freeze.bmp.frames_69.file),
-    assetCache,
+  assetCache.data.characters.freeze = (await import('./assets/littlefighters2/freeze.lfdata')).default
+  assetCache.images.freezeSpritesheet = await loadImage(assetCache.data.characters.freeze.bmp.frames_69.file)
+  assetCache.images.lionForestLayers = await Promise.all(
+    LionForest.layers.map(({ img }) => loadImage(img)),
   )
 
   render(ctx, initialState)()
