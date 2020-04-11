@@ -125,9 +125,12 @@ const updateAnimation = actor => {
   }
 }
 
+let forward = true
+
 const nextState = (state) => {
   const newTimestamp = Date.now()
   const passedSeconds = (newTimestamp - state.timestamp) / 1000
+  forward = (state.camera.x > state.camera.xMax) ? false : state.camera.x <= 0 && true || forward
 
   return evolve({
     timestamp: always(newTimestamp),
@@ -135,7 +138,7 @@ const nextState = (state) => {
       frame: add(1),
     },
     camera: {
-      x: add(1)
+      x: add(forward ? 2 : -2),
     },
     actors: map(
       pipe(
@@ -165,6 +168,8 @@ const nextState = (state) => {
   })(state)
 }
 
+const parallaxes = [0, .15, .15, .273, .273, 1, 1, 1, 1]
+
 const drawBackground = (ctx, { camera: { x: cx } }) => {
   ctx.fillStyle = '#ffffff'
   ctx.fillRect(0, 0, dimensions.width, dimensions.height / 2)
@@ -172,7 +177,7 @@ const drawBackground = (ctx, { camera: { x: cx } }) => {
   ctx.fillRect(0, dimensions.height / 2, dimensions.width, dimensions.height)
   LionForest.layers.forEach(
     ({ x, y, loop, width }, index) => {
-      const parallax = index === 0 ? 0 : (index <= 4 ? cx / 4 : cx)
+      const parallax = parallaxes[index] * cx
       const image = assetCache.images.lionForestLayers[index]
       ctx.drawImage(image, x - parallax, y)
       if (loop) {

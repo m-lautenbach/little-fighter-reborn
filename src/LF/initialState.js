@@ -10,6 +10,7 @@ export default {
   },
   camera: {
     x: 0,
+    xMax: 2200,
   },
   rendering: {
     frame: 0,
