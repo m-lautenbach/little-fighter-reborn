@@ -2,17 +2,26 @@ import React, { useEffect } from 'react'
 import {
   add,
   always,
+  assoc,
+  cond,
   evolve,
+  F,
+  groupBy,
+  last,
   map,
+  once,
   pathOr,
+  pipe,
+  prop,
   propOr,
-  prop, once,
-  groupBy, last, assoc, pipe, cond, T, F, range,
+  range,
+  T,
 } from 'ramda'
 import { Typography } from 'antd'
 
 import loadImage from './loadImage'
 import LionForest from './levels/LionForest'
+import initialState from './initialState'
 
 const { Title } = Typography
 
@@ -34,35 +43,6 @@ let assetCache = {
 }
 
 let inputState = {}
-
-let initialState = {
-  timestamp: Date.now(),
-  debug: {
-    draw: {
-      boundingBox: true,
-    },
-  },
-  world: {
-    gravity: 980,
-  },
-  rendering: {
-    frame: 0,
-    imageSmoothing: true,
-  },
-  actors: [
-    {
-      character: 'freeze',
-      position: { x: 100, y: 400 },
-      direction: 'left',
-      animation: {
-        id: 'standing',
-        frame: 0,
-        bounced: false,
-        start: Date.now(),
-      },
-    },
-  ],
-}
 
 const getFrameMap = once(() => {
   const { bmp: sheetData, frames } = assetCache.data.characters.freeze
@@ -154,6 +134,9 @@ const nextState = (state) => {
     rendering: {
       frame: add(1),
     },
+    camera: {
+      x: add(1)
+    },
     actors: map(
       pipe(
         updateAnimation,
@@ -182,19 +165,20 @@ const nextState = (state) => {
   })(state)
 }
 
-const drawBackground = (ctx) => {
+const drawBackground = (ctx, { camera: { x: cx } }) => {
   ctx.fillStyle = '#ffffff'
   ctx.fillRect(0, 0, dimensions.width, dimensions.height / 2)
   ctx.fillStyle = '#104e10'
   ctx.fillRect(0, dimensions.height / 2, dimensions.width, dimensions.height)
   LionForest.layers.forEach(
     ({ x, y, loop, width }, index) => {
+      const parallax = index === 0 ? 0 : (index <= 4 ? cx / 4 : cx)
       const image = assetCache.images.lionForestLayers[index]
-      ctx.drawImage(image, x, y)
+      ctx.drawImage(image, x - parallax, y)
       if (loop) {
         range(1, width / loop).forEach(
           index => {
-            ctx.drawImage(image, x + index * loop, y)
+            ctx.drawImage(image, x + index * loop - parallax, y)
           },
         )
       }
@@ -204,7 +188,7 @@ const drawBackground = (ctx) => {
 
 let shadowCache = {}
 
-const drawActor = (ctx, actor) => () => {
+const drawActor = (ctx, actor, { camera: { x: cx } }) => () => {
   const { character, animation: { id: animationId, frame }, position: { x, y }, direction } = actor
 
   const { w, h } = assetCache.data.characters[character].bmp.frames_69
@@ -240,31 +224,31 @@ const drawActor = (ctx, actor) => () => {
 
   if (direction === 'left') {
     ctx.setTransform(-1, 0, .5, .5, x + (w / 2), y + (h / 2))
-    ctx.drawImage(shadowCanvas, 0, 0)
+    ctx.drawImage(shadowCanvas, cx, 0)
     ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.translate(x + w, 0)
     ctx.scale(-1, 1)
-    ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, y, w, h)
+    ctx.drawImage(spritesheet, sourceX, sourceY, w, h, cx, y, w, h)
     ctx.setTransform(1, 0, 0, 1, 0, 0)
   } else {
     ctx.setTransform(1, 0, .5, .5, x - (w / 2), y + (h / 2))
-    ctx.drawImage(shadowCanvas, 0, 0)
+    ctx.drawImage(shadowCanvas, -cx, 0)
     ctx.setTransform(1, 0, 0, 1, 0, 0)
-    ctx.drawImage(spritesheet, sourceX, sourceY, w, h, x, y, w, h)
+    ctx.drawImage(spritesheet, sourceX, sourceY, w, h, x - cx, y, w, h)
   }
 }
 
 const render = (ctx, state) => () => {
   requestAnimationFrame(render(ctx, nextState(state)))
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], state)
-  drawBackground(ctx)
-  propOr([], 'actors', state).forEach(actor => drawActor(ctx, actor)())
+  drawBackground(ctx, state)
+  propOr([], 'actors', state).forEach(actor => drawActor(ctx, actor, state)())
 }
 
 const start = async () => {
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  assetCache.data.characters.freeze = (await import('./assets/littlefighters2/freeze.lfdata')).default
+  assetCache.data.characters.freeze = (await import('./assets/littlefighter2/freeze.lfdata')).default
   assetCache.images.freezeSpritesheet = await loadImage(assetCache.data.characters.freeze.bmp.frames_69.file)
   assetCache.images.lionForestLayers = await Promise.all(
     LionForest.layers.map(({ img }) => loadImage(img)),
