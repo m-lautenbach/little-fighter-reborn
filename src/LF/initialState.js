@@ -15,6 +15,7 @@ export default {
   rendering: {
     frame: 0,
     imageSmoothing: false,
+    width: 800, height: 600
   },
   actors: [
     {
