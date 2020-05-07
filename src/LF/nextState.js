@@ -15,9 +15,6 @@ export default (state) => {
     rendering: {
       frame: add(1),
     },
-    camera: {
-      x: add(forward ? 2 : -2),
-    },
     actors: map(
       pipe(
         updateAnimation,
