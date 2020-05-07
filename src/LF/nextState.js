@@ -19,6 +19,11 @@ export default (state) => {
       pipe(
         updateAnimation,
         updateDirection,
+        evolve({
+          position: {
+            z: add(1)
+          }
+        })
       ),
     ),
     objects: map(

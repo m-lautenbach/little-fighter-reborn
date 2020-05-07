@@ -6,26 +6,27 @@ import { worldToCamera } from './coordinates'
 
 const shadowCache = {}
 
-const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame) => {
+const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame, z) => {
   const canvas = document.getElementById('image-manipulation')
   const ctx = canvas.getContext('2d')
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
 
   let shadow
-  if (shadowCache[frame]) {
+  if (z === 0 && shadowCache[frame]) {
     shadow = shadowCache[frame]
   } else {
+    const alpha = Math.round((1 - Math.min(1, z / 100)) * 80)
     shadow = ctx.getImageData(0, 0, w, h)
     shadow.data.forEach((value, index) => {
-      // is color
+      // is transparency
       if ((index + 1) % 4 === 0) {
         // if not fully transparent
         if (value !== 0) {
-          shadow.data[index] = 150
+          shadow.data[index] = alpha
         }
       } else {
         // make black
-        shadow.data[index] = 50
+        shadow.data[index] = 0
       }
     })
     shadowCache[frame] = shadow
@@ -47,7 +48,7 @@ export default (ctx, actor, state) => () => {
 
   const spritesheet = assetCache.images.freezeSpritesheet
 
-  const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, frame)
+  const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, frame, position.z)
 
   if (direction === 'left') {
     ctx.setTransform(-1, 0, .5, .5, sx + (w / 2), sy - (h / 2))
