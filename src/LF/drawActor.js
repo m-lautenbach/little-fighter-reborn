@@ -12,10 +12,10 @@ const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame, z) => {
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
 
   let shadow
-  if (z === 0 && shadowCache[frame]) {
-    shadow = shadowCache[frame]
+  const alpha = Math.round((1 - Math.min(1, z / 100)) * 80)
+  if (shadowCache[frame] && shadowCache[frame][alpha]) {
+    shadow = shadowCache[frame][alpha]
   } else {
-    const alpha = Math.round((1 - Math.min(1, z / 100)) * 80)
     shadow = ctx.getImageData(0, 0, w, h)
     shadow.data.forEach((value, index) => {
       // is transparency
@@ -29,7 +29,10 @@ const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame, z) => {
         shadow.data[index] = 0
       }
     })
-    shadowCache[frame] = shadow
+    if (!shadowCache[frame]) {
+      shadowCache[frame] = {}
+    }
+    shadowCache[frame][alpha] = shadow
   }
   ctx.putImageData(shadow, 0, 0)
   return canvas
