@@ -20,8 +20,8 @@ export default {
   actors: [
     {
       character: 'freeze',
-      position: { x: 100, y: 400 },
-      direction: 'left',
+      position: { x: 200, y: 100, z: 0 },
+      direction: 'right',
       animation: {
         id: 'standing',
         frame: 0,
