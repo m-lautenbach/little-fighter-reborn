@@ -3,22 +3,16 @@ import getFrameMap from './getFrameMap'
 
 const shadowCache = {}
 
-export default (ctx, actor, { camera: { x: cx } }) => () => {
-  const { character, animation: { id: animationId, frame }, position: { x, y }, direction } = actor
+const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame) => {
+  const canvas = document.getElementById('image-manipulation')
+  const ctx = canvas.getContext('2d')
+  ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
 
-  const { w, h } = assetCache.data.characters[character].bmp.frames_69
-  const { [animationId]: { frames } } = getFrameMap()
-  const { x: sourceX, y: sourceY } = frames[frame]
-
-  const shadowCanvas = document.getElementById('image-manipulation')
-  const ctx2 = shadowCanvas.getContext('2d')
-  const spritesheet = assetCache.images.freezeSpritesheet
-  ctx2.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
   let shadow
   if (shadowCache[frame]) {
     shadow = shadowCache[frame]
   } else {
-    shadow = ctx2.getImageData(0, 0, w, h)
+    shadow = ctx.getImageData(0, 0, w, h)
     shadow.data.forEach((value, index) => {
       // is color
       if ((index + 1) % 4 === 0) {
@@ -33,8 +27,21 @@ export default (ctx, actor, { camera: { x: cx } }) => () => {
     })
     shadowCache[frame] = shadow
   }
+  ctx.putImageData(shadow, 0, 0)
+  return canvas
+}
 
-  ctx2.putImageData(shadow, 0, 0)
+export default (ctx, actor, { camera: { x: cx } }) => () => {
+  const { character, animation: { id: animationId, frame }, position: { x, y }, direction } = actor
+
+  const { w, h } = assetCache.data.characters[character].bmp.frames_69
+  const { [animationId]: { frames } } = getFrameMap()
+  const { x: sourceX, y: sourceY } = frames[frame]
+
+  const spritesheet = assetCache.images.freezeSpritesheet
+
+  const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, frame)
+
   ctx.setTransform(1, 0, 0, 1, 0, 0)
 
   if (direction === 'left') {
