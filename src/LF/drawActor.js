@@ -12,7 +12,7 @@ const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame, z) => {
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
 
   let shadow
-  const alpha = Math.round((1 - Math.min(1, z / 100)) * 80)
+  const alpha = Math.round((1 - Math.min(1, z / 50)) * 80)
   if (shadowCache[frame] && shadowCache[frame][alpha]) {
     shadow = shadowCache[frame][alpha]
   } else {
