@@ -1,4 +1,4 @@
-import { add, always, evolve, map, pathOr, pipe, max } from 'ramda'
+import { add, always, evolve, map, pathOr, pipe, max, clamp } from 'ramda'
 
 import updateAnimation from './updateAnimation'
 import updateDirection from './updateDirection'
@@ -20,13 +20,14 @@ export default (state) => {
         updateAnimation,
         updateDirection,
         (character) => {
+          const { world: { boundaries: { yMin, yMax } } } = state
           const updatePosition = (dimension) => ({
             [dimension]: pipe(
               add(
                 passedSeconds *
                 pathOr(0, ['velocity', dimension], character),
               ),
-              max(0),
+              (dimension === 'y' ? clamp(yMin, yMax) : max(0)),
             ),
           })
 

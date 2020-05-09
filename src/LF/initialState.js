@@ -7,6 +7,10 @@ export default {
   },
   world: {
     gravity: -980,
+    boundaries: {
+      yMin: 10,
+      yMax: 470,
+    },
   },
   camera: {
     x: 0,
@@ -21,7 +25,11 @@ export default {
     {
       character: 'freeze',
       velocity: { x: 0, y: 0, z: 0 },
-      position: { x: 200, y: 200, z: 0 },
+      position: { x: 200, y: 470, z: 0 },
+      dimensions: {
+        width: 79,
+        height: 79,
+      },
       direction: 'right',
       animation: {
         id: 'standing',
