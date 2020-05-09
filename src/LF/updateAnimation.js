@@ -3,13 +3,15 @@ import { always, assoc, cond, evolve, F, pipe, T } from 'ramda'
 import getFrameMap from './getFrameMap'
 import inputState from './inputState'
 
+const xor = (a, b) => !!a !== !!b
+
 const getUpdatedAnimation = () => {
   const { KeyW, KeyA, KeyS, KeyD, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
   const left = KeyA || ArrowLeft
   const right = KeyD || ArrowRight
   const up = KeyW || ArrowUp
   const down = KeyS || ArrowDown
-  return (left && right || up && down || !(left || right || up || down)) ? 'standing' : 'walking'
+  return (xor(left, right) || xor(up, down)) ? 'walking' : 'standing'
 }
 
 const progressAnimation = (actor) => {
