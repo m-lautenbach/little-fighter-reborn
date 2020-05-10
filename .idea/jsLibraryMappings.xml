@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@types/lodash, @types/ramda, @types/react, phaser}" />
-    <includedPredefinedLibrary name="Node.js Core" />
-    <excludedPredefinedLibrary name="web-games/workers-site/node_modules" />
+    <file url="PROJECT" libraries="{@types/express, @types/ramda, phaser}" />
   </component>
 </project>

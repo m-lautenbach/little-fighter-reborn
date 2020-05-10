@@ -13,5 +13,7 @@
     <orderEntry type="library" name="phaser" level="project" />
     <orderEntry type="library" name="@types/lodash" level="application" />
     <orderEntry type="library" name="@types/ramda" level="application" />
+    <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/ramda" level="application" />
   </component>
 </module>
