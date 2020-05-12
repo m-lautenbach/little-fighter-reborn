@@ -1,4 +1,5 @@
 import { pathOr } from 'ramda'
+import io from 'socket.io-client'
 
 import createCanvas from './createCanvas'
 import assetCache from './assetCache'
@@ -15,6 +16,8 @@ const mainLoop = (ctx, state) => () => {
 }
 
 export default async () => {
+  const socket = io()
+
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], initialState)

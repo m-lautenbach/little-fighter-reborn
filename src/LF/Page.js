@@ -11,7 +11,7 @@ export default () => {
 
   return <>
     <Title style={{ margin: '2rem' }}>
-      LF2 Migration
+      LF2 Migration Test
     </Title>
     <canvas id="image-manipulation" width="100" height="200" style={{ position: 'absolute', left: -200, top: 0 }} />
   </>
