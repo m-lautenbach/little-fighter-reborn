@@ -13,8 +13,34 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
 }))
 
+const peers = {}
+let lead
+
 io.on('connection', (socket) => {
   console.log('a user connected')
+  socket.on('register', (id) => {
+    let role
+    if (!lead) {
+      role = 'lead'
+      lead = { id, socket }
+    } else {
+      role = 'peer'
+      peers[id] = { id, socket }
+      lead.socket.emit('new peer', { id })
+    }
+
+    socket.emit('role assigned', { role })
+
+    socket.on('disconnect', () => {
+      console.log(`user ${id} disconnected`)
+      if (role === 'lead') {
+        // TODO: lead migration
+        lead = undefined
+      } else {
+        delete peers[id]
+      }
+    })
+  })
 })
 
 server.listen(8080, () => {
