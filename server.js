@@ -41,6 +41,10 @@ io.on('connection', (socket) => {
       }
     })
   })
+  ;['ice candidate', 'description'].forEach(evt =>
+    socket.on(evt, ({ to, ...args }) =>
+      (to ? peers[to].socket : lead.socket).emit(evt, args),
+    ))
 })
 
 server.listen(8080, () => {
