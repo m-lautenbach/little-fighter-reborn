@@ -8,7 +8,7 @@ import initialState from './initialState'
 import inputState from './inputState'
 import nextState from './nextState'
 import render from './render'
-import { connect } from './netcode'
+import connect from './netcode/connect'
 
 const mainLoop = (ctx, state) => () => {
   requestAnimationFrame(mainLoop(ctx, nextState(state)))

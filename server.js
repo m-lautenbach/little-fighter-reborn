@@ -31,6 +31,11 @@ io.on('connection', (socket) => {
 
     socket.emit('role assigned', { role })
 
+    ;['ice candidate', 'description'].forEach(evt =>
+      socket.on(evt, ({ to, ...args }) =>
+        (to ? peers[to].socket : lead.socket).emit(evt, { from: id, ...args }),
+      ))
+
     socket.on('disconnect', () => {
       console.log(`user ${id} disconnected`)
       if (role === 'lead') {
@@ -41,10 +46,6 @@ io.on('connection', (socket) => {
       }
     })
   })
-  ;['ice candidate', 'description'].forEach(evt =>
-    socket.on(evt, ({ to, ...args }) =>
-      (to ? peers[to].socket : lead.socket).emit(evt, args),
-    ))
 })
 
 server.listen(8080, () => {
