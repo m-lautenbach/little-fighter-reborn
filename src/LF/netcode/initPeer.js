@@ -1,5 +1,7 @@
+import iceServers from './iceServers'
+
 export default (id, socket) => {
-  const connection = new RTCPeerConnection()
+  const connection = new RTCPeerConnection({ iceServers })
 
   connection.ondatachannel = ({ channel }) => {
     console.debug('open channel to lead')

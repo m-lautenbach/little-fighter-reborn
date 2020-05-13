@@ -1,3 +1,5 @@
+import iceServers from './iceServers'
+
 export default (id, socket) => {
   const peers = {}
 
@@ -11,7 +13,7 @@ export default (id, socket) => {
   })
 
   socket.on('new peer', async ({ id }) => {
-    const connection = new RTCPeerConnection()
+    const connection = new RTCPeerConnection({ iceServers })
 
     const channel = connection.createDataChannel('dataChannel')
     console.debug(`creating new channel to peer ${id}`)
