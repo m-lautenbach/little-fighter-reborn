@@ -8,15 +8,22 @@ const leadInit = (id, socket, connection) => {
     peers[id] = {}
 
     const channel = connection.createDataChannel('dataChannel')
+    channel.onmessage = ({ data }) => console.log(`received message: ${data}`)
 
-    channel.onopen = () => console.log(`open channel to peer ${id}`)
+    channel.onopen = () => {
+      channel.send('message from lead')
+    }
 
     connection.onicecandidate = ({ candidate }) => {
-      console.log('sending ice candidate ', candidate, ' to ', id)
-      socket.emit('ice candidate', {
-        to: id,
-        candidate,
-      })
+      if (candidate === null) {
+        console.log('finished ice candidate search')
+      } else {
+        console.log('sending ice candidate ', candidate, ' to ', id)
+        socket.emit('ice candidate', {
+          to: id,
+          candidate,
+        })
+      }
     }
 
     socket.on('description', ({ answer }) => {
@@ -30,13 +37,15 @@ const leadInit = (id, socket, connection) => {
 }
 
 const peerInit = (id, socket, connection) => {
-  connection.ondatachannel = (event) => {
+  connection.ondatachannel = ({ channel }) => {
     console.log('open channel to lead')
+    channel.onmessage = ({ data }) => console.log(`received message: ${data}`)
+    channel.send(`message from peer ${id}`)
   }
 
   connection.onicecandidate = ({ candidate }) => {
     if (candidate === null) {
-      console.log('finished finding ice candidates')
+      console.log('finished ice candidate search')
     } else {
       console.log('sending ice candidate ', candidate, ' to lead')
       socket.emit('ice candidate', { candidate })
