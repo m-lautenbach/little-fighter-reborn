@@ -12,7 +12,13 @@ export default () => {
   state.timestamp = newTimestamp
   state.frame++
 
-  const { player } = state
-  progressAnimation(player.animation)
+  const { player, remotes } = state
+  progressAnimation(player.animation, newTimestamp)
   updatePhysics(player, passedSeconds)
+  Object.values(remotes).forEach(
+    ({ actor }) => {
+      progressAnimation(actor.animation, newTimestamp)
+      updatePhysics(actor, passedSeconds)
+    },
+  )
 }

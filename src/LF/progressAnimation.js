@@ -1,10 +1,10 @@
 import getFrameMap from './getFrameMap'
 import { always, cond, F, T } from 'ramda'
 
-export default (animation) => {
+export default (animation, newTimestamp) => {
   const { id, frame, bounced, start } = animation
   const { frames, loop } = getFrameMap()[id]
-  const currentFrameEnded = (frames[frame].wait * 30) < (Date.now() - start)
+  const currentFrameEnded = (frames[frame].wait * 30) < (newTimestamp - start)
   const isLastFrame = frame === (frames.length - 1)
   const updatedBounced = cond([
     [always(!bounced && isLastFrame), T],
@@ -16,6 +16,6 @@ export default (animation) => {
     (isLastFrame ? frame : frame + 1)
 
   animation.frame = currentFrameEnded ? nextFrame : frame
-  animation.start = currentFrameEnded ? Date.now() : start
+  animation.start = currentFrameEnded ? newTimestamp : start
   animation.bounced = updatedBounced
 }
