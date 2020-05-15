@@ -14,6 +14,8 @@ if (process.env.MODE === 'dev') {
   app.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
   }))
+} else {
+  app.use(express.static('dist'))
 }
 
 const peers = {}
