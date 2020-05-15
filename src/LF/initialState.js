@@ -21,22 +21,20 @@ export default {
     imageSmoothing: false,
     width: 800, height: 600,
   },
-  actors: [
-    {
-      character: 'freeze',
-      velocity: { x: 0, y: 0, z: 0 },
-      position: { x: Math.random() * 700, y: Math.random() * 470, z: Math.random() * 100 },
-      direction: Math.random() > .5 ? 'right' : 'left',
-      dimensions: {
-        width: 79,
-        height: 79,
-      },
-      animation: {
-        id: 'standing',
-        frame: 0,
-        bounced: false,
-        start: Date.now(),
-      },
+  player: {
+    character: 'freeze',
+    velocity: { x: 0, y: 0, z: 0 },
+    position: { x: Math.random() * 700, y: Math.random() * 470, z: Math.random() * 200 },
+    direction: Math.random() > .5 ? 'right' : 'left',
+    dimensions: {
+      width: 79,
+      height: 79,
     },
-  ],
+    animation: {
+      id: 'standing',
+      frame: 0,
+      bounced: false,
+      start: Date.now(),
+    },
+  },
 }
