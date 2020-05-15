@@ -30,12 +30,14 @@ export default async () => {
   )
 
   mainLoop(ctx, initialState)()
-  document.onkeydown = ({ code }) => {
+  document.onkeydown = ({ code, repeat }) => {
+    if (repeat) return
     inputState[code] = Date.now()
-    channels.forEach(channel => channel.send(`${code} down`))
+    channels.forEach(channel => channel.send(JSON.stringify({ code, down: true })))
   }
-  document.onkeyup = ({ code }) => {
+  document.onkeyup = ({ code, repeat }) => {
+    if (repeat) return
     delete inputState[code]
-    channels.forEach(channel => channel.send(`${code} up`))
+    channels.forEach(channel => channel.send(JSON.stringify({ code, up: true })))
   }
 }

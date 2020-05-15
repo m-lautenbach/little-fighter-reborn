@@ -6,7 +6,7 @@ export default (id, socket) => {
 
   connection.ondatachannel = ({ channel }) => {
     console.debug('open channel to lead')
-    channel.onmessage = ({ data }) => console.log(`lead input: ${data}`)
+    channel.onmessage = ({ data }) => console.log(JSON.parse(data))
 
     channel.onopen = () => channels.push(channel)
   }
