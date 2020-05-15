@@ -3,6 +3,7 @@ import { assoc } from 'ramda'
 import assetCache from './assetCache'
 import getFrameMap from './getFrameMap'
 import { worldToCamera } from './coordinates'
+import state from './state'
 
 const shadowCache = {}
 
@@ -40,7 +41,7 @@ const drawShadow = (spritesheet, sourceX, sourceY, w, h, frame, z) => {
 
 const resetTransformation = ctx => ctx.setTransform(1, 0, 0, 1, 0, 0)
 
-export default (ctx, actor, state) => () => {
+export default (ctx, actor) => {
   const { character, animation: { id: animationId, frame }, position, direction } = actor
   const { x, y } = worldToCamera(state, position)
   const { x: sx, y: sy } = worldToCamera(state, assoc('z', 0, position))

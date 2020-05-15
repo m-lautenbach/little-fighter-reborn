@@ -6,14 +6,16 @@ import loadImage from './loadImage'
 import LionForest from './levels/LionForest'
 import initialState from './initialState'
 import inputState from './inputState'
-import nextState from './nextState'
 import render from './render'
 import connect from './netcode/connect'
 import channels from './netcode/channels'
+import updateState from './updateState'
+import state from './state'
 
-const mainLoop = (ctx, state) => () => {
-  requestAnimationFrame(mainLoop(ctx, nextState(state)))
-  render(ctx, state)
+const mainLoop = (ctx) => {
+  render(ctx)
+  updateState(state)
+  requestAnimationFrame(() => mainLoop(ctx))
 }
 
 export default async () => {
@@ -29,7 +31,8 @@ export default async () => {
     LionForest.layers.map(({ img }) => loadImage(img)),
   )
 
-  mainLoop(ctx, initialState)()
+  state.timestamp = Date.now()
+  mainLoop(ctx)
   document.onkeydown = ({ code, repeat }) => {
     if (repeat) return
     inputState[code] = Date.now()

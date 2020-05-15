@@ -2,10 +2,12 @@ import initialState from './initialState'
 import LionForest from './levels/LionForest'
 import assetCache from './assetCache'
 import { range } from 'ramda'
+import state from './state'
 
 const parallaxes = [0, .15, .15, .273, .273, 1, 1, 1, 1]
 
-export default (ctx, { camera: { x: cx } }) => {
+export default (ctx) => {
+  const { camera: { x: cx } } = state
   const { width, height } = initialState.rendering
   ctx.fillStyle = '#ffffff'
   ctx.fillRect(0, 0, width, height / 2)

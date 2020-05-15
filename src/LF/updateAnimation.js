@@ -1,4 +1,4 @@
-import { always, assoc, cond, evolve, F, pipe, T } from 'ramda'
+import { always, cond, F, T } from 'ramda'
 
 import getFrameMap from './getFrameMap'
 import inputState from './inputState'
@@ -14,8 +14,8 @@ const getUpdatedAnimation = () => {
   return (xor(left, right) || xor(up, down)) ? 'walking' : 'standing'
 }
 
-const progressAnimation = (actor) => {
-  const { animation: { id, frame, bounced, start } } = actor
+const progressAnimation = (animation) => {
+  const { id, frame, bounced, start } = animation
   const { frames, loop } = getFrameMap()[id]
   const currentFrameEnded = (frames[frame].wait * 30) < (Date.now() - start)
   const isLastFrame = frame === (frames.length - 1)
@@ -27,28 +27,21 @@ const progressAnimation = (actor) => {
   const nextFrame = loop === 'bounce' ?
     (updatedBounced ? frame - 1 : frame + 1) :
     (isLastFrame ? frame : frame + 1)
-  return evolve({
-    animation: pipe(
-      assoc('frame', currentFrameEnded ? nextFrame : frame),
-      assoc('start', currentFrameEnded ? Date.now() : start),
-      assoc('bounced', updatedBounced),
-    ),
-  })(actor)
+
+  animation.frame = currentFrameEnded ? nextFrame : frame
+  animation.start = currentFrameEnded ? Date.now() : start
+  animation.bounced = updatedBounced
 }
 
-export default actor => {
-  const { animation: { id } } = actor
+export default animation => {
+  const { id } = animation
   const updatedAnimation = getUpdatedAnimation()
   if (updatedAnimation !== id) {
-    return evolve({
-      animation: {
-        frame: always(0),
-        start: always(Date.now()),
-        bounced: always(false),
-        id: always(updatedAnimation),
-      },
-    })(actor)
+    animation.frame = 0
+    animation.start = Date.now()
+    animation.bounced = false
+    animation.id = updatedAnimation
   } else {
-    return progressAnimation(actor)
+    progressAnimation(animation)
   }
 }
