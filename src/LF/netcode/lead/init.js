@@ -1,5 +1,6 @@
 import iceServers from '../iceServers'
 import channels from '../channels'
+import handleMessage from './handleMessage'
 
 export default (id, socket) => {
   const peers = {}
