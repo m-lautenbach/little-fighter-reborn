@@ -1,14 +1,19 @@
 import iceServers from '../iceServers'
 import channels from '../channels'
+import handleMessage from '../handleMessage'
+import updatePlayer from '../../updatePlayer'
 
 export default (id, socket) => {
   const connection = new RTCPeerConnection({ iceServers })
 
   connection.ondatachannel = ({ channel }) => {
     console.debug('open channel to lead')
-    channel.onmessage = ({ data }) => console.log(JSON.parse(data))
+    channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
 
-    channel.onopen = () => channels.push(channel)
+    channel.onopen = () => {
+      channels.push(channel)
+      updatePlayer()
+    }
   }
 
   socket.on('ice candidate',
