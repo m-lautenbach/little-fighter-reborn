@@ -1,4 +1,5 @@
-import iceServers from './iceServers'
+import iceServers from '../iceServers'
+import channels from '../channels'
 
 export default (id, socket) => {
   const peers = {}
@@ -20,10 +21,9 @@ export default (id, socket) => {
 
     peers[id] = { id, connection, channel }
 
-    channel.onmessage = ({ data }) => console.log(`received message: ${data}`)
-    channel.onopen = () => {
-      channel.send('message from lead')
-    }
+    channel.onmessage = ({ data }) => console.log(`peer ${id} input: ${data}`)
+
+    channel.onopen = () => channels.push(channel)
 
     connection.onicecandidate = ({ candidate }) => {
       if (candidate) {

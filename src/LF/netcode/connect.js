@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 import { v4 as uuid } from 'uuid'
-import initLead from './initLead'
-import initPeer from './initPeer'
+import initLead from './lead/init'
+import initPeer from './peer/init'
 
 export default () => {
   const id = uuid()
@@ -11,9 +11,10 @@ export default () => {
   setTimeout(
     () => {
       socket.emit('register', id)
-      socket.on('role assigned', msg => {
-        console.log(`player ${id} became ${msg.role}`)
-        ;(msg.role === 'lead' ? initLead : initPeer)(id, socket)      })
+      socket.on('role assigned', async ({ role }) => {
+        console.log(`player ${id} became ${role}`)
+        ;(role === 'lead' ? initLead : initPeer)(id, socket)
+      })
     },
     Math.random() * 200,
   )

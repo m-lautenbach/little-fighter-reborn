@@ -9,6 +9,7 @@ import inputState from './inputState'
 import nextState from './nextState'
 import render from './render'
 import connect from './netcode/connect'
+import channels from './netcode/channels'
 
 const mainLoop = (ctx, state) => () => {
   requestAnimationFrame(mainLoop(ctx, nextState(state)))
@@ -29,6 +30,12 @@ export default async () => {
   )
 
   mainLoop(ctx, initialState)()
-  document.onkeydown = ({ code }) => inputState[code] = Date.now()
-  document.onkeyup = ({ code }) => delete inputState[code]
+  document.onkeydown = ({ code }) => {
+    inputState[code] = Date.now()
+    channels.forEach(channel => channel.send(`${code} down`))
+  }
+  document.onkeyup = ({ code }) => {
+    delete inputState[code]
+    channels.forEach(channel => channel.send(`${code} up`))
+  }
 }
