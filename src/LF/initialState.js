@@ -25,12 +25,12 @@ export default {
     {
       character: 'freeze',
       velocity: { x: 0, y: 0, z: 0 },
-      position: { x: 200, y: 470, z: 0 },
+      position: { x: Math.random() * 700, y: Math.random() * 470, z: Math.random() * 100 },
+      direction: Math.random() > .5 ? 'right' : 'left',
       dimensions: {
         width: 79,
         height: 79,
       },
-      direction: 'right',
       animation: {
         id: 'standing',
         frame: 0,
