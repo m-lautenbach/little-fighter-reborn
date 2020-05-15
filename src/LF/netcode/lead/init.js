@@ -21,7 +21,7 @@ export default (id, socket) => {
 
     peers[id] = { id, connection, channel }
 
-    channel.onmessage = ({ data }) => console.log(JSON.parse(data))
+    channel.onmessage = ({ data }) => handleMessage(peers[id], JSON.parse(data))
 
     channel.onopen = () => channels.push(channel)
 

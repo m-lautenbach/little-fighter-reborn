@@ -21,6 +21,7 @@ export default {
     imageSmoothing: false,
     width: 800, height: 600,
   },
+  remotes: {},
   player: {
     character: 'freeze',
     velocity: { x: 0, y: 0, z: 0 },
