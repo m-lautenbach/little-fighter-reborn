@@ -1,17 +1,20 @@
 const express = require('express')
 const app = express()
-const webpack = require('webpack')
-const webpackDevMiddleware = require('webpack-dev-middleware')
 
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
-const config = require('./webpack.dev.js')
-const compiler = webpack(config)
+if (process.env.MODE === 'dev') {
+  const webpack = require('webpack')
+  const webpackDevMiddleware = require('webpack-dev-middleware')
 
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-}))
+  const config = require('./webpack.dev.js')
+  const compiler = webpack(config)
+
+  app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+  }))
+}
 
 const peers = {}
 let lead
@@ -48,6 +51,7 @@ io.on('connection', (socket) => {
   })
 })
 
-server.listen(process.env.PORT || 8080, () => {
-  console.log(`listening on ${process.env.PORT}`)
+const PORT = process.env.PORT || 8080
+server.listen(PORT, () => {
+  console.log(`listening on ${PORT}`)
 })
