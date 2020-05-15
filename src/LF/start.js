@@ -10,6 +10,7 @@ import connect from './netcode/connect'
 import updateState from './updateState'
 import state from './state'
 import handleInputs from './handleInputs'
+import channels from './netcode/channels'
 
 const mainLoop = (ctx) => {
   render(ctx)
@@ -32,5 +33,6 @@ export default async () => {
 
   handleInputs()
   state.timestamp = Date.now()
+  channels.forEach(channel => channel.send(JSON.stringify({ type: 'update', actor: state.player })))
   mainLoop(ctx)
 }
