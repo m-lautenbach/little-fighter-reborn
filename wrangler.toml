@@ -1,9 +1,0 @@
-name = "web-games"
-type = "webpack"
-account_id = "c7324fba23408f51251e4513e3f61ddb"
-route = "mlautenbach.com/*"
-zone_id = "52989a07253bc32f772fa98bb5a18837"
-
-[site]
-bucket = "./dist"
-entry-point = "workers-site"
