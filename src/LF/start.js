@@ -5,12 +5,11 @@ import assetCache from './assetCache'
 import loadImage from './loadImage'
 import LionForest from './levels/LionForest'
 import initialState from './initialState'
-import inputState from './inputState'
 import render from './render'
 import connect from './netcode/connect'
-import channels from './netcode/channels'
 import updateState from './updateState'
 import state from './state'
+import handleInputs from './handleInputs'
 
 const mainLoop = (ctx) => {
   render(ctx)
@@ -31,16 +30,7 @@ export default async () => {
     LionForest.layers.map(({ img }) => loadImage(img)),
   )
 
+  handleInputs()
   state.timestamp = Date.now()
   mainLoop(ctx)
-  document.onkeydown = ({ code, repeat }) => {
-    if (repeat) return
-    inputState[code] = Date.now()
-    channels.forEach(channel => channel.send(JSON.stringify({ code, down: true })))
-  }
-  document.onkeyup = ({ code, repeat }) => {
-    if (repeat) return
-    delete inputState[code]
-    channels.forEach(channel => channel.send(JSON.stringify({ code, up: true })))
-  }
 }
