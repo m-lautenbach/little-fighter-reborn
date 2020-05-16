@@ -10,8 +10,6 @@ import connect from './netcode/connect'
 import updateState from './updateState'
 import state from './state'
 import handleInputs from './handleInputs'
-import peers from './netcode/peers'
-
 const mainLoop = (ctx) => {
   render(ctx)
   updateState(state)
@@ -33,6 +31,5 @@ export default async () => {
 
   handleInputs()
   state.timestamp = Date.now()
-  Object.values(peers).forEach(({ channel }) => channel.send(JSON.stringify({ type: 'update', actor: state.player })))
   mainLoop(ctx)
 }
