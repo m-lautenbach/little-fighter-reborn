@@ -1,5 +1,5 @@
 import iceServers from '../iceServers'
-import channels from '../channels'
+import peers from '../peers'
 import handleMessage from '../handleMessage'
 import updatePlayer from '../../updatePlayer'
 
@@ -11,7 +11,7 @@ export default (id, socket) => {
     channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
 
     channel.onopen = () => {
-      channels.push(channel)
+      peers['lead'] = { channel }
       updatePlayer()
     }
   }

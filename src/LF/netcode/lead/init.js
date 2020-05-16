@@ -1,11 +1,9 @@
 import iceServers from '../iceServers'
-import channels from '../channels'
+import peers from '../peers'
 import handleMessage from '../handleMessage'
 import updatePlayer from '../../updatePlayer'
 
 export default (id, socket) => {
-  const peers = {}
-
   socket.on('ice candidate',
     ({ from, candidate }) => peers[from].connection.addIceCandidate(candidate),
   )
@@ -26,7 +24,6 @@ export default (id, socket) => {
     channel.onmessage = ({ data }) => handleMessage(peers[id], JSON.parse(data))
 
     channel.onopen = () => {
-      channels.push(channel)
       updatePlayer()
     }
 
