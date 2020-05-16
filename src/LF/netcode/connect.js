@@ -7,15 +7,9 @@ export default () => {
   const id = uuid()
   const socket = io()
 
-  // random delay, first becomes lead
-  setTimeout(
-    () => {
-      socket.emit('register', id)
-      socket.on('role assigned', async ({ role }) => {
-        console.log(`player ${id} became ${role}`)
-        ;(role === 'lead' ? initLead : initPeer)(id, socket)
-      })
-    },
-    Math.random() * 200,
-  )
+  socket.emit('register', { id })
+  socket.on('role assigned', async ({ role }) => {
+    console.log(`player ${id} became ${role}`)
+    ;(role === 'lead' ? initLead : initPeer)(id, socket)
+  })
 }

@@ -23,7 +23,7 @@ let lead
 
 io.on('connection', (socket) => {
   console.log('a user connected')
-  socket.on('register', (id) => {
+  socket.on('register', ({ id }) => {
     let role
     if (!lead) {
       role = 'lead'
