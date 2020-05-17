@@ -19,36 +19,23 @@ if (process.env.MODE === 'dev') {
 }
 
 const peers = {}
-let lead
 
 io.on('connection', (socket) => {
   console.log('a user connected')
   socket.on('register', ({ id }) => {
-    let role
-    if (!lead) {
-      role = 'lead'
-      lead = { id, socket }
-    } else {
-      role = 'peer'
-      lead.socket.emit('new peer', { id })
-    }
+    Object.values(peers).forEach(
+      ({ socket }) => socket.emit('new peer', { id }),
+    )
     peers[id] = { id, socket }
-
-    socket.emit('role assigned', { role })
 
     ;['ice candidate', 'offer', 'answer'].forEach(evt =>
       socket.on(evt, ({ to, ...args }) =>
-        (to ? peers[to].socket : lead.socket).emit(evt, { from: id, ...args }),
+        peers[to].socket.emit(evt, { from: id, ...args }),
       ))
 
     socket.on('disconnect', () => {
       console.log(`user ${id} disconnected`)
-      if (role === 'lead') {
-        // TODO: lead migration
-        lead = undefined
-      } else {
-        delete peers[id]
-      }
+      delete peers[id]
     })
   })
 })
