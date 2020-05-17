@@ -7,5 +7,6 @@ export default () => {
   const socket = io()
 
   socket.emit('register', { id })
-  registerHandlers(id, socket)
+  console.debug(`I am ${id}`)
+  registerHandlers(socket)
 }

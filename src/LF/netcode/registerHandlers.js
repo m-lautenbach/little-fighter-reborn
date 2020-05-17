@@ -4,11 +4,12 @@ import handleMessage from './handleMessage'
 
 import updatePlayer from '../updatePlayer'
 
-export default (id, socket) => {
+export default (socket) => {
   // handle ice candidate from remote
-  socket.on('ice candidate', ({ from, candidate }) =>
-    peers[from].connection.addIceCandidate(candidate),
-  )
+  socket.on('ice candidate', async ({ from, candidate }) => {
+    console.debug(`received ice candidate from ${from}`)
+    await peers[from].connection.addIceCandidate(candidate)
+  })
 
   // Handlers when initiating connection
   socket.on('answer', async ({ from, answer }) => {
@@ -16,47 +17,56 @@ export default (id, socket) => {
     await peers[from].connection.setRemoteDescription(answer)
   })
 
-  socket.on('new peer', async ({ id }) => {
+  socket.on('new peer', async ({ id: peerId }) => {
+    console.debug(`discovered new peer: ${peerId}`)
     const connection = new RTCPeerConnection({ iceServers })
 
     const channel = connection.createDataChannel('dataChannel')
-    console.debug(`creating new channel to peer ${id}`)
+    console.debug(`creating new channel to ${peerId}`)
 
-    peers[id] = { id, connection, channel }
+    peers[peerId] = { id: peerId, connection, channel }
 
-    channel.onmessage = ({ data }) => handleMessage(peers[id], JSON.parse(data))
+    channel.onmessage = ({ data }) => handleMessage(peers[peerId], JSON.parse(data))
 
     channel.onopen = () => {
+      console.debug(`channel to ${peerId} opened`)
       updatePlayer()
     }
 
     connection.onicecandidate = ({ candidate }) => {
       if (candidate) {
+        console.debug(`sending ice candidate to ${peerId}`)
         socket.emit('ice candidate', {
-          to: id,
+          to: peerId,
           candidate,
         })
+      } else {
+        console.debug(`finished ice candidate search for ${peerId}`)
       }
     }
 
     const offer = await connection.createOffer()
     await connection.setLocalDescription(offer)
-    socket.emit('offer', { to: id, offer })
+
+    console.debug(`sending offer to ${peerId}`)
+    socket.emit('offer', { to: peerId, offer })
   })
 
-  // handlers for reacting to connection innitiation
+  // handlers for reacting to connection initiation
   socket.on('offer', async ({ from, offer }) => {
+    console.debug(`received offer from ${from}`)
     const connection = new RTCPeerConnection({ iceServers })
     peers[from] = { id: from, connection }
 
     // handle datachannel from remote
     connection.ondatachannel = ({ channel }) => {
+      console.debug(`received data channel from ${from}`)
       peers[from].channel = channel
-      console.debug('open channel to lead')
       channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
 
       // handle opening of datachannel after ice negotiation
       channel.onopen = () => {
+        console.debug(`channel to ${from} opened`)
         peers[from] = { channel }
         updatePlayer()
       }
@@ -66,7 +76,13 @@ export default (id, socket) => {
     // null means candidate search concluded
     connection.onicecandidate = ({ candidate }) => {
       if (candidate) {
-        socket.emit('ice candidate', { to: from, candidate })
+        console.debug(`sending ice candidate to ${from}`)
+        socket.emit('ice candidate', {
+          to: from,
+          candidate,
+        })
+      } else {
+        console.debug(`finished ice candidate search for ${from}`)
       }
     }
 
