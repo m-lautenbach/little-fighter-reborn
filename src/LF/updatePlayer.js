@@ -7,7 +7,6 @@ export default () => {
   const { player } = state
   updateAnimation(player.animation)
   updateDirection(player)
-  console.log(peers)
   Object.values(peers).forEach(({ channel }) =>
     channel && channel.send(JSON.stringify({ type: 'update', actor: player })),
   )

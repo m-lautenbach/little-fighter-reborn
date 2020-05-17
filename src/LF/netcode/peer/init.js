@@ -6,16 +6,6 @@ import updatePlayer from '../../updatePlayer'
 export default (id, socket) => {
   const connection = new RTCPeerConnection({ iceServers })
 
-  connection.ondatachannel = ({ channel }) => {
-    console.debug('open channel to lead')
-    channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
-
-    channel.onopen = () => {
-      peers['lead'] = { channel }
-      updatePlayer()
-    }
-  }
-
   socket.on('ice candidate',
     async (evt) => connection.addIceCandidate(evt.candidate),
   )
@@ -25,7 +15,17 @@ export default (id, socket) => {
     }
   }
 
-  socket.on('description', async ({ offer }) => {
+  socket.on('description', async ({ from, offer }) => {
+    connection.ondatachannel = ({ channel }) => {
+      console.debug('open channel to lead')
+      channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
+
+      channel.onopen = () => {
+        peers[from] = { channel }
+        updatePlayer()
+      }
+    }
+
     await connection.setRemoteDescription(offer)
     const answer = await connection.createAnswer()
     await connection.setLocalDescription(answer)
