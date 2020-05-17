@@ -30,13 +30,13 @@ io.on('connection', (socket) => {
       lead = { id, socket }
     } else {
       role = 'peer'
-      peers[id] = { id, socket }
       lead.socket.emit('new peer', { id })
     }
+    peers[id] = { id, socket }
 
     socket.emit('role assigned', { role })
 
-    ;['ice candidate', 'description'].forEach(evt =>
+    ;['ice candidate', 'offer', 'answer'].forEach(evt =>
       socket.on(evt, ({ to, ...args }) =>
         (to ? peers[to].socket : lead.socket).emit(evt, { from: id, ...args }),
       ))

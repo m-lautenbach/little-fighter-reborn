@@ -4,11 +4,12 @@ import handleMessage from '../handleMessage'
 import updatePlayer from '../../updatePlayer'
 
 export default (id, socket) => {
+
   socket.on('ice candidate',
     ({ from, candidate }) => peers[from].connection.addIceCandidate(candidate),
   )
 
-  socket.on('description', async ({ from, answer }) => {
+  socket.on('answer', async ({ from, answer }) => {
     console.debug(`received answer from ${from}`)
     await peers[from].connection.setRemoteDescription(answer)
   })
@@ -38,6 +39,6 @@ export default (id, socket) => {
 
     const offer = await connection.createOffer()
     await connection.setLocalDescription(offer)
-    socket.emit('description', { to: id, offer })
+    socket.emit('offer', { to: id, offer })
   })
 }
