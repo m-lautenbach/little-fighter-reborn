@@ -62,7 +62,7 @@ export default (socket) => {
     connection.ondatachannel = ({ channel }) => {
       console.debug(`received data channel from ${from}`)
       peers[from].channel = channel
-      channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
+      channel.onmessage = ({ data }) => handleMessage({ id: from }, JSON.parse(data))
 
       // handle opening of datachannel after ice negotiation
       channel.onopen = () => {
