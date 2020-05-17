@@ -4,19 +4,15 @@ import handleMessage from '../handleMessage'
 import updatePlayer from '../../updatePlayer'
 
 export default (id, socket) => {
-  const connection = new RTCPeerConnection({ iceServers })
-
-  // handle ice candidate from remote
-  socket.on('ice candidate',
-    async (evt) => connection.addIceCandidate(evt.candidate),
-  )
-
   // handling incoming offer
   // this starts channel initiation for new peer
   socket.on('offer', async ({ from, offer }) => {
+    const connection = new RTCPeerConnection({ iceServers })
+    peers[from] = { id: from, connection }
 
     // handle datachannel from remote
     connection.ondatachannel = ({ channel }) => {
+      peers[from].channel = channel
       console.debug('open channel to lead')
       channel.onmessage = ({ data }) => handleMessage({ id: 'lead' }, JSON.parse(data))
 
