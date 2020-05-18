@@ -47,10 +47,10 @@ export default (ctx, actor) => {
   const { x: sx, y: sy } = worldToCamera(state, assoc('z', 0, position))
 
   const { w, h } = assetCache.data.characters[character].bmp.frames_69
-  const { [animationId]: { frames } } = getFrameMap()
+  const { [animationId]: { frames } } = getFrameMap(character)
   const { x: sourceX, y: sourceY } = frames[frame]
 
-  const spritesheet = assetCache.images.freezeSpritesheet
+  const spritesheet = assetCache.images.spritesheets[character]
 
   const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, frame, position.z)
 

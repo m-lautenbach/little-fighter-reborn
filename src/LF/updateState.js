@@ -13,11 +13,11 @@ export default () => {
   state.frame++
 
   const { player, remotes } = state
-  progressAnimation(player.animation, newTimestamp)
+  progressAnimation(player, newTimestamp)
   updatePhysics(player, passedSeconds)
   Object.values(remotes).forEach(
     ({ actor }) => {
-      progressAnimation(actor.animation, newTimestamp)
+      progressAnimation(actor, newTimestamp)
       updatePhysics(actor, passedSeconds)
     },
   )

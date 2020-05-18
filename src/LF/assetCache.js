@@ -2,7 +2,9 @@ const assetCache = {
   data: {
     characters: {},
   },
-  images: {},
+  images: {
+    spritesheets: {}
+  },
 }
 
 export default assetCache

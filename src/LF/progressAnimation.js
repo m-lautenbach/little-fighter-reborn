@@ -1,9 +1,9 @@
 import getFrameMap from './getFrameMap'
 import { always, cond, F, T } from 'ramda'
 
-export default (animation, newTimestamp) => {
+export default ({ character, animation }, newTimestamp) => {
   const { id, frame, bounced, start } = animation
-  const { frames, loop } = getFrameMap()[id]
+  const { frames, loop } = getFrameMap(character)[id]
   const currentFrameEnded = (frames[frame].wait * 30) < (newTimestamp - start)
   const isLastFrame = frame === (frames.length - 1)
   const updatedBounced = cond([

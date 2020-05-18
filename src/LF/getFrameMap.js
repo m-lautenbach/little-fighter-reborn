@@ -1,9 +1,9 @@
-import { groupBy, last, map, once, prop } from 'ramda'
+import { groupBy, identity, last, map, memoizeWith, prop } from 'ramda'
 
 import assetCache from './assetCache'
 
-export default once(() => {
-  const { bmp: sheetData, frames } = assetCache.data.characters.freeze
+export default memoizeWith(identity, (character) => {
+  const { bmp: sheetData, frames } = assetCache.data.characters[character]
   const { w, h, row } = sheetData.frames_69
   const animations = groupBy(
     prop('animation'),

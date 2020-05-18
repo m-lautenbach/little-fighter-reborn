@@ -1,3 +1,7 @@
+import { sample } from 'lodash'
+
+import characters from './characters'
+
 export default {
   timestamp: Date.now(),
   debug: {
@@ -23,7 +27,7 @@ export default {
   },
   remotes: {},
   player: {
-    character: 'freeze',
+    character: sample(characters),
     velocity: { x: 0, y: 0, z: 0 },
     position: { x: Math.random() * 700, y: Math.random() * 470, z: Math.random() * 200 },
     direction: Math.random() > .5 ? 'right' : 'left',
