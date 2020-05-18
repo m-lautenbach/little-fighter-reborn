@@ -3,7 +3,8 @@ import peers from './peers'
 import handleMessage from './handleMessage'
 
 import updatePlayer from '../updatePlayer'
-import handleChannelClosed from './handleChannelClosed'
+import handleClosing from './handleClosing'
+import handleDisconnect from './handleDisconnect'
 
 export default (socket) => {
   // handle ice candidate from remote
@@ -21,24 +22,20 @@ export default (socket) => {
   socket.on('new peer', async ({ id: peerId }) => {
     console.debug(`discovered new peer: ${peerId}`)
     const connection = new RTCPeerConnection({ iceServers })
-    window.onbeforeunload = () => {
-      channel.close()
-      return null
-    }
 
     const channel = connection.createDataChannel('dataChannel')
     console.debug(`creating new channel to ${peerId}`)
 
     peers[peerId] = { id: peerId, connection, channel }
+    handleClosing(peerId)
 
     channel.onmessage = ({ data }) => handleMessage(peers[peerId], JSON.parse(data))
 
     channel.onopen = () => {
+      handleDisconnect(peerId)
       console.debug(`channel to ${peerId} opened`)
       updatePlayer()
     }
-
-    channel.onclose = handleChannelClosed(peerId)
 
     connection.onicecandidate = ({ candidate }) => {
       if (candidate) {
@@ -65,26 +62,21 @@ export default (socket) => {
     const connection = new RTCPeerConnection({ iceServers })
 
     peers[from] = { id: from, connection }
+    handleClosing(from)
 
     // handle datachannel from remote
     connection.ondatachannel = ({ channel }) => {
-      window.onbeforeunload = () => {
-        console.log('onbeforeunload')
-        channel.close()
-        return null
-      }
       console.debug(`received data channel from ${from}`)
       peers[from].channel = channel
       channel.onmessage = ({ data }) => handleMessage({ id: from }, JSON.parse(data))
 
       // handle opening of datachannel after ice negotiation
       channel.onopen = () => {
+        handleDisconnect(from)
         console.debug(`channel to ${from} opened`)
         peers[from] = { channel }
         updatePlayer()
       }
-
-      channel.onclose = handleChannelClosed(from)
     }
 
     // send found ice candidate to remote
