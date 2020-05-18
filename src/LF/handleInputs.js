@@ -12,4 +12,8 @@ export default () => {
     delete inputState[code]
     updatePlayer()
   }
+  window.addEventListener('blur', () => {
+    for (const code in inputState) delete inputState[code]
+    updatePlayer()
+  })
 }
