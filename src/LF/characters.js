@@ -1,1 +1,22 @@
-export default ['freeze']
+export default [
+  'bandit',
+  'bat',
+  'davis',
+  'deep',
+  'dennis',
+  'firen',
+  'firzen',
+  'freeze',
+  'henry',
+  'hunter',
+  'jack',
+  'jan',
+  'john',
+  'louis',
+  'louisEX',
+  'mark',
+  'monk',
+  'rudolf',
+  'sorcerer',
+  'woody',
+]
