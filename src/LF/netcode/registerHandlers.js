@@ -3,7 +3,7 @@ import peers from './peers'
 import handleMessage from './handleMessage'
 
 import updatePlayer from '../updatePlayer'
-import handleConnectionStatusUpdate from './handleConnectionStatusUpdate'
+import handleChannelClosed from './handleChannelClosed'
 
 export default (socket) => {
   // handle ice candidate from remote
@@ -21,12 +21,15 @@ export default (socket) => {
   socket.on('new peer', async ({ id: peerId }) => {
     console.debug(`discovered new peer: ${peerId}`)
     const connection = new RTCPeerConnection({ iceServers })
+    window.onbeforeunload = () => {
+      channel.close()
+      return null
+    }
 
     const channel = connection.createDataChannel('dataChannel')
     console.debug(`creating new channel to ${peerId}`)
 
     peers[peerId] = { id: peerId, connection, channel }
-    connection.onconnectionstatechange = handleConnectionStatusUpdate(peerId)
 
     channel.onmessage = ({ data }) => handleMessage(peers[peerId], JSON.parse(data))
 
@@ -34,6 +37,8 @@ export default (socket) => {
       console.debug(`channel to ${peerId} opened`)
       updatePlayer()
     }
+
+    channel.onclose = handleChannelClosed(peerId)
 
     connection.onicecandidate = ({ candidate }) => {
       if (candidate) {
@@ -60,10 +65,14 @@ export default (socket) => {
     const connection = new RTCPeerConnection({ iceServers })
 
     peers[from] = { id: from, connection }
-    connection.onconnectionstatechange = handleConnectionStatusUpdate(from)
 
     // handle datachannel from remote
     connection.ondatachannel = ({ channel }) => {
+      window.onbeforeunload = () => {
+        console.log('onbeforeunload')
+        channel.close()
+        return null
+      }
       console.debug(`received data channel from ${from}`)
       peers[from].channel = channel
       channel.onmessage = ({ data }) => handleMessage({ id: from }, JSON.parse(data))
@@ -74,6 +83,8 @@ export default (socket) => {
         peers[from] = { channel }
         updatePlayer()
       }
+
+      channel.onclose = handleChannelClosed(from)
     }
 
     // send found ice candidate to remote
