@@ -1,4 +1,4 @@
-import { pathOr } from 'ramda'
+import { pathOr, test } from 'ramda'
 
 import createCanvas from './createCanvas'
 import assetCache from './assetCache'
@@ -27,9 +27,13 @@ export default async () => {
 
   await Promise.all(characters.map(
     async character => {
-      assetCache.data.characters[character] = (await import(`./assets/littlefighter2/${character}.lfdata`)).default
+      const data = (await import(`./assets/littlefighter2/${character}.lfdata`)).default
+      assetCache.data.characters[character] = data
       // noinspection JSUnresolvedVariable
-      assetCache.images.spritesheets[character] = await loadImage(assetCache.data.characters[character].bmp.frames_69.file)
+      const frameKeys = Object.keys(data.bmp).filter(test(/^frames_/))
+      // noinspection JSUnresolvedVariable
+      data.bmp.frames = frameKeys.map(key => data.bmp[key])
+      assetCache.images.spritesheets[character] = await loadImage(data.bmp.frames[0].file)
     },
   ))
   assetCache.images.lionForestLayers = await Promise.all(
