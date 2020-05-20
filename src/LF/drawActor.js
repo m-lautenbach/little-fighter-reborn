@@ -19,7 +19,7 @@ export default (ctx, actor) => {
 
   const spritesheet = assetCache.images.spritesheets[character]
 
-  const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, frame, position.z)
+  const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, animationId, frame, position.z)
 
   if (direction === 'left') {
     ctx.setTransform(-1, 0, .5, .5, sx + (w / 2), sy - (h / 2))
