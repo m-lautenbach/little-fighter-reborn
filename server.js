@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 
     ;['ice candidate', 'offer', 'answer'].forEach(evt =>
       socket.on(evt, ({ to, ...args }) =>
-        peers[to].socket.emit(evt, { from: id, ...args }),
+        peers[to] && peers[to].socket.emit(evt, { from: id, ...args }),
       ))
 
     socket.on('disconnect', () => {

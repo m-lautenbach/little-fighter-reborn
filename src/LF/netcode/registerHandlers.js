@@ -10,13 +10,13 @@ export default (socket) => {
   // handle ice candidate from remote
   socket.on('ice candidate', async ({ from, candidate }) => {
     console.debug(`received ice candidate from ${from}`)
-    await peers[from].connection.addIceCandidate(candidate)
+    peers[from] && await peers[from].connection.addIceCandidate(candidate)
   })
 
   // Handlers when initiating connection
   socket.on('answer', async ({ from, answer }) => {
     console.debug(`received answer from ${from}`)
-    await peers[from].connection.setRemoteDescription(answer)
+    peers[from] && await peers[from].connection.setRemoteDescription(answer)
   })
 
   socket.on('new peer', async ({ id: peerId }) => {
@@ -67,15 +67,17 @@ export default (socket) => {
     // handle datachannel from remote
     connection.ondatachannel = ({ channel }) => {
       console.debug(`received data channel from ${from}`)
-      peers[from].channel = channel
-      channel.onmessage = ({ data }) => handleMessage({ id: from }, JSON.parse(data))
+      if (peers[from]) {
+        peers[from].channel = channel
+        channel.onmessage = ({ data }) => handleMessage({ id: from }, JSON.parse(data))
 
-      // handle opening of datachannel after ice negotiation
-      channel.onopen = () => {
-        handleDisconnect(from)
-        console.debug(`channel to ${from} opened`)
-        peers[from] = { channel }
-        updatePlayer()
+        // handle opening of datachannel after ice negotiation
+        channel.onopen = () => {
+          handleDisconnect(from)
+          console.debug(`channel to ${from} opened`)
+          peers[from] = { channel }
+          updatePlayer()
+        }
       }
     }
 
