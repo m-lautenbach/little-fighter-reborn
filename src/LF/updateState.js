@@ -1,3 +1,5 @@
+import { clamp } from 'ramda'
+
 import state from './state'
 import progressAnimation from './progressAnimation'
 import updatePhysics from './netcode/updatePhysics'
@@ -12,7 +14,7 @@ export default () => {
   state.timestamp = newTimestamp
   state.frame++
 
-  const { player, remotes } = state
+  const { player, remotes, camera, rendering } = state
   progressAnimation(player, newTimestamp)
   updatePhysics(player, passedSeconds)
   Object.values(remotes).forEach(
@@ -20,5 +22,12 @@ export default () => {
       progressAnimation(actor, newTimestamp)
       updatePhysics(actor, passedSeconds)
     },
+  )
+
+  const cameraMargin = .07
+  camera.x = clamp(
+    player.position.x - (1 - cameraMargin) * rendering.width,
+    Math.max(0, player.position.x - cameraMargin * rendering.width),
+    camera.x
   )
 }
