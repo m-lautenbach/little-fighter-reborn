@@ -2,14 +2,15 @@ import { path } from 'ramda'
 
 const shadowCache = {}
 
-export default (spritesheet, sourceX, sourceY, w, h, animationId, frame, z) => {
+export default (spritesheet, sourceX, sourceY, w, h, animationId, frame, height) => {
   const canvas = document.getElementById('image-manipulation')
   const ctx = canvas.getContext('2d')
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, 0, 0, w, h)
 
   let shadow
-  const alpha = Math.round((1 - Math.min(1, z / 50)) * 80)
+  // the shadow fades with the characters distance from the ground
+  const alpha = Math.round((1 - Math.min(1, height / 50)) * 80)
   const shadowFromCache = path([animationId, frame, alpha], shadowCache)
   if (shadowFromCache) {
     shadow = shadowFromCache
@@ -18,10 +19,9 @@ export default (spritesheet, sourceX, sourceY, w, h, animationId, frame, z) => {
     shadow.data.forEach((value, index) => {
       // is transparency
       if ((index + 1) % 4 === 0) {
-        // if not fully transparent
-        if (value !== 0) {
-          shadow.data[index] = alpha
-        }
+        // make transparent, but not less transparent (don't overwrite fully transparent background)
+        shadow.data[index] = Math.min(value, alpha)
+      // is color
       } else {
         // make black
         shadow.data[index] = 0
