@@ -44,7 +44,7 @@ export default (ctx, actor) => {
   if (direction === 'left') {
     ctx.scale(-1, 1)
   }
-  // we mirror for the sprite, but the shadow should always fall to left
+  // we mirror the sprite, but the shadow should always fall to the left
   const shearing = (direction === 'left' ? -1 : 1) * .5
   ctx.scale(1, .5)
   ctx.transform(1, 0, shearing, 1, 0, 0)
