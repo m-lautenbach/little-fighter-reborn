@@ -10,7 +10,7 @@ export default [
   'henry',
   'hunter',
   'jack',
-  'jan',
+  // 'jan',
   'john',
   'julian',
   'justin',
