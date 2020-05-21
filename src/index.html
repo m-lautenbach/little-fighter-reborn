@@ -16,6 +16,16 @@
       left: -200px;
       top: 0;
     }
+
+    #tutorial {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #tutorial > span {
+      text-align: center;
+      line-height: 1.5rem;
+    }
   </style>
 </head>
 <body>
@@ -25,5 +35,11 @@
   height="200"
 >
 </canvas>
+<canvas id="screen"></canvas>
+<div id="tutorial">
+  <span>When in fullscreen mode, press ESC or switch tab to exit</span>
+  <span>Use WASD or cursor keys to move</span>
+  <span>Other players opening the page will appear</span>
+</div>
 </body>
 </html>
