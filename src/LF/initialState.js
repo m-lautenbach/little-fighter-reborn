@@ -6,7 +6,7 @@ export default {
   timestamp: Date.now(),
   debug: {
     draw: {
-      boundingBox: true,
+      center: false,
     },
   },
   world: {
