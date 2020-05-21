@@ -38,7 +38,6 @@ export default {
     animation: {
       id: 'standing',
       frame: 0,
-      bounced: false,
       start: Date.now(),
     },
   },

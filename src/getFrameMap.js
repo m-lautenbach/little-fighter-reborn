@@ -1,4 +1,4 @@
-import { groupBy, identity, last, map, memoizeWith, prop } from 'ramda'
+import { groupBy, identity, map, memoizeWith, prop } from 'ramda'
 
 import assetCache from './assetCache'
 
@@ -21,7 +21,6 @@ export default memoizeWith(identity, (character) => {
     frames => {
       return {
         frames,
-        loop: last(frames).next === 999 ? 'bounce' : 'last',
       }
     },
     animations,
