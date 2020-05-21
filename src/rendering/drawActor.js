@@ -1,9 +1,9 @@
 import { assoc, once } from 'ramda'
 
-import assetCache from './assetCache'
-import getFrameMap from './getFrameMap'
+import assetCache from '../assetCache'
+import getFrameMap from '../getFrameMap'
 import { worldToCamera } from './coordinates'
-import state from './state'
+import state from '../state'
 import drawShadow from './drawShadow'
 
 const resetTransformation = ctx => ctx.setTransform(1, 0, 0, 1, 0, 0)
@@ -17,6 +17,7 @@ const drawCenter = (ctx) => {
 
   ctx.beginPath()
   ctx.moveTo(0, -centerWidth)
+  // noinspection JSSuspiciousNameCombination
   ctx.lineTo(0, centerWidth)
   ctx.stroke()
   ctx.beginPath()

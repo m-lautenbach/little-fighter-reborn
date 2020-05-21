@@ -1,4 +1,4 @@
-import inputState from './inputState'
+import inputState from '../inputState'
 
 const xor = (a, b) => !!a !== !!b
 

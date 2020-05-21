@@ -1,8 +1,8 @@
-import initialState from './initialState'
-import LionForest from './levels/LionForest'
-import assetCache from './assetCache'
+import initialState from '../initialState'
+import LionForest from '../levels/LionForest'
+import assetCache from '../assetCache'
 import { range } from 'ramda'
-import state from './state'
+import state from '../state'
 
 const parallaxes = [0, .15, .15, .273, .273, 1, 1, 1, 1]
 

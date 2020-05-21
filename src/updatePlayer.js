@@ -1,6 +1,6 @@
 import state from './state'
-import updateDirection from './updateDirection'
-import updateAnimation from './updateAnimation'
+import updateDirection from './progression/updateDirection'
+import updateAnimation from './progression/updateAnimation'
 import peers from './netcode/peers'
 
 export default () => {

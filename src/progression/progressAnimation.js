@@ -1,4 +1,4 @@
-import getFrameMap from './getFrameMap'
+import getFrameMap from '../getFrameMap'
 import { always, cond, F, T } from 'ramda'
 
 export default ({ character, animation }, newTimestamp) => {

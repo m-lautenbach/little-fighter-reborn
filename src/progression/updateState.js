@@ -1,8 +1,8 @@
 import { clamp } from 'ramda'
 
-import state from './state'
+import state from '../state'
 import progressAnimation from './progressAnimation'
-import updatePhysics from './netcode/updatePhysics'
+import updatePhysics from '../netcode/updatePhysics'
 
 let forward = true
 

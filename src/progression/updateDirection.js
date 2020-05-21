@@ -1,4 +1,4 @@
-import inputState from './inputState'
+import inputState from '../inputState'
 
 const movementSpeed = 130
 
