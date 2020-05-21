@@ -1,8 +1,9 @@
 import { path } from 'ramda'
+import { set } from 'lodash'
 
 const shadowCache = {}
 
-export default (spritesheet, sourceX, sourceY, w, h, animationId, frame, height) => {
+export default (character, spritesheet, sourceX, sourceY, w, h, animationId, frame, height) => {
   const canvas = document.getElementById('image-manipulation')
   const ctx = canvas.getContext('2d')
   ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -11,7 +12,7 @@ export default (spritesheet, sourceX, sourceY, w, h, animationId, frame, height)
   let shadow
   // the shadow fades with the characters distance from the ground
   const alpha = Math.round((1 - Math.min(1, height / 50)) * 80)
-  const shadowFromCache = path([animationId, frame, alpha], shadowCache)
+  const shadowFromCache = path([character, animationId, frame, alpha], shadowCache)
   if (shadowFromCache) {
     shadow = shadowFromCache
   } else {
@@ -21,19 +22,13 @@ export default (spritesheet, sourceX, sourceY, w, h, animationId, frame, height)
       if ((index + 1) % 4 === 0) {
         // make transparent, but not less transparent (don't overwrite fully transparent background)
         shadow.data[index] = Math.min(value, alpha)
-      // is color
+        // is color
       } else {
         // make black
         shadow.data[index] = 0
       }
     })
-    if (!shadowCache[animationId]) {
-      shadowCache[animationId] = {}
-    }
-    if (!shadowCache[animationId][frame]) {
-      shadowCache[animationId][frame] = {}
-    }
-    shadowCache[animationId][frame][alpha] = shadow
+    set(shadowCache, [character, animationId, frame, alpha], shadow)
   }
   ctx.putImageData(shadow, 0, 0)
   return canvas

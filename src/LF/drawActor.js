@@ -63,7 +63,7 @@ export default (ctx, actor) => {
   ctx.scale(1, .5)
   ctx.transform(1, 0, shearing, 1, 0, 0)
 
-  const shadowCanvas = drawShadow(spritesheet, sourceX, sourceY, w, h, animationId, frame, position.z)
+  const shadowCanvas = drawShadow(character, spritesheet, sourceX, sourceY, w, h, animationId, frame, position.z)
   ctx.drawImage(shadowCanvas, -centerx, -centery)
 
   resetTransformation(ctx)
