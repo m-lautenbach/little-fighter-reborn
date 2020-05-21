@@ -1,9 +1,13 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "targets": { "browsers": ["last 2 chrome versions"] },
-      "useBuiltIns": "usage"
-    }],
+    [
+      "@babel/preset-env",
+      {
+        "targets": ">0.25%",
+        "corejs": "3.0.0",
+        "useBuiltIns": "usage"
+      }
+    ],
     "@babel/preset-react"
   ]
 }
