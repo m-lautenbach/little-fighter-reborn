@@ -24,7 +24,7 @@ export default () => {
     },
   )
 
-  const cameraMargin = .07
+  const cameraMargin = .3
   camera.x = clamp(
     player.position.x - (1 - cameraMargin) * rendering.width,
     Math.max(0, player.position.x - cameraMargin * rendering.width),
