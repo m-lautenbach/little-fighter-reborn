@@ -40,7 +40,7 @@ const start = async () => {
     LionForest.layers.map(({ img }) => loadImage(img)),
   )
 
-  handleInputs()
+  handleInputs(canvas)
   state.timestamp = Date.now()
   mainLoop(ctx)
 }

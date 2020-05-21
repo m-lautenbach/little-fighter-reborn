@@ -21,6 +21,7 @@ export default {
     xMax: 2200,
   },
   rendering: {
+    fullscreen: true,
     frame: 0,
     imageSmoothing: false,
     width: 800, height: 600,

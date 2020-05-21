@@ -1,9 +1,18 @@
 import inputState from './inputState'
 import updatePlayer from './updatePlayer'
+import state from './state'
 
-export default () => {
-  document.onkeydown = ({ code, repeat }) => {
+let isFullscreen = false
+
+export default (canvas) => {
+  const { rendering } = state
+  document.onkeydown = async ({ code, repeat }) => {
     if (repeat) return
+    if (rendering.fullscreen && !isFullscreen) {
+      await canvas.requestFullscreen()
+      isFullscreen = true
+      return
+    }
     inputState[code] = Date.now()
     updatePlayer()
   }
