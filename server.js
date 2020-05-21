@@ -19,18 +19,20 @@ if (process.env.MODE === 'dev') {
 }
 
 const peers = {}
+let playerIndex = 0
 
 io.on('connection', (socket) => {
   console.log('a user connected')
   socket.on('register', ({ id }) => {
+    const name = `P${playerIndex++}`
     Object.values(peers).forEach(
-      ({ socket }) => socket.emit('new peer', { id }),
+      ({ socket }) => socket.emit('new peer', { id, name }),
     )
-    peers[id] = { id, socket }
+    peers[id] = { id, socket, name }
 
     ;['ice candidate', 'offer', 'answer'].forEach(evt =>
       socket.on(evt, ({ to, ...args }) =>
-        peers[to] && peers[to].socket.emit(evt, { from: id, ...args }),
+        peers[to] && peers[to].socket.emit(evt, { from: id, name, ...args }),
       ))
 
     socket.on('disconnect', () => {

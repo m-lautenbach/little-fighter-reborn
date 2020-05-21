@@ -19,17 +19,17 @@ export default (socket) => {
     peers[from] && await peers[from].connection.setRemoteDescription(answer)
   })
 
-  socket.on('new peer', async ({ id: peerId }) => {
+  socket.on('new peer', async ({ id: peerId, name }) => {
     console.debug(`discovered new peer: ${peerId}`)
     const connection = new RTCPeerConnection({ iceServers })
 
     const channel = connection.createDataChannel('dataChannel')
     console.debug(`creating new channel to ${peerId}`)
 
-    peers[peerId] = { id: peerId, connection, channel }
+    peers[peerId] = { id: peerId, connection, channel, name }
     handleClosing(peerId)
 
-    channel.onmessage = ({ data }) => handleMessage(peers[peerId], JSON.parse(data))
+    channel.onmessage = ({ data }) => handleMessage({ id: peerId, name }, JSON.parse(data))
 
     channel.onopen = () => {
       handleDisconnect(peerId)
@@ -57,11 +57,11 @@ export default (socket) => {
   })
 
   // handlers for reacting to connection initiation
-  socket.on('offer', async ({ from, offer }) => {
+  socket.on('offer', async ({ from, offer, name }) => {
     console.debug(`received offer from ${from}`)
     const connection = new RTCPeerConnection({ iceServers })
 
-    peers[from] = { id: from, connection }
+    peers[from] = { id: from, name, connection }
     handleClosing(from)
 
     // handle datachannel from remote
@@ -69,7 +69,7 @@ export default (socket) => {
       console.debug(`received data channel from ${from}`)
       if (peers[from]) {
         peers[from].channel = channel
-        channel.onmessage = ({ data }) => handleMessage({ id: from }, JSON.parse(data))
+        channel.onmessage = ({ data }) => handleMessage({ id: from, name }, JSON.parse(data))
 
         // handle opening of datachannel after ice negotiation
         channel.onopen = () => {

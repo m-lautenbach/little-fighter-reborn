@@ -13,6 +13,7 @@ const logOnce = once(console.debug)
 const drawCenter = (ctx) => {
   const centerWidth = 5
   ctx.strokeStyle = '#ff00ff'
+  ctx.lineWidth = 2
 
   ctx.beginPath()
   ctx.moveTo(0, -centerWidth)
@@ -25,7 +26,7 @@ const drawCenter = (ctx) => {
 }
 
 export default (ctx, actor) => {
-  const { character, animation: { id: animationId, frame }, position, direction } = actor
+  const { character, name, animation: { id: animationId, frame }, position, direction } = actor
   const { debug } = state
 
   const { x, y } = worldToCamera(state, position)
@@ -41,6 +42,19 @@ export default (ctx, actor) => {
   logOnce(frames[frame])
 
   ctx.translate(sx, sy)
+
+  // we can draw the name before mirroring as it should not overlap
+  //  with anything drawn afterwards (for now)
+  ctx.save()
+  ctx.imageSmoothingEnabled = true
+  ctx.shadowColor = 'rgba(0,0,0,1)'
+  ctx.fillStyle = name ? '#4a4aff' : '#ffffff'
+  ctx.font = '11px sans-serif'
+  ctx.lineWidth = 2
+  ctx.textAlign = 'center'
+  ctx.fillText(name || 'YOU', 0, 12)
+  ctx.restore()
+
   if (direction === 'left') {
     ctx.scale(-1, 1)
   }

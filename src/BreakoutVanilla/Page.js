@@ -176,10 +176,35 @@ const touchMoveHandler = ({ changedTouches: [{ clientX }] }) => {
   mouseMoveHandler({ clientX })
 }
 
+const PIXEL_RATIO = (function () {
+  const ctx = document.createElement('canvas').getContext('2d'),
+    dpr = window.devicePixelRatio || 1,
+    bsr = ctx.webkitBackingStorePixelRatio ||
+      ctx.mozBackingStorePixelRatio ||
+      ctx.msBackingStorePixelRatio ||
+      ctx.oBackingStorePixelRatio ||
+      ctx.backingStorePixelRatio || 1
+
+  return dpr / bsr
+})()
+
+const createHiDPICanvas = function (w, h, ratio) {
+  if (!ratio) {
+    ratio = PIXEL_RATIO
+  }
+  const can = document.createElement('canvas')
+  can.width = w * ratio
+  can.height = h * ratio
+  can.style.width = w + 'px'
+  can.style.height = h + 'px'
+  can.getContext('2d').setTransform(ratio, 0, 0, ratio, 0, 0)
+  return can
+}
+
 const start = () => {
-  canvas = document.createElement('CANVAS')
-  canvas.setAttribute('width', '480px')
-  canvas.setAttribute('height', '320px')
+  const { rendering: { width, height } } = state
+  // Create canvas with the device resolution.
+  const canvas = createHiDPICanvas(width, height)
   document.body.appendChild(canvas)
 
   state = {
