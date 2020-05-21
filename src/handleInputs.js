@@ -1,16 +1,19 @@
 import inputState from './inputState'
 import updatePlayer from './updatePlayer'
-import state from './state'
 
-let isFullscreen = false
+let isFullscreen
 
 export default (canvas) => {
-  const { rendering } = state
   document.onkeydown = async ({ code, repeat }) => {
     if (repeat) return
-    if (rendering.fullscreen && !isFullscreen) {
-      await canvas.requestFullscreen()
-      isFullscreen = true
+    if (code === 'KeyF') {
+      if (isFullscreen) {
+        openFullscreen(canvas)
+        isFullscreen = false
+      } else {
+        closeFullscreen()
+        isFullscreen = true
+      }
       return
     }
     inputState[code] = Date.now()
@@ -25,4 +28,28 @@ export default (canvas) => {
     for (const code in inputState) delete inputState[code]
     updatePlayer()
   })
+}
+
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
 }
