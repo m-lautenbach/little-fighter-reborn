@@ -1,17 +1,17 @@
 import inputState from './inputState'
 import updatePlayer from './updatePlayer'
 
-let isFullscreen
+let isFullscreen = false
 
 export default (canvas) => {
   document.onkeydown = async ({ code, repeat }) => {
     if (repeat) return
     if (code === 'KeyF') {
       if (isFullscreen) {
-        openFullscreen(canvas)
+        closeFullscreen()
         isFullscreen = false
       } else {
-        closeFullscreen()
+        openFullscreen(canvas)
         isFullscreen = true
       }
       return
