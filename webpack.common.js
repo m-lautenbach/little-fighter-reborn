@@ -15,9 +15,12 @@ module.exports = {
     rules: [
       {
         test: /\.(png|svg|jpg|gif|bmp|xml)$/,
-        use: [
-          'file-loader',
-        ],
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 25000,
+          },
+        },
       },
       {
         test: /\.(js|jsx)$/,
