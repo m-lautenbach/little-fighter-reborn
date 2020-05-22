@@ -2,7 +2,12 @@ import inputState from '../inputState'
 
 const xor = (a, b) => !!a !== !!b
 
-const getUpdatedAnimation = () => {
+const cancelableAnimations = ['walking', 'standing', 'running']
+
+const getUpdatedAnimation = (animationId) => {
+  if (!cancelableAnimations.includes(animationId)) {
+    return animationId
+  }
   const { KeyW, KeyA, KeyS, KeyD, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
   const left = KeyA || ArrowLeft
   const right = KeyD || ArrowRight
@@ -13,11 +18,11 @@ const getUpdatedAnimation = () => {
 
 export default animation => {
   const { id } = animation
-  const updatedAnimation = getUpdatedAnimation()
-  if (updatedAnimation !== id) {
+  const updatedAnimationId = getUpdatedAnimation(animation.id)
+  if (updatedAnimationId !== id) {
     animation.frame = 0
     animation.start = Date.now()
     animation.bounced = false
-    animation.id = updatedAnimation
+    animation.id = updatedAnimationId
   }
 }
