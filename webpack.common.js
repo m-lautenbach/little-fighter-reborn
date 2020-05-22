@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -45,5 +46,8 @@ module.exports = {
     new CopyPlugin([
       { from: './src/favicon.png' },
     ]),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 8,
+    }),
   ],
 }

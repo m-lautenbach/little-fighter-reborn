@@ -1,5 +1,6 @@
+import set from 'lodash/set'
+
 import state from '../state'
-import { set } from 'lodash'
 
 export default ({ id, name }, { type, actor }) => {
   if (type === 'update' && actor) {

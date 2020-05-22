@@ -1,5 +1,5 @@
 import { path } from 'ramda'
-import { set } from 'lodash'
+import set from 'lodash/set'
 
 const shadowCache = {}
 
