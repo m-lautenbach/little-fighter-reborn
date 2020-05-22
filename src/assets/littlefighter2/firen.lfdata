@@ -652,7 +652,6 @@ rowing_distance 5.000000
    pic: 10  state: 3  wait: 2  next: 61  dvx: 1  dvy: 0  dvz: 0  centerx: 37  centery: 79  hit_a: 0  hit_d: 0  hit_j: 0
    itr:
       kind: 2  x: 21  y: 57  w: 37  h: 24  vrest: 1
-
    itr_end:
    bdy:
       kind: 0  x: 26  y: 12  w: 27  h: 68
@@ -674,7 +673,6 @@ rowing_distance 5.000000
    pic: 12  state: 3  wait: 2  next: 66  dvx: 1  dvy: 0  dvz: 0  centerx: 35  centery: 79  hit_a: 0  hit_d: 0  hit_j: 0
    itr:
       kind: 2  x: 16  y: 59  w: 35  h: 21  vrest: 1
-
    itr_end:
    bdy:
       kind: 0  x: 26  y: 12  w: 27  h: 68
