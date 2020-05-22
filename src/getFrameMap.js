@@ -21,6 +21,8 @@ export default memoizeWith(identity, (character) => {
     frames => {
       return {
         frames,
+        // walking animation is special and it's not really reflected in data files
+        bounce: frames[0].animation === 'walking',
       }
     },
     animations,
