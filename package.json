@@ -7,8 +7,6 @@
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch --config webpack.dev.js",
     "dev": "MODE=dev node server.js",
-    "preview": "yarn build && wrangler preview --watch",
-    "pub": "yarn build && wrangler publish",
     "a": "webpack-bundle-analyzer --port 4200 ./stats.json"
   },
   "devDependencies": {
