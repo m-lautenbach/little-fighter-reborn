@@ -3,7 +3,9 @@ import updatePlayer from './updatePlayer'
 
 let isFullscreen = false
 
-export default (canvas) => {
+const fullscreenContainer = document.getElementById('fullscreen-container')
+
+export default () => {
   document.onkeydown = async ({ code, repeat }) => {
     if (repeat) return
     if (code === 'KeyF') {
@@ -11,7 +13,7 @@ export default (canvas) => {
         closeFullscreen()
         isFullscreen = false
       } else {
-        openFullscreen(canvas)
+        openFullscreen(fullscreenContainer)
         isFullscreen = true
       }
       return

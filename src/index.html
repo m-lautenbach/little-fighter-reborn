@@ -5,10 +5,22 @@
   <meta charset="utf-8" />
   <title>Markus Lautenbach - Games</title>
   <style>
-    canvas {
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.2rem;
+    }
+
+    #fullscreen-container {
+      width: 100%;
+    }
+
+    #screen {
       background: #eee;
       display: block;
       margin: 0 auto;
+      height: 100%;
     }
 
     #image-manipulation {
@@ -35,7 +47,9 @@
   height="200"
 >
 </canvas>
-<canvas id="screen"></canvas>
+<div id="fullscreen-container">
+  <canvas id="screen"></canvas>
+</div>
 <div id="tutorial">
   <span>Use WASD or cursor keys to move</span>
   <span>Other players opening the page will appear</span>
