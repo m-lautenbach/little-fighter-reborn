@@ -7,7 +7,11 @@ export default ({ character, velocity, animation }, newTimestamp) => {
   const { id, frame, bounced, start } = animation
   const { frames, bounce } = getFrameMap(character)[id]
   // one TU (time unit) === 1/30s; always +1
-  const currentFrameEnded = ((frames[frame].wait + 1) * (1000 / 30)) < (newTimestamp - start)
+  const currentFrameEnded = newTimestamp > start + (frames[frame].wait + 1) * (1000 / 30)
+  if (!currentFrameEnded) {
+    return
+  }
+
   const isLastFrame = (frame === (frames.length - 1)) || (frames[frame].next === 999)
 
   if (loopingAnimations.includes(id) || !isLastFrame) {
@@ -16,12 +20,12 @@ export default ({ character, velocity, animation }, newTimestamp) => {
       [always(bounced && frame === 0), F],
       [T, always(bounced)],
     ])()
-    const nextFrame = bounce ?
+
+    animation.frame = bounce ?
       (bouncedNew ? frame - 1 : frame + 1) :
       (isLastFrame ? (frames[frame].next === 999 ? 0 : frame) : frame + 1)
 
-    animation.frame = currentFrameEnded ? nextFrame : frame
-    animation.start = currentFrameEnded ? newTimestamp : start
+    animation.start = newTimestamp
     animation.bounced = bouncedNew
   } else {
     velocity.x = 0
