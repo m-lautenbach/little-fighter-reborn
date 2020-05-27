@@ -1,3 +1,5 @@
+import sample from 'lodash/sample'
+
 import inputState from '../inputState'
 
 const xor = (a, b) => !!a !== !!b
@@ -19,11 +21,12 @@ const getUpdatedAnimation = (animationId) => {
   return (xor(left, right) || xor(up, down)) ? 'walking' : 'standing'
 }
 
-export default animation => {
-  const { id } = animation
-  const updatedAnimationId = getUpdatedAnimation(animation.id)
-  if (updatedAnimationId !== id) {
-    animation.frame = 0
+export default ({ animation }) => {
+  const { id: animationId } = animation
+  const updatedAnimationId = getUpdatedAnimation(animationId)
+
+  if (updatedAnimationId !== animationId) {
+    animation.frame = updatedAnimationId === 'punch' ? sample([0, 2]) : 0
     animation.start = Date.now()
     animation.bounced = false
     animation.id = updatedAnimationId

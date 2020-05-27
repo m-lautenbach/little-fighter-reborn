@@ -5,7 +5,7 @@ import peers from './netcode/peers'
 
 export default () => {
   const { player } = state
-  updateAnimation(player.animation)
+  updateAnimation(player)
   updateDirection(player)
   Object.values(peers).forEach(({ channel }) => {
     try {
