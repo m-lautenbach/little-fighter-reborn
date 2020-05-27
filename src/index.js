@@ -27,7 +27,7 @@ const start = async () => {
 
   await Promise.all(characters.map(
     async character => {
-      const data = (await import(`./assets/littlefighter2/${character}.lfdata`)).default
+      const data = (await import(`./assets/littlefighter2/${character}.json`)).default
       assetCache.data.characters[character] = data
       // noinspection JSUnresolvedVariable
       const frameKeys = Object.keys(data.bmp).filter(test(/^frames_/))
