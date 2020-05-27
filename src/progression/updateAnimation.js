@@ -8,7 +8,10 @@ const getUpdatedAnimation = (animationId) => {
   if (!cancelableAnimations.includes(animationId)) {
     return animationId
   }
-  const { KeyW, KeyA, KeyS, KeyD, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
+  const { KeyW, KeyA, KeyS, KeyD, KeyJ, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
+  if (KeyJ) {
+    return 'punch'
+  }
   const left = KeyA || ArrowLeft
   const right = KeyD || ArrowRight
   const up = KeyW || ArrowUp

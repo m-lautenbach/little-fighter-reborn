@@ -3,6 +3,12 @@ import assetCache from '../assetCache'
 
 export default (actor) => {
   const { KeyW, KeyA, KeyS, KeyD, ArrowLeft, ArrowUp, ArrowRight, ArrowDown } = inputState
+  console.log(actor)
+  if (!['standing', 'walking'].includes(actor.animation.id)) {
+    actor.velocity.x = 0
+    actor.velocity.y = 0
+    return
+  }
   const left = KeyA || ArrowLeft
   const right = KeyD || ArrowRight
   const up = KeyW || ArrowUp
