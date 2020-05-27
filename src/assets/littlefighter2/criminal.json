@@ -89,7 +89,7 @@
     {
       "index": 3,
       "animation": "monk",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 3,
       "state": 0,
       "wait": 2,
@@ -213,7 +213,7 @@
     {
       "index": 13,
       "animation": "mark",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 8,
       "state": 0,
       "wait": 2,
@@ -337,7 +337,7 @@
     {
       "index": 23,
       "animation": "jack",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 13,
       "state": 0,
       "wait": 2,
@@ -461,7 +461,7 @@
     {
       "index": 33,
       "animation": "sorcerer",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 18,
       "state": 0,
       "wait": 2,
@@ -585,7 +585,7 @@
     {
       "index": 43,
       "animation": "bandit",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 23,
       "state": 0,
       "wait": 2,
@@ -709,7 +709,7 @@
     {
       "index": 53,
       "animation": "hunter",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 28,
       "state": 0,
       "wait": 2,
@@ -833,7 +833,7 @@
     {
       "index": 63,
       "animation": "jan",
-      "sound": "data/013.wav",
+      "sound": "data/013.mp3",
       "pic": 33,
       "state": 0,
       "wait": 2,

@@ -477,7 +477,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/003.wav",
+      "sound": "data/003.mp3",
       "bpoint": {
         "x": 57,
         "y": 39
@@ -558,7 +558,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/004.wav",
+      "sound": "data/004.mp3",
       "bpoint": {
         "x": 57,
         "y": 39
@@ -759,7 +759,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/003.wav",
+      "sound": "data/003.mp3",
       "bpoint": {
         "x": 57,
         "y": 38
@@ -840,7 +840,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/004.wav",
+      "sound": "data/004.mp3",
       "bpoint": {
         "x": 57,
         "y": 38
@@ -881,7 +881,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/009.wav",
+      "sound": "data/009.mp3",
       "bpoint": {
         "x": 34,
         "y": 38
@@ -958,7 +958,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 24,
@@ -1110,7 +1110,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 61,
@@ -1255,7 +1255,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 28,
@@ -1421,7 +1421,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 57,
@@ -1530,7 +1530,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 28,
@@ -1703,7 +1703,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 53,
@@ -1819,7 +1819,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 100,
@@ -1899,7 +1899,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/008.wav",
+      "sound": "data/008.mp3",
       "wpoint": {
         "kind": 1,
         "x": 27,
@@ -1986,7 +1986,7 @@
       "hit_a": 0,
       "hit_d": 999,
       "hit_j": 0,
-      "sound": "data/042.wav",
+      "sound": "data/042.mp3",
       "wpoint": {
         "kind": 1,
         "x": 55,
@@ -2168,7 +2168,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "itr": [
         {
           "itr": {
@@ -2245,7 +2245,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "itr": [
         {
           "itr": {
@@ -2285,7 +2285,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "bdy": [
         {
           "kind": 0,
@@ -2475,7 +2475,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "bdy": [
         {
           "kind": 0,
@@ -2634,7 +2634,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "mp": 50,
-      "sound": "data/031.wav",
+      "sound": "data/031.mp3",
       "bdy": [
         {
           "kind": 0,
@@ -2814,7 +2814,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "mp": 75,
-      "sound": "data/031.wav",
+      "sound": "data/031.mp3",
       "bdy": [
         {
           "kind": 0,
@@ -3023,7 +3023,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/017.wav",
+      "sound": "data/017.mp3",
       "wpoint": {
         "kind": 1,
         "x": 36,
@@ -3312,7 +3312,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/017.wav",
+      "sound": "data/017.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -3587,7 +3587,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/009.wav",
+      "sound": "data/009.mp3",
       "wpoint": {
         "kind": 1,
         "x": 44,
@@ -3631,7 +3631,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/009.wav",
+      "sound": "data/009.mp3",
       "wpoint": {
         "kind": 1,
         "x": 42,
@@ -3718,7 +3718,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/015.wav",
+      "sound": "data/015.mp3",
       "cpoint": {
         "kind": 1,
         "x": 71,
@@ -3859,7 +3859,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/014.wav",
+      "sound": "data/014.mp3",
       "cpoint": {
         "kind": 1,
         "x": 64,
@@ -5415,7 +5415,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/017.wav",
+      "sound": "data/017.mp3",
       "wpoint": {
         "kind": 1,
         "x": 45,
@@ -5600,7 +5600,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/012.wav",
+      "sound": "data/012.mp3",
       "bpoint": {
         "x": 48,
         "y": 46
@@ -5728,7 +5728,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/009.wav",
+      "sound": "data/009.mp3",
       "bpoint": {
         "x": 37,
         "y": 39
@@ -5776,7 +5776,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/012.wav",
+      "sound": "data/012.mp3",
       "wpoint": {
         "kind": 1,
         "x": 43,
@@ -6348,7 +6348,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "cpoint": {
         "kind": 1,
         "x": 72,
@@ -6532,7 +6532,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/097.wav",
+      "sound": "data/097.mp3",
       "wpoint": {
         "kind": 1,
         "x": 41,
@@ -6576,7 +6576,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/020.wav",
+      "sound": "data/020.mp3",
       "opoint": {
         "kind": 1,
         "x": 73,
@@ -6928,7 +6928,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "mp": 50,
-      "sound": "data/003.wav",
+      "sound": "data/003.mp3",
       "wpoint": {
         "kind": 1,
         "x": 34,
@@ -7037,7 +7037,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7090,7 +7090,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/069.wav",
+      "sound": "data/069.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7127,7 +7127,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7180,7 +7180,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/069.wav",
+      "sound": "data/069.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7233,7 +7233,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7270,7 +7270,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/069.wav",
+      "sound": "data/069.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7323,7 +7323,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7360,7 +7360,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/069.wav",
+      "sound": "data/069.mp3",
       "wpoint": {
         "kind": 1,
         "x": 33,
@@ -7560,7 +7560,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "cpoint": {
         "kind": 1,
         "x": -4,
@@ -7991,7 +7991,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "cpoint": {
         "kind": 1,
         "x": 9,
@@ -8112,7 +8112,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/003.wav",
+      "sound": "data/003.mp3",
       "wpoint": {
         "kind": 1,
         "x": 48,
@@ -8165,7 +8165,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/004.wav",
+      "sound": "data/004.mp3",
       "wpoint": {
         "kind": 1,
         "x": 48,
@@ -8271,7 +8271,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/015.wav",
+      "sound": "data/015.mp3",
       "cpoint": {
         "kind": 1,
         "x": 83,
@@ -8333,7 +8333,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/063.wav",
+      "sound": "data/063.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8415,7 +8415,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/097.wav",
+      "sound": "data/097.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8443,7 +8443,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/020.wav",
+      "sound": "data/020.mp3",
       "opoint": {
         "kind": 1,
         "x": 73,
@@ -8562,7 +8562,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8617,7 +8617,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/083.wav",
+      "sound": "data/083.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8645,7 +8645,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/083.wav",
+      "sound": "data/083.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8700,7 +8700,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/083.wav",
+      "sound": "data/083.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8755,7 +8755,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/083.wav",
+      "sound": "data/083.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
@@ -8783,7 +8783,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "sound": "data/007.wav",
+      "sound": "data/007.mp3",
       "wpoint": {
         "kind": 1,
         "x": 37,
