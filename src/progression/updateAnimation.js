@@ -4,7 +4,7 @@ import inputState from '../inputState'
 
 const xor = (a, b) => !!a !== !!b
 
-const cancelableAnimations = ['walking', 'standing', 'running']
+const cancelableAnimations = ['walking', 'standing', 'running', 'none']
 
 const getUpdatedAnimation = (animationId) => {
   if (!cancelableAnimations.includes(animationId)) {

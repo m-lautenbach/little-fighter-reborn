@@ -1,9 +1,12 @@
 import getFrameMap from '../getFrameMap'
 import { always, cond, F, T } from 'ramda'
+import updateAnimation from './updateAnimation'
+import updateDirection from './updateDirection'
 
 const loopingAnimations = ['standing', 'walking']
 
-export default ({ character, velocity, animation }, newTimestamp) => {
+export default (actor, newTimestamp) => {
+  const { character, animation } = actor
   const { id, frame, bounced, start } = animation
   const { frames, bounce } = getFrameMap(character)[id]
   // one TU (time unit) === 1/30s; always +1
@@ -28,11 +31,8 @@ export default ({ character, velocity, animation }, newTimestamp) => {
     animation.start = newTimestamp
     animation.bounced = bouncedNew
   } else {
-    velocity.x = 0
-    velocity.y = 0
-    animation.id = 'standing'
-    animation.frame = 0
-    animation.start = newTimestamp
-    animation.bounced = false
+    animation.id = 'none'
+    updateAnimation(actor)
+    updateDirection(actor)
   }
 }
