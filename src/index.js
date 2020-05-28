@@ -29,11 +29,7 @@ const start = async () => {
     async character => {
       const data = (await import(`./assets/littlefighter2/${character}.json`)).default
       assetCache.data.characters[character] = data
-      // noinspection JSUnresolvedVariable
-      const frameKeys = Object.keys(data.bmp).filter(test(/^frames_/))
-      // noinspection JSUnresolvedVariable
-      data.bmp.frames = frameKeys.map(key => data.bmp[key])
-      assetCache.images.spritesheets[character] = await loadImage(data.bmp.frames[0].file)
+      assetCache.images.spritesheets[character] = await loadImage(data.header.frames[0].file)
     },
   ))
   assetCache.images.lionForestLayers = await Promise.all(

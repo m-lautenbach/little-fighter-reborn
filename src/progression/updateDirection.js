@@ -12,7 +12,7 @@ export default (actor) => {
   const right = KeyD || ArrowRight
   const up = KeyW || ArrowUp
   const down = KeyS || ArrowDown
-  const characterData = assetCache.data.characters[actor.character].bmp
+  const characterData = assetCache.data.characters[actor.character].header
   // convert from pixel per TU (1/30s) to pixel per second
   const movementSpeed = characterData.walking_speed * 30
   // For some reason in data files, z is depth and y is up.

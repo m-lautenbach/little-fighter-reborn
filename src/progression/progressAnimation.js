@@ -7,8 +7,8 @@ const loopingAnimations = ['standing', 'walking']
 
 export default (actor, newTimestamp) => {
   const { character, animation } = actor
-  const { id, frame, bounced, start } = animation
-  const { frames, bounce } = getFrameMap(character)[id]
+  const { id: animationId, frame, bounced, start } = animation
+  const { frames, bounce } = getFrameMap(character)[animationId]
   // one TU (time unit) === 1/30s; always +1
   const currentFrameEnded = newTimestamp > start + (frames[frame].wait + 1) * (1000 / 30)
   if (!currentFrameEnded) {
@@ -17,7 +17,7 @@ export default (actor, newTimestamp) => {
 
   const isLastFrame = (frame === (frames.length - 1)) || (frames[frame].next === 999)
 
-  if (loopingAnimations.includes(id) || !isLastFrame) {
+  if (loopingAnimations.includes(animationId) || !isLastFrame) {
     const bouncedNew = cond([
       [always(!bounced && isLastFrame), T],
       [always(bounced && frame === 0), F],
