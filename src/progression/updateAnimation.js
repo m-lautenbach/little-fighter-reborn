@@ -1,19 +1,21 @@
 import sample from 'lodash/sample'
 
 import inputState from '../inputState'
+import getFrameMap from '../getFrameMap'
 
 const xor = (a, b) => !!a !== !!b
 
 const cancelableAnimations = ['walking', 'standing', 'running', 'none']
 
-const getUpdatedAnimation = (animationId) => {
+const getUpdatedAnimation = (animationId, character) => {
   if (!cancelableAnimations.includes(animationId)) {
     return animationId
   }
   const { KeyW, KeyA, KeyS, KeyD, KeyJ, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
   if (KeyJ) {
     delete inputState.KeyJ
-    return 'punch'
+    const frameMap = getFrameMap(character)
+    return 'punch' in frameMap ? 'punch' : sample(['punchA', 'punchB'])
   }
   const left = KeyA || ArrowLeft
   const right = KeyD || ArrowRight
@@ -22,12 +24,14 @@ const getUpdatedAnimation = (animationId) => {
   return (xor(left, right) || xor(up, down)) ? 'walking' : 'standing'
 }
 
-export default ({ animation }) => {
+export default (actor) => {
+  const { animation, character } = actor
+
   const { id: animationId } = animation
-  const updatedAnimationId = getUpdatedAnimation(animationId)
+  const updatedAnimationId = getUpdatedAnimation(animationId, character)
 
   if (updatedAnimationId !== animationId) {
-    animation.frame = updatedAnimationId === 'punch' ? sample([0, 2]) : 0
+    animation.frame = 0
     animation.start = Date.now()
     animation.bounced = false
     animation.id = updatedAnimationId

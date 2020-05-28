@@ -2134,10 +2134,10 @@
         ]
       }
     ],
-    "punch": [
+    "punchA": [
       {
         "index": 60,
-        "animation": "punch",
+        "animation": "punchA",
         "pic": 10,
         "state": 3,
         "wait": 2,
@@ -2181,7 +2181,7 @@
       },
       {
         "index": 61,
-        "animation": "punch",
+        "animation": "punchA",
         "pic": 11,
         "state": 3,
         "wait": 3,
@@ -2225,10 +2225,12 @@
             "h": 16
           }
         ]
-      },
+      }
+    ],
+    "punchB": [
       {
         "index": 65,
-        "animation": "punch",
+        "animation": "punchB",
         "pic": 12,
         "state": 3,
         "wait": 2,
@@ -2265,7 +2267,7 @@
       },
       {
         "index": 66,
-        "animation": "punch",
+        "animation": "punchB",
         "pic": 13,
         "state": 3,
         "wait": 3,
@@ -3217,7 +3219,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": -9,
               "y": 16,
               "w": 85,
@@ -3265,7 +3267,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": -9,
               "y": 16,
               "w": 85,
@@ -3313,7 +3315,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": -9,
               "y": 16,
               "w": 85,
@@ -5842,7 +5844,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
@@ -5890,7 +5892,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
@@ -5938,7 +5940,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
@@ -5986,7 +5988,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,

@@ -4981,7 +4981,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
@@ -5029,7 +5029,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
@@ -5077,7 +5077,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
@@ -5125,7 +5125,7 @@
         "interaction": [
           {
             "interaction": {
-              "kind": "super punch",
+              "kind": "super_punch",
               "x": 6,
               "y": 12,
               "w": 85,
