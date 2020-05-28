@@ -1,5 +1,5 @@
 import getFrameMap from '../getFrameMap'
-import { always, cond, F, T } from 'ramda'
+import { always, cond, F, findIndex, indexBy, prop, propEq, T } from 'ramda'
 import updateAnimation from './updateAnimation'
 import updateDirection from './updateDirection'
 
@@ -24,7 +24,9 @@ export default (actor, newTimestamp) => {
 
     animation.frame = repeat === 'pingpong' ?
       (bouncedNew ? frame - 1 : frame + 1) :
-      (isLastFrame ? (frames[frame].next === 999 ? 0 : frame) : frame + 1)
+      (isLastFrame ? (frames[frame].next === 999 ? 0 : frame) :
+        findIndex(propEq('index', frames[frame].next), frames)
+      )
 
     animation.start = newTimestamp
     animation.bounced = bouncedNew
