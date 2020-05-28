@@ -28,10 +28,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 27,
             "w": 55,
@@ -46,7 +46,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -70,10 +70,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 27,
             "w": 55,
@@ -88,7 +88,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -112,10 +112,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 27,
             "w": 55,
@@ -130,7 +130,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -154,10 +154,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 27,
             "w": 55,
@@ -172,7 +172,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -196,10 +196,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 27,
             "w": 55,
@@ -214,7 +214,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -238,10 +238,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 27,
             "w": 55,
@@ -256,7 +256,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -415,7 +415,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "opoint": {
+      "object": {
         "kind": 1,
         "x": 41,
         "y": 42,

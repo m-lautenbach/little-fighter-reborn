@@ -85,11 +85,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 35
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 51,
@@ -100,7 +100,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -127,11 +127,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 50,
@@ -142,7 +142,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 8,
@@ -169,11 +169,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 49,
@@ -184,7 +184,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 9,
@@ -211,11 +211,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 49,
@@ -226,7 +226,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 7,
@@ -253,11 +253,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 35
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 50,
@@ -268,10 +268,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 1,
+          "interaction": {
+            "kind": "catch",
             "x": 40,
             "y": 16,
             "w": 25,
@@ -283,7 +283,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 8,
@@ -310,11 +310,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 49,
@@ -325,10 +325,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 1,
+          "interaction": {
+            "kind": "catch",
             "x": 40,
             "y": 16,
             "w": 25,
@@ -340,7 +340,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -367,11 +367,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 48,
@@ -382,10 +382,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 1,
+          "interaction": {
+            "kind": "catch",
             "x": 40,
             "y": 16,
             "w": 25,
@@ -397,7 +397,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -424,11 +424,11 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 48,
@@ -439,10 +439,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 1,
+          "interaction": {
+            "kind": "catch",
             "x": 40,
             "y": 16,
             "w": 25,
@@ -454,7 +454,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 9,
@@ -480,11 +480,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/003.mp3",
-      "bpoint": {
+      "blood": {
         "x": 38,
         "y": 39
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 50,
@@ -495,10 +495,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 46,
             "y": 37,
             "w": 33,
@@ -512,7 +512,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 6,
@@ -537,11 +537,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 38,
         "y": 39
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 49,
@@ -552,10 +552,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 46,
             "y": 37,
             "w": 33,
@@ -569,7 +569,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 7,
@@ -595,11 +595,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/004.mp3",
-      "bpoint": {
+      "blood": {
         "x": 38,
         "y": 39
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 49,
@@ -610,10 +610,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 46,
             "y": 37,
             "w": 33,
@@ -627,7 +627,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 7,
@@ -652,11 +652,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 35
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 19,
         "y": 17,
@@ -667,7 +667,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 8,
@@ -692,11 +692,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 35
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 19,
         "y": 16,
@@ -707,7 +707,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 6,
@@ -732,11 +732,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 19,
         "y": 16,
@@ -747,7 +747,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 7,
@@ -772,11 +772,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 19,
         "y": 16,
@@ -787,7 +787,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 14,
@@ -813,11 +813,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/003.mp3",
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 36
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 22,
         "y": 16,
@@ -828,7 +828,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 9,
@@ -853,11 +853,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 29,
         "y": 36
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 21,
         "y": 16,
@@ -868,7 +868,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -894,11 +894,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/004.mp3",
-      "bpoint": {
+      "blood": {
         "x": 29,
         "y": 36
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 21,
         "y": 16,
@@ -909,7 +909,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -935,11 +935,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/009.mp3",
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 35
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 18,
         "y": 16,
@@ -950,7 +950,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -975,7 +975,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 13,
         "y": 18,
@@ -986,7 +986,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -1012,7 +1012,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 53,
         "y": 53,
@@ -1023,7 +1023,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 17,
@@ -1048,7 +1048,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 52,
         "y": 56,
@@ -1059,7 +1059,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -1091,7 +1091,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 50,
         "y": 39,
@@ -1102,7 +1102,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 29,
@@ -1128,7 +1128,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 50,
         "y": 55,
@@ -1139,7 +1139,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 28,
@@ -1164,7 +1164,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 10,
         "y": 51,
@@ -1175,7 +1175,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 24,
@@ -1200,7 +1200,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 11,
@@ -1211,7 +1211,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 6,
@@ -1237,7 +1237,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 53,
         "y": 47,
@@ -1248,7 +1248,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -1280,7 +1280,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 49,
         "y": 49,
@@ -1291,7 +1291,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -1323,7 +1323,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 12,
         "y": 19,
@@ -1334,7 +1334,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 21,
@@ -1360,7 +1360,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 62,
         "y": 55,
@@ -1371,7 +1371,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -1396,7 +1396,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 12,
         "y": 14,
@@ -1407,7 +1407,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 6,
@@ -1433,7 +1433,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 53,
         "y": 47,
@@ -1444,7 +1444,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -1476,7 +1476,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 49,
         "y": 48,
@@ -1487,7 +1487,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 18,
@@ -1519,7 +1519,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 12,
         "y": 19,
@@ -1530,7 +1530,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -1563,7 +1563,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 109,
         "y": 60,
@@ -1574,7 +1574,7 @@
         "dvy": -4,
         "dvz": 3
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 37,
@@ -1606,7 +1606,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 16,
@@ -1617,7 +1617,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 7,
@@ -1643,7 +1643,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/007.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 100,
         "y": 27,
@@ -1654,7 +1654,7 @@
         "dvy": -4,
         "dvz": 2
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 18,
@@ -1686,7 +1686,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 12,
         "y": 11,
@@ -1697,7 +1697,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 15,
@@ -1723,7 +1723,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/008.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 75,
         "y": 65,
@@ -1734,7 +1734,7 @@
         "dvy": 8,
         "dvz": 3
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -1767,7 +1767,7 @@
       "hit_d": 999,
       "hit_j": 0,
       "sound": "data/042.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 55,
         "y": 26,
@@ -1778,7 +1778,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 15,
@@ -1803,7 +1803,7 @@
       "hit_a": 0,
       "hit_d": 999,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 55,
         "y": 25,
@@ -1814,7 +1814,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -1839,7 +1839,7 @@
       "hit_a": 0,
       "hit_d": 999,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 55,
         "y": 25,
@@ -1850,7 +1850,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 17,
@@ -1875,7 +1875,7 @@
       "hit_a": 0,
       "hit_d": 999,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 55,
         "y": 26,
@@ -1886,7 +1886,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -1911,10 +1911,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 2,
+          "interaction": {
+            "kind": "pick",
             "x": 21,
             "y": 57,
             "w": 37,
@@ -1923,7 +1923,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 26,
@@ -1949,10 +1949,10 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/007.mp3",
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 28,
             "y": 27,
             "w": 84,
@@ -1965,7 +1965,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -1990,7 +1990,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -2015,10 +2015,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 2,
+          "interaction": {
+            "kind": "pick",
             "x": 16,
             "y": 59,
             "w": 35,
@@ -2027,7 +2027,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 26,
@@ -2053,10 +2053,10 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/007.mp3",
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 25,
             "y": 41,
             "w": 87,
@@ -2069,7 +2069,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -2094,7 +2094,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -2119,7 +2119,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 58,
         "y": 49,
@@ -2130,7 +2130,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 13,
@@ -2162,7 +2162,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -2188,7 +2188,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/054.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -2199,10 +2199,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 30,
             "y": 5,
             "w": 86,
@@ -2216,7 +2216,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 13,
@@ -2248,7 +2248,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -2259,10 +2259,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 25,
             "y": 21,
             "w": 84,
@@ -2276,7 +2276,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -2308,7 +2308,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 67,
         "y": 48,
@@ -2319,10 +2319,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": -2,
             "y": 43,
             "w": 41,
@@ -2335,7 +2335,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 46,
@@ -2367,7 +2367,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 63,
         "y": 50,
@@ -2378,7 +2378,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 45,
@@ -2403,7 +2403,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 63,
         "y": 47,
@@ -2414,7 +2414,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 45,
@@ -2441,7 +2441,7 @@
       "hit_j": 0,
       "mp": 30,
       "sound": "data/031.mp3",
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 18,
@@ -2466,7 +2466,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -2491,10 +2491,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 12,
             "y": 19,
             "w": 68,
@@ -2507,7 +2507,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -2532,10 +2532,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 18,
             "y": 25,
             "w": 58,
@@ -2548,7 +2548,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -2573,7 +2573,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -2600,7 +2600,7 @@
       "hit_j": 0,
       "mp": 40,
       "sound": "data/031.mp3",
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -2632,7 +2632,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -2664,7 +2664,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 27,
@@ -2696,10 +2696,10 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 28,
             "y": 34,
             "w": 57,
@@ -2713,7 +2713,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 29,
@@ -2745,7 +2745,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 42,
@@ -2777,7 +2777,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 38,
@@ -2810,7 +2810,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/017.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 36,
         "y": 42,
@@ -2837,7 +2837,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 25,
         "y": 71,
@@ -2864,7 +2864,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 75,
@@ -2875,10 +2875,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 7,
+          "interaction": {
+            "kind": "instant pick",
             "x": 36,
             "y": 54,
             "w": 13,
@@ -2903,7 +2903,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 45,
@@ -2914,10 +2914,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 7,
+          "interaction": {
+            "kind": "instant pick",
             "x": 36,
             "y": 54,
             "w": 13,
@@ -2942,7 +2942,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 30,
         "y": 59,
@@ -2953,10 +2953,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 7,
+          "interaction": {
+            "kind": "instant pick",
             "x": 34,
             "y": 41,
             "w": 13,
@@ -2981,7 +2981,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 44,
         "y": 74,
@@ -2992,10 +2992,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 7,
+          "interaction": {
+            "kind": "instant pick",
             "x": 36,
             "y": 54,
             "w": 13,
@@ -3020,7 +3020,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 48,
@@ -3031,10 +3031,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 7,
+          "interaction": {
+            "kind": "instant pick",
             "x": 36,
             "y": 54,
             "w": 13,
@@ -3059,7 +3059,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 32,
         "y": 59,
@@ -3070,10 +3070,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 7,
+          "interaction": {
+            "kind": "instant pick",
             "x": 34,
             "y": 47,
             "w": 12,
@@ -3099,7 +3099,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/017.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 37,
         "y": 34,
@@ -3126,7 +3126,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 35,
         "y": 44,
@@ -3155,7 +3155,7 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 43,
         "y": 49,
@@ -3166,7 +3166,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 20,
@@ -3193,7 +3193,7 @@
       "hit_j": 0,
       "hit_Fa": 260,
       "hit_Da": 240,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 49,
@@ -3204,7 +3204,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -3229,7 +3229,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 5,
         "y": 36,
@@ -3240,10 +3240,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": -9,
             "y": 16,
             "w": 85,
@@ -3252,7 +3252,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 5,
@@ -3277,7 +3277,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 54,
@@ -3288,10 +3288,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": -9,
             "y": 16,
             "w": 85,
@@ -3300,7 +3300,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 5,
@@ -3325,7 +3325,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 34,
         "y": 50,
@@ -3336,10 +3336,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": -9,
             "y": 16,
             "w": 85,
@@ -3348,7 +3348,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 5,
@@ -3374,7 +3374,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/009.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 28,
         "y": 74,
@@ -3385,7 +3385,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 18,
@@ -3418,7 +3418,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/009.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 79,
@@ -3429,7 +3429,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 15,
@@ -3461,7 +3461,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 70,
@@ -3472,7 +3472,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -3505,7 +3505,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/015.mp3",
-      "cpoint": {
+      "catch": {
         "kind": 1,
         "x": 60,
         "y": 39,
@@ -3515,7 +3515,7 @@
         "throwinjury": -842150451,
         "decrease": 7
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 55,
         "y": 39,
@@ -3526,7 +3526,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -3551,7 +3551,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": -260,
-      "cpoint": {
+      "catch": {
         "kind": 1,
         "x": 60,
         "y": 39,
@@ -3563,7 +3563,7 @@
         "throwinjury": -842150451,
         "decrease": -7
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 65,
         "y": 40,
@@ -3574,7 +3574,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -3599,7 +3599,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 1,
         "x": 60,
         "y": 39,
@@ -3609,7 +3609,7 @@
         "throwinjury": -842150451,
         "decrease": 7
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 56,
         "y": 40,
@@ -3620,7 +3620,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -3646,7 +3646,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/014.mp3",
-      "cpoint": {
+      "catch": {
         "kind": 1,
         "x": 64,
         "y": 38,
@@ -3657,7 +3657,7 @@
         "throwinjury": -842150451,
         "decrease": 3
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 56,
         "y": 40,
@@ -3668,7 +3668,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 24,
@@ -3693,14 +3693,14 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 36,
         "y": 39,
         "fronthurtact": 132,
         "backhurtact": 131
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 46,
         "y": 48,
@@ -3711,7 +3711,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 26,
@@ -3736,14 +3736,14 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 43,
         "y": 39,
         "fronthurtact": 132,
         "backhurtact": 132
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 22,
         "y": 56,
@@ -3754,7 +3754,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 26,
@@ -3779,14 +3779,14 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 41,
         "y": 39,
         "fronthurtact": 131,
         "backhurtact": 131
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 44,
         "y": 47,
@@ -3797,7 +3797,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 26,
@@ -3822,12 +3822,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 35,
         "y": 36
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 35,
         "y": 48,
@@ -3854,12 +3854,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 37,
         "y": 35
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 39,
         "y": 39,
@@ -3886,12 +3886,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 31,
         "y": 34
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 34,
         "y": 44,
@@ -3918,12 +3918,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 38,
         "y": 58
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 36,
         "y": 38,
@@ -3950,12 +3950,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 33,
         "y": 64
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 36,
         "y": 75,
@@ -3982,12 +3982,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 28,
         "y": 58
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 70,
@@ -4014,12 +4014,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 40,
         "y": 36
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 44,
         "y": 42,
@@ -4046,12 +4046,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 36,
         "y": 38
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 43,
         "y": 47,
@@ -4078,12 +4078,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 44,
         "y": 40
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 36,
         "y": 52,
@@ -4110,12 +4110,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 46,
         "y": 51
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 38,
         "y": 61,
@@ -4142,12 +4142,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 45,
         "y": 66
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 47,
         "y": 73,
@@ -4174,12 +4174,12 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 2,
         "x": 42,
         "y": 55
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 48,
         "y": 65,
@@ -4206,7 +4206,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 34,
         "y": 50,
@@ -4217,10 +4217,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 21,
             "y": 14,
             "w": 29,
@@ -4233,7 +4233,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 25,
@@ -4258,7 +4258,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 38,
         "y": 39,
@@ -4269,10 +4269,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 15,
             "y": 11,
             "w": 42,
@@ -4285,8 +4285,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 35,
             "y": 30,
             "w": 27,
@@ -4299,7 +4299,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -4324,7 +4324,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 51,
@@ -4335,10 +4335,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 13,
             "y": 18,
             "w": 46,
@@ -4351,7 +4351,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 27,
@@ -4376,7 +4376,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 23,
         "y": 34,
@@ -4387,10 +4387,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 32,
             "y": 18,
             "w": 33,
@@ -4403,8 +4403,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 25,
             "y": 40,
             "w": 26,
@@ -4417,7 +4417,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -4442,7 +4442,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 36,
         "y": 74,
@@ -4469,7 +4469,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 35,
         "y": 63,
@@ -4496,7 +4496,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 46,
         "y": 38,
@@ -4507,10 +4507,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 22,
             "y": 12,
             "w": 36,
@@ -4523,7 +4523,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 31,
@@ -4548,7 +4548,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 45,
         "y": 49,
@@ -4559,10 +4559,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 33,
             "y": 6,
             "w": 26,
@@ -4575,8 +4575,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 26,
             "y": 43,
             "w": 21,
@@ -4589,7 +4589,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 28,
@@ -4614,7 +4614,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 38,
         "y": 53,
@@ -4625,10 +4625,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 14,
             "y": 29,
             "w": 58,
@@ -4641,7 +4641,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 30,
@@ -4666,7 +4666,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 39,
         "y": 62,
@@ -4677,10 +4677,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 24,
             "y": 27,
             "w": 26,
@@ -4693,8 +4693,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 4,
+          "interaction": {
+            "kind": "falling",
             "x": 37,
             "y": 45,
             "w": 31,
@@ -4707,7 +4707,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 30,
@@ -4732,7 +4732,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 49,
         "y": 76,
@@ -4759,7 +4759,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 26,
         "y": 49,
@@ -4786,7 +4786,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 26,
         "y": 45,
@@ -4797,7 +4797,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -4822,7 +4822,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 47,
         "y": 48,
@@ -4833,9 +4833,9 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
+          "interaction": {
             "kind": 14,
             "x": 8,
             "y": 6,
@@ -4845,7 +4845,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 8,
@@ -4870,7 +4870,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 26,
         "y": 45,
@@ -4881,7 +4881,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 8,
@@ -4906,7 +4906,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 46,
@@ -4917,10 +4917,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 35,
             "w": 26,
@@ -4935,7 +4935,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -4960,7 +4960,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 46,
@@ -4971,10 +4971,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 35,
             "w": 26,
@@ -4989,7 +4989,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -5014,7 +5014,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 30,
         "y": 33,
@@ -5025,10 +5025,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 35,
             "w": 26,
@@ -5043,7 +5043,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -5068,7 +5068,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 30,
         "y": 33,
@@ -5079,10 +5079,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 22,
             "y": 35,
             "w": 26,
@@ -5097,7 +5097,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -5122,7 +5122,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 42,
         "y": 64,
@@ -5133,7 +5133,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 44,
@@ -5165,7 +5165,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 29,
         "y": 68,
@@ -5176,7 +5176,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 18,
@@ -5202,7 +5202,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/017.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 29,
         "y": 68,
@@ -5213,7 +5213,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 17,
@@ -5238,11 +5238,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 37,
         "y": 26
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 16,
         "y": 44,
@@ -5253,7 +5253,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 13,
@@ -5285,11 +5285,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 38,
         "y": 31
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 14,
         "y": 41,
@@ -5300,7 +5300,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 21,
@@ -5339,11 +5339,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 31
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 17,
         "y": 52,
@@ -5354,7 +5354,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 15,
@@ -5387,11 +5387,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/012.mp3",
-      "bpoint": {
+      "blood": {
         "x": 32,
         "y": 45
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 26,
         "y": 72,
@@ -5402,7 +5402,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 25,
@@ -5427,11 +5427,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 39,
         "y": 30
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 16,
         "y": 42,
@@ -5442,7 +5442,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 35,
@@ -5474,11 +5474,11 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bpoint": {
+      "blood": {
         "x": 30,
         "y": 29
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 16,
         "y": 47,
@@ -5489,7 +5489,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 18,
@@ -5515,11 +5515,11 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/009.mp3",
-      "bpoint": {
+      "blood": {
         "x": 39,
         "y": 38
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 16,
         "y": 50,
@@ -5530,7 +5530,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -5556,7 +5556,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/012.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 28,
         "y": 71,
@@ -5567,7 +5567,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 26,
@@ -5592,7 +5592,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 27,
         "y": 58,
@@ -5603,7 +5603,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 25,
@@ -5628,7 +5628,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 40,
         "y": 53,
@@ -5639,7 +5639,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 32,
@@ -5671,7 +5671,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 38,
         "y": 47,
@@ -5682,7 +5682,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -5714,7 +5714,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 56,
@@ -5725,7 +5725,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -5757,7 +5757,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 45,
         "y": 46,
@@ -5768,7 +5768,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 32,
@@ -5800,7 +5800,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 44,
         "y": 52,
@@ -5811,7 +5811,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 24,
@@ -5836,7 +5836,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 24,
         "y": 57,
@@ -5847,10 +5847,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": 6,
             "y": 12,
             "w": 85,
@@ -5859,7 +5859,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 27,
@@ -5884,7 +5884,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 23,
         "y": 53,
@@ -5895,10 +5895,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": 6,
             "y": 12,
             "w": 85,
@@ -5907,7 +5907,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 28,
@@ -5932,7 +5932,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 39,
         "y": 51,
@@ -5943,10 +5943,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": 6,
             "y": 12,
             "w": 85,
@@ -5955,7 +5955,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 28,
@@ -5980,7 +5980,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 23,
         "y": 54,
@@ -5991,10 +5991,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 6,
+          "interaction": {
+            "kind": "super punch",
             "x": 6,
             "y": 12,
             "w": 85,
@@ -6003,7 +6003,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 29,
@@ -6028,7 +6028,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 35,
         "y": 74,
@@ -6055,7 +6055,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 32,
         "y": 74,
@@ -6082,7 +6082,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "cpoint": {
+      "catch": {
         "kind": 1,
         "x": 28,
         "y": 9,
@@ -6091,7 +6091,7 @@
         "throwinjury": -842150451,
         "dircontrol": 1
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 20,
         "y": 26,
@@ -6102,7 +6102,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 5,
@@ -6128,7 +6128,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/007.mp3",
-      "cpoint": {
+      "catch": {
         "kind": 1,
         "x": 72,
         "y": 53,
@@ -6138,7 +6138,7 @@
         "throwvz": 3,
         "throwinjury": 30
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 31,
         "y": 51,
@@ -6149,7 +6149,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 24,
@@ -6181,7 +6181,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 31,
         "y": 51,
@@ -6192,7 +6192,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 25,
@@ -6224,7 +6224,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 49,
         "y": 96,
@@ -6235,10 +6235,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 20,
             "y": 19,
             "w": 86,
@@ -6253,8 +6253,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 75,
             "y": 59,
             "w": 11,
@@ -6268,7 +6268,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 28,
@@ -6294,7 +6294,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/097.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -6305,10 +6305,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6322,7 +6322,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -6354,7 +6354,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -6365,10 +6365,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6382,7 +6382,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 13,
@@ -6408,7 +6408,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/054.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -6419,10 +6419,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 11,
             "y": 31,
             "w": 68,
@@ -6436,8 +6436,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6451,7 +6451,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -6483,7 +6483,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -6494,10 +6494,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 7,
             "y": 1,
             "w": 64,
@@ -6511,8 +6511,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6526,7 +6526,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 6,
@@ -6558,7 +6558,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 39,
         "y": 48,
@@ -6569,10 +6569,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6586,7 +6586,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -6618,7 +6618,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 46,
         "y": 48,
@@ -6629,10 +6629,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6646,7 +6646,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 22,
@@ -6678,7 +6678,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 55,
         "y": 48,
@@ -6689,10 +6689,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6706,7 +6706,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 30,
@@ -6739,7 +6739,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/054.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 41,
         "y": 50,
@@ -6750,10 +6750,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6767,8 +6767,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": -4,
             "y": 1,
             "w": 26,
@@ -6782,7 +6782,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -6814,7 +6814,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 48,
         "y": 50,
@@ -6825,10 +6825,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6842,8 +6842,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": -2,
             "y": 22,
             "w": 38,
@@ -6857,7 +6857,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 24,
@@ -6890,7 +6890,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/054.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 27,
         "y": 50,
@@ -6901,10 +6901,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6918,8 +6918,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 3,
             "y": 0,
             "w": 79,
@@ -6934,7 +6934,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 3,
@@ -6966,7 +6966,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 59,
         "y": 50,
@@ -6977,10 +6977,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 60,
             "y": 8,
             "w": 14,
@@ -6994,8 +6994,8 @@
           }
         },
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 6,
             "y": 1,
             "w": 40,
@@ -7009,7 +7009,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 33,
@@ -7041,7 +7041,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 43,
         "y": 51,
@@ -7052,7 +7052,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 16,
@@ -7084,7 +7084,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 41,
         "y": 51,
@@ -7095,7 +7095,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 19,
@@ -7127,7 +7127,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 59,
         "y": 49,
@@ -7138,7 +7138,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 37,
@@ -7171,7 +7171,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/054.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 40,
         "y": 48,
@@ -7182,10 +7182,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 30,
             "y": 5,
             "w": 86,
@@ -7199,7 +7199,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 13,
@@ -7231,7 +7231,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -7242,10 +7242,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": 25,
             "y": 21,
             "w": 84,
@@ -7259,7 +7259,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -7291,7 +7291,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 67,
         "y": 48,
@@ -7302,10 +7302,10 @@
         "dvy": 0,
         "dvz": 0
       },
-      "itr": [
+      "interaction": [
         {
-          "itr": {
-            "kind": 0,
+          "interaction": {
+            "kind": "hit",
             "x": -2,
             "y": 43,
             "w": 41,
@@ -7318,7 +7318,7 @@
           }
         }
       ],
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 46,
@@ -7350,7 +7350,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 66,
         "y": 48,
@@ -7361,7 +7361,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 45,
@@ -7386,7 +7386,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 63,
         "y": 48,
@@ -7397,7 +7397,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 45,
@@ -7424,7 +7424,7 @@
       "hit_j": 0,
       "mp": 100,
       "sound": "data/097.mp3",
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -7435,7 +7435,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 15,
@@ -7460,7 +7460,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 33,
         "y": 48,
@@ -7471,7 +7471,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 12,
@@ -7497,7 +7497,7 @@
       "hit_d": 0,
       "hit_j": 0,
       "sound": "data/020.mp3",
-      "opoint": {
+      "object": {
         "kind": 1,
         "x": 83,
         "y": 44,
@@ -7507,7 +7507,7 @@
         "oid": 204,
         "facing": 1
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 30,
         "y": 48,
@@ -7518,7 +7518,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 11,
@@ -7543,7 +7543,7 @@
       "hit_a": 260,
       "hit_d": 0,
       "hit_j": 0,
-      "opoint": {
+      "object": {
         "kind": 1,
         "x": 73,
         "y": 44,
@@ -7553,7 +7553,7 @@
         "oid": 204,
         "facing": 0
       },
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 34,
         "y": 48,
@@ -7564,7 +7564,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -7589,7 +7589,7 @@
       "hit_a": 260,
       "hit_d": 0,
       "hit_j": 0,
-      "wpoint": {
+      "weapon": {
         "kind": 1,
         "x": 35,
         "y": 48,
@@ -7600,7 +7600,7 @@
         "dvy": 0,
         "dvz": 0
       },
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 10,
@@ -7625,7 +7625,7 @@
       "hit_a": 0,
       "hit_d": 0,
       "hit_j": 0,
-      "bdy": [
+      "hitbox": [
         {
           "kind": 0,
           "x": 21,
