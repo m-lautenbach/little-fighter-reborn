@@ -12,6 +12,7 @@ const getUpdatedAnimation = (animationId) => {
   }
   const { KeyW, KeyA, KeyS, KeyD, KeyJ, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } = inputState
   if (KeyJ) {
+    delete inputState.KeyJ
     return 'punch'
   }
   const left = KeyA || ArrowLeft
