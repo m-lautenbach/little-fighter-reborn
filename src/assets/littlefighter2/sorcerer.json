@@ -21,7 +21,7 @@
     "dash_distancez": 4.8,
     "rowing_height": -2,
     "rowing_distance": 4.8,
-    "frames": [
+    "spritesheets": [
       {
         "file": "sprite/sys/sorcerer_0.png",
         "start": 0,

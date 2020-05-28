@@ -29,7 +29,7 @@ const start = async () => {
     async character => {
       const data = (await import(`./assets/littlefighter2/${character}.json`)).default
       assetCache.data.characters[character] = data
-      assetCache.images.spritesheets[character] = await loadImage(data.header.frames[0].file)
+      assetCache.images.spritesheets[character] = await loadImage(data.header.spritesheets[0].file)
     },
   ))
   assetCache.images.lionForestLayers = await Promise.all(

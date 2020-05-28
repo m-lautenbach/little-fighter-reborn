@@ -3,7 +3,7 @@
     "weapon_hit_sound": "data/020.mp3",
     "weapon_drop_sound": "data/020.mp3",
     "weapon_broken_sound": "data/020.mp3",
-    "frames": [
+    "spritesheets": [
       {
         "file": "sprite/sys/firen_ball.png",
         "start": 0,

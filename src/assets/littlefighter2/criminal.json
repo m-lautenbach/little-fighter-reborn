@@ -1,6 +1,6 @@
 {
   "header": {
-    "frames": [
+    "spritesheets": [
       {
         "file": "sprite/sys/criminal.png",
         "start": 0,

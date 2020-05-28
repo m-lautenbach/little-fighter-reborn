@@ -4,7 +4,7 @@ import assetCache from './assetCache'
 
 export default memoizeWith(identity, (character) => {
   const { header, animations } = assetCache.data.characters[character]
-  const { w, h, row } = header.frames[0]
+  const { w, h, row } = header.spritesheets[0]
   return map(
     frames => {
       return {

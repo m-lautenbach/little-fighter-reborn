@@ -35,7 +35,7 @@ export default (ctx, actor) => {
   // shadow coordinates
   const { x: sx, y: sy } = worldToCamera(state, assoc('z', 0, position))
 
-  const { w, h } = assetCache.data.characters[character].header.frames[0]
+  const { w, h } = assetCache.data.characters[character].header.spritesheets[0]
   const { [animationId]: { frames } } = getFrameMap(character)
   const { x: sourceX, y: sourceY, centerx, centery } = frames[frame]
 

@@ -21,7 +21,7 @@
     "dash_distancez": 5,
     "rowing_height": -2,
     "rowing_distance": 6,
-    "frames": [
+    "spritesheets": [
       {
         "file": "sprite/sys/louisEX_0.png",
         "start": 0,
