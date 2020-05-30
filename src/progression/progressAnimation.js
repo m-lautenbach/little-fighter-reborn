@@ -4,6 +4,7 @@ import updatePlayer from '../updatePlayer'
 
 export default (actor, newTimestamp) => {
   const { character, animation } = actor
+  if (!animation) return
   const { id: animationId, frame, bounced, start } = animation
   if (animationId === 'none') return
   const { frames, repeat } = getFrameMap(character)[animationId]

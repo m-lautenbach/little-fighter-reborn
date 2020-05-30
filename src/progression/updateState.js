@@ -1,4 +1,4 @@
-import { clamp } from 'ramda'
+import { clamp, forEach } from 'ramda'
 
 import state from '../state'
 import progressAnimation from './progressAnimation'
@@ -14,11 +14,9 @@ export default () => {
   state.timestamp = newTimestamp
   state.frame++
 
-  const { player, remotes, camera, rendering } = state
-  progressAnimation(player, newTimestamp)
-  updatePhysics(player, passedSeconds)
-  Object.values(remotes).forEach(
-    ({ actor }) => {
+  const { player, remotes, npcs, camera, rendering } = state
+  ;[player, ...Object.values(remotes).map(({ actor }) => actor), ...Object.values(npcs)].forEach(
+    actor => {
       progressAnimation(actor, newTimestamp)
       updatePhysics(actor, passedSeconds)
     },
