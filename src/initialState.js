@@ -26,20 +26,17 @@ export default {
     width: 800, height: 600,
   },
   remotes: {},
+  npcs: {
+    0: {
+      name: 'NPC1',
+      character: sample(characters),
+      position: { x: 500, y: 200, z: 0 },
+      direction: 'left',
+    },
+  },
   player: {
     character: sample(characters),
-    velocity: { x: 0, y: 0, z: 0 },
-    position: { x: Math.random() * 700, y: Math.random() * 470, z: Math.random() * 200 },
-    direction: Math.random() > .5 ? 'right' : 'left',
-    dimensions: {
-      width: 79,
-      height: 79,
-    },
-    animation: {
-      id: 'standing',
-      frame: 0,
-      bounced: false,
-      start: Date.now(),
-    },
+    position: { x: Math.random() * 300, y: Math.random() * 470, z: Math.random() * 200 },
+    direction: 'right',
   },
 }

@@ -1,9 +1,11 @@
 import { clamp } from 'ramda'
+
 import state from '../state'
 
 export default (actor, passedSeconds) => {
   const { world: { boundaries: { yMin, yMax }, gravity } } = state
 
+  actor.velocity = actor.velocity || { x: 0, y: 0, z: 0 }
   actor.velocity.z += passedSeconds * gravity
 
   actor.position.x = Math.max(0, actor.position.x + passedSeconds * actor.velocity.x)

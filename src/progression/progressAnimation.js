@@ -25,7 +25,7 @@ export default (actor, newTimestamp) => {
     animation.frame = repeat === 'pingpong' ?
       (bouncedNew ? frame - 1 : frame + 1) :
       (isLastFrame ? (frames[frame].next === 999 ? 0 : frame) :
-        findIndex(propEq('index', frames[frame].next), frames)
+          findIndex(propEq('index', frames[frame].next), frames)
       )
 
     animation.start = newTimestamp

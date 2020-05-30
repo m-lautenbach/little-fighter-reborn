@@ -27,8 +27,17 @@ const drawCenter = (ctx) => {
   ctx.stroke()
 }
 
+const defaultInitialAnimation = {
+  id: 'standing',
+  frame: 0,
+  bounced: false,
+  start: Date.now(),
+}
+
 export default (ctx, actor) => {
-  const { character, name, animation: { id: animationId, frame }, position, direction } = actor
+  actor.animation = actor.animation || { ...defaultInitialAnimation }
+
+  const { type, character, name, animation: { id: animationId, frame }, position, direction } = actor
   const { debug } = state
 
   const { x, y } = worldToCamera(state, position)
@@ -62,7 +71,7 @@ export default (ctx, actor) => {
 
   // we can draw the tag before mirroring as it should not overlap
   //  with the character drawn later
-  drawTag(ctx, name)
+  drawTag(ctx, type, name)
 
   if (direction === 'left') {
     ctx.scale(-1, 1)
