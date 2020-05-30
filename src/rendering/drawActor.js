@@ -27,6 +27,16 @@ const drawCenter = (ctx) => {
   ctx.stroke()
 }
 
+const drawHitboxes = (ctx, hitboxes, { centerX, centerY }) => {
+  hitboxes.forEach(({ x, y, w, h }) => {
+    ctx.strokeStyle = '#00ffcc'
+    ctx.lineWidth = 1
+    ctx.beginPath()
+    ctx.rect(x - centerX, y - centerY, w, h)
+    ctx.stroke()
+  })
+}
+
 const defaultInitialAnimation = {
   id: 'standing',
   frame: 0,
@@ -37,7 +47,7 @@ const defaultInitialAnimation = {
 export default (ctx, actor) => {
   actor.animation = actor.animation || { ...defaultInitialAnimation }
 
-  const { type, character, name, animation: { id: animationId, frame }, position, direction } = actor
+  const { character, animation: { id: animationId, frame }, position, direction } = actor
   const { debug } = state
 
   const { x, y } = worldToCamera(state, position)
@@ -46,7 +56,7 @@ export default (ctx, actor) => {
 
   const { w, h } = assetCache.data.characters[character].header.spritesheets[0]
   const { [animationId]: { frames } } = getFrameMap(character)
-  const { x: sourceX, y: sourceY, centerX, centerY } = frames[frame]
+  const { x: sourceX, y: sourceY, centerX, centerY, hitboxes } = frames[frame]
 
   const spritesheet = assetCache.images.spritesheets[character]
 
@@ -71,7 +81,7 @@ export default (ctx, actor) => {
 
   // we can draw the tag before mirroring as it should not overlap
   //  with the character drawn later
-  drawTag(ctx, type, name)
+  drawTag(ctx, actor)
 
   if (direction === 'left') {
     ctx.scale(-1, 1)
@@ -79,6 +89,9 @@ export default (ctx, actor) => {
 
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, -centerX, -centerY, w, h)
 
+  if (debug.draw.hitboxes) {
+    drawHitboxes(ctx, hitboxes, { centerX, centerY })
+  }
   if (debug.draw.center) {
     drawCenter(ctx)
   }

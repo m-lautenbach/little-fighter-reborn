@@ -87,7 +87,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -131,7 +131,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -175,7 +175,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -219,7 +219,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -280,7 +280,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -339,7 +339,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -398,7 +398,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -457,7 +457,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -500,7 +500,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -540,7 +540,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -581,7 +581,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -623,7 +623,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -663,7 +663,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -703,7 +703,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -743,7 +743,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -786,7 +786,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -826,7 +826,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -867,7 +867,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -910,7 +910,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 5,
@@ -948,7 +948,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 18,
@@ -985,7 +985,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -1021,7 +1021,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -1057,7 +1057,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 18,
@@ -1100,7 +1100,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -1137,7 +1137,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 17,
@@ -1173,7 +1173,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 18,
@@ -1209,7 +1209,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -1247,7 +1247,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -1284,7 +1284,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -1327,7 +1327,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 11,
@@ -1370,7 +1370,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 11,
@@ -1415,7 +1415,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -1452,7 +1452,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 23,
@@ -1488,7 +1488,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -1526,7 +1526,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -1563,7 +1563,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -1606,7 +1606,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -1649,7 +1649,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -1694,7 +1694,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -1738,7 +1738,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -1774,7 +1774,7 @@
           "dvy": -4,
           "dvz": 3
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 10,
@@ -1819,7 +1819,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -1856,7 +1856,7 @@
           "dvy": -4,
           "dvz": 2
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -1901,7 +1901,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 15,
@@ -1938,7 +1938,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 35,
@@ -1981,7 +1981,7 @@
           "dvy": 8,
           "dvz": 3
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -2027,7 +2027,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 15,
@@ -2063,7 +2063,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 16,
@@ -2099,7 +2099,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 17,
@@ -2135,7 +2135,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 16,
@@ -2174,7 +2174,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -2214,7 +2214,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -2253,7 +2253,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -2293,7 +2293,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -2321,7 +2321,7 @@
         "hit_d": 0,
         "hit_j": 0,
         "sound": "data/007.mp3",
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -2360,7 +2360,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 20,
@@ -2385,7 +2385,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 14,
@@ -2410,7 +2410,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 20,
@@ -2452,7 +2452,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -2477,7 +2477,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 17,
@@ -2505,7 +2505,7 @@
         "hit_d": 0,
         "hit_j": 0,
         "sound": "data/007.mp3",
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 15,
@@ -2546,7 +2546,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,
@@ -2587,7 +2587,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 17,
@@ -2614,7 +2614,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -2647,7 +2647,7 @@
         "hit_d": 0,
         "hit_j": 0,
         "sound": "data/007.mp3",
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -2695,7 +2695,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 10,
@@ -2743,7 +2743,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 31,
@@ -2777,7 +2777,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -2833,7 +2833,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -2881,7 +2881,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 23,
@@ -2933,7 +2933,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 14,
@@ -3328,7 +3328,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 20,
@@ -3368,7 +3368,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 16,
@@ -3418,7 +3418,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 5,
@@ -3466,7 +3466,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 5,
@@ -3514,7 +3514,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 5,
@@ -3553,7 +3553,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -3599,7 +3599,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -3642,7 +3642,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -3698,7 +3698,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -3746,7 +3746,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -3792,7 +3792,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -3840,7 +3840,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -3885,7 +3885,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -3928,7 +3928,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -3971,7 +3971,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -4409,7 +4409,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -4475,7 +4475,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -4527,7 +4527,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 27,
@@ -4593,7 +4593,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -4699,7 +4699,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 31,
@@ -4765,7 +4765,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -4817,7 +4817,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 30,
@@ -4883,7 +4883,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 30,
@@ -4975,7 +4975,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 10,
@@ -5023,7 +5023,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -5059,7 +5059,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -5115,7 +5115,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -5169,7 +5169,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -5223,7 +5223,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -5277,7 +5277,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -5315,7 +5315,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 44,
@@ -5360,7 +5360,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -5397,7 +5397,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -5437,7 +5437,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -5486,7 +5486,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 43,
@@ -5540,7 +5540,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 20,
@@ -5587,7 +5587,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 35,
@@ -5634,7 +5634,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 18,
@@ -5677,7 +5677,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -5720,7 +5720,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 17,
@@ -5766,7 +5766,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -5804,7 +5804,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 25,
@@ -5840,7 +5840,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 32,
@@ -5883,7 +5883,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 11,
@@ -5926,7 +5926,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 12,
@@ -5969,7 +5969,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 32,
@@ -6012,7 +6012,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 24,
@@ -6060,7 +6060,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 27,
@@ -6108,7 +6108,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -6156,7 +6156,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 28,
@@ -6204,7 +6204,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 29,
@@ -6307,7 +6307,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 18,
@@ -6354,7 +6354,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 10,
@@ -6397,7 +6397,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 13,
@@ -6444,7 +6444,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6480,7 +6480,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6516,7 +6516,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6562,7 +6562,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6598,7 +6598,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6634,7 +6634,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6674,7 +6674,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6710,7 +6710,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6746,7 +6746,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6792,7 +6792,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6828,7 +6828,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6864,7 +6864,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6904,7 +6904,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6940,7 +6940,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -6976,7 +6976,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -7022,7 +7022,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -7058,7 +7058,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -7094,7 +7094,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 26,
@@ -7134,7 +7134,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 17,
@@ -7171,7 +7171,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 30,
@@ -7237,7 +7237,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 18,
@@ -7303,7 +7303,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 12,
@@ -7369,7 +7369,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 19,
@@ -7435,7 +7435,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 16,
@@ -7501,7 +7501,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 20,
@@ -7540,7 +7540,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 16,
@@ -7576,7 +7576,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -7613,7 +7613,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 2,
@@ -7649,7 +7649,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -7696,7 +7696,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -7733,7 +7733,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 6,
@@ -7770,7 +7770,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 6,
@@ -7817,7 +7817,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 6,
@@ -7854,7 +7854,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 7,
@@ -7890,7 +7890,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -7929,7 +7929,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -7965,7 +7965,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8001,7 +8001,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8037,7 +8037,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8084,7 +8084,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8121,7 +8121,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8157,7 +8157,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8193,7 +8193,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8229,7 +8229,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 8,
@@ -8256,7 +8256,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 21,

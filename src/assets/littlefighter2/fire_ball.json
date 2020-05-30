@@ -49,7 +49,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -91,7 +91,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -133,7 +133,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -175,7 +175,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -217,7 +217,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,
@@ -259,7 +259,7 @@
             }
           }
         ],
-        "hitbox": [
+        "hitboxes": [
           {
             "kind": 0,
             "x": 22,

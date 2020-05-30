@@ -4,7 +4,7 @@ const color = {
   remote: '#9191ff',
 }
 
-export default (ctx, type, name) => {
+export default (ctx, { type, name }) => {
   ctx.save()
   ctx.imageSmoothingEnabled = true
   ctx.shadowColor = 'rgba(0,0,0,1)'
