@@ -48,6 +48,8 @@ export default (ctx, actor) => {
   actor.animation = actor.animation || { ...defaultInitialAnimation }
 
   const { character, animation: { id: animationId, frame }, position, direction } = actor
+  if (animationId === 'none') return
+
   const { debug } = state
 
   const { x, y } = worldToCamera(state, position)

@@ -1,11 +1,11 @@
 import getFrameMap from '../getFrameMap'
 import { always, cond, F, findIndex, propEq, T } from 'ramda'
-import updateAnimation from './updateAnimation'
-import updateDirection from './updateDirection'
+import updatePlayer from '../updatePlayer'
 
 export default (actor, newTimestamp) => {
   const { character, animation } = actor
   const { id: animationId, frame, bounced, start } = animation
+  if (animationId === 'none') return
   const { frames, repeat } = getFrameMap(character)[animationId]
   // one TU (time unit) === 1/30s; always +1
   const currentFrameEnded = newTimestamp > start + (frames[frame].wait + 1) * (1000 / 30)
@@ -32,7 +32,6 @@ export default (actor, newTimestamp) => {
     animation.bounced = bouncedNew
   } else {
     animation.id = 'none'
-    updateAnimation(actor)
-    updateDirection(actor)
+    updatePlayer()
   }
 }

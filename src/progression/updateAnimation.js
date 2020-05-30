@@ -26,6 +26,7 @@ const getUpdatedAnimation = (animationId, character) => {
 
 export default (actor) => {
   const { animation, character } = actor
+  if (!animation) return
 
   const { id: animationId } = animation
   const updatedAnimationId = getUpdatedAnimation(animationId, character)
