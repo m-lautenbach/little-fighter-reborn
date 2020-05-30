@@ -7,7 +7,7 @@ export default {
   debug: {
     draw: {
       center: false,
-      hitboxes: false,
+      hitboxes: true,
     },
   },
   world: {
@@ -19,12 +19,12 @@ export default {
   },
   camera: {
     x: 0,
-    xMax: 2200,
+    xMax: 1919,
   },
   rendering: {
     frame: 0,
     imageSmoothing: false,
-    width: 800, height: 600,
+    width: 1067, height: 600,
   },
   remotes: {},
   npcs: {

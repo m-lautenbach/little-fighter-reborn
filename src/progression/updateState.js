@@ -28,6 +28,11 @@ export default () => {
   camera.x = clamp(
     player.position.x - (1 - cameraMargin) * rendering.width,
     Math.max(0, player.position.x - cameraMargin * rendering.width),
-    camera.x
+    camera.x,
+  )
+  camera.x = clamp(
+    0,
+    camera.x,
+    camera.xMax,
   )
 }

@@ -24,7 +24,7 @@ export default {
     {
       img: 'bg/sys/lf/forestm4.png',
       width: 1400,
-      x: 1216, y: 155,
+      x: 1410, y: 155,
     },
     {
       img: 'bg/sys/lf/forestt.png',
