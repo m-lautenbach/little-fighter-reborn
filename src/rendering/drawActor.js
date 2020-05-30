@@ -46,7 +46,7 @@ export default (ctx, actor) => {
 
   const { w, h } = assetCache.data.characters[character].header.spritesheets[0]
   const { [animationId]: { frames } } = getFrameMap(character)
-  const { x: sourceX, y: sourceY, centerx, centery } = frames[frame]
+  const { x: sourceX, y: sourceY, centerX, centerY } = frames[frame]
 
   const spritesheet = assetCache.images.spritesheets[character]
 
@@ -63,7 +63,7 @@ export default (ctx, actor) => {
   ctx.transform(1, 0, shearing, 1, 0, 0)
 
   const shadowCanvas = drawShadow(character, spritesheet, sourceX, sourceY, w, h, animationId, frame, position.z)
-  ctx.drawImage(shadowCanvas, -centerx, -centery)
+  ctx.drawImage(shadowCanvas, -centerX, -centerY)
 
   resetTransformation(ctx)
 
@@ -77,7 +77,7 @@ export default (ctx, actor) => {
     ctx.scale(-1, 1)
   }
 
-  ctx.drawImage(spritesheet, sourceX, sourceY, w, h, -centerx, -centery, w, h)
+  ctx.drawImage(spritesheet, sourceX, sourceY, w, h, -centerX, -centerY, w, h)
 
   if (debug.draw.center) {
     drawCenter(ctx)

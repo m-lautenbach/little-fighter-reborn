@@ -6,7 +6,7 @@ export default {
   timestamp: Date.now(),
   debug: {
     draw: {
-      center: false,
+      center: true,
     },
   },
   world: {
