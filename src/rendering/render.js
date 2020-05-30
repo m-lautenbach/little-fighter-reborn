@@ -1,5 +1,6 @@
 import state from '../state'
 import getAllActors from '../getAllActors'
+import drawIntersectingHitboxes from '../utils/drawIntersectingHitboxes'
 
 import drawBackground from './drawBackground'
 import drawActor from './drawActor'
@@ -13,4 +14,5 @@ export default (ctx) => {
     .forEach(
       actor => drawActor(ctx, actor),
     )
+  drawIntersectingHitboxes(ctx)
 }

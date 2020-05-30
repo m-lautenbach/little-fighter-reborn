@@ -6,8 +6,7 @@ import { worldToCamera } from './coordinates'
 import state from '../state'
 import drawShadow from './drawShadow'
 import drawTag from './drawTag'
-
-const resetTransformation = ctx => ctx.setTransform(1, 0, 0, 1, 0, 0)
+import resetTransformation from '../utils/resetTransformation'
 
 const logOnce = once(console.debug)
 
@@ -27,15 +26,6 @@ const drawCenter = (ctx) => {
   ctx.stroke()
 }
 
-const drawHitboxes = (ctx, hitboxes, { centerX, centerY }) => {
-  hitboxes.forEach(({ x, y, w, h }) => {
-    ctx.strokeStyle = '#00ffcc'
-    ctx.lineWidth = 1
-    ctx.beginPath()
-    ctx.rect(x - centerX, y - centerY, w, h)
-    ctx.stroke()
-  })
-}
 
 const defaultInitialAnimation = {
   id: 'standing',
@@ -58,7 +48,7 @@ export default (ctx, actor) => {
 
   const { w, h } = assetCache.data.characters[character].header.spritesheets[0]
   const { [animationId]: { frames } } = getFrameMap(character)
-  const { x: sourceX, y: sourceY, centerX, centerY, hitboxes } = frames[frame]
+  const { x: sourceX, y: sourceY, centerX, centerY } = frames[frame]
 
   const spritesheet = assetCache.images.spritesheets[character]
 
@@ -91,9 +81,6 @@ export default (ctx, actor) => {
 
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, -centerX, -centerY, w, h)
 
-  if (debug.draw.hitboxes) {
-    drawHitboxes(ctx, hitboxes, { centerX, centerY })
-  }
   if (debug.draw.center) {
     drawCenter(ctx)
   }
