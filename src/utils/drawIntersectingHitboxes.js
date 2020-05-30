@@ -55,7 +55,7 @@ const drawHitboxes = (ctx, hitboxes, { centerX, centerY }, position, direction, 
         ctx.stroke()
 
         const intersection = getIntersectingRectangle(transformedHitbox, transformedHitbox2)
-        if (intersection) {
+        if (intersection && Math.abs(position.y - position2.y) < 20) {
           ctx.fillStyle = '#ff0000'
           ctx.fillRect(
             intersection.x,
