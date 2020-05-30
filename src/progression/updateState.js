@@ -1,8 +1,9 @@
-import { clamp, forEach } from 'ramda'
+import { clamp } from 'ramda'
 
 import state from '../state'
 import progressAnimation from './progressAnimation'
 import updatePhysics from '../netcode/updatePhysics'
+import getAllActors from '../getAllActors'
 
 let forward = true
 
@@ -14,8 +15,10 @@ export default () => {
   state.timestamp = newTimestamp
   state.frame++
 
-  const { player, remotes, npcs, camera, rendering } = state
-  ;[player, ...Object.values(remotes).map(({ actor }) => actor), ...Object.values(npcs)].forEach(
+  const { player, camera, rendering } = state
+  const actors = getAllActors()
+
+  actors.forEach(
     actor => {
       progressAnimation(actor, newTimestamp)
       updatePhysics(actor, passedSeconds)
