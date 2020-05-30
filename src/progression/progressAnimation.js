@@ -1,5 +1,5 @@
 import getFrameMap from '../getFrameMap'
-import { always, cond, F, findIndex, indexBy, prop, propEq, T } from 'ramda'
+import { always, cond, F, findIndex, propEq, T } from 'ramda'
 import updateAnimation from './updateAnimation'
 import updateDirection from './updateDirection'
 
