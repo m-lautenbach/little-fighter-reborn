@@ -6,7 +6,7 @@ import { worldToCamera } from './coordinates'
 import state from '../state'
 import drawShadow from './drawShadow'
 import drawTag from './drawTag'
-import resetTransformation from '../utils/resetTransformation'
+import TransformationMatrix from '../utils/TransformationMatrix'
 
 const logOnce = once(console.debug)
 
@@ -25,7 +25,6 @@ const drawCenter = (ctx) => {
   ctx.lineTo(centerWidth, 0)
   ctx.stroke()
 }
-
 
 const defaultInitialAnimation = {
   id: 'standing',
@@ -54,36 +53,39 @@ export default (ctx, actor) => {
 
   logOnce(frames[frame])
 
-  ctx.translate(sx, sy)
+  const matrix = TransformationMatrix()
+  matrix.translate(sx, sy)
 
   if (direction === 'left') {
-    ctx.scale(-1, 1)
+    matrix.scale(-1, 1)
   }
+  matrix.scale(1, .5)
+
   // we mirror the sprite, but the shadow should always fall to the left
-  const shearing = (direction === 'left' ? -1 : 1) * .5
-  ctx.scale(1, .5)
-  ctx.transform(1, 0, shearing, 1, 0, 0)
+  matrix.skew((direction === 'left' ? -1 : 1) * .5, 0)
 
   const shadowCanvas = drawShadow(character, spritesheet, sourceX, sourceY, w, h, animationId, frame, position.z)
+  matrix.setContextTransform(ctx)
   ctx.drawImage(shadowCanvas, -centerX, -centerY)
+  matrix.resetContextTransform(ctx)
+  matrix.reset()
 
-  resetTransformation(ctx)
-
-  ctx.translate(x, y)
+  matrix.translate(x, y)
 
   // we can draw the tag before mirroring as it should not overlap
   //  with the character drawn later
   drawTag(ctx, actor)
 
   if (direction === 'left') {
-    ctx.scale(-1, 1)
+    matrix.scale(-1, 1)
   }
 
+  matrix.setContextTransform(ctx)
   ctx.drawImage(spritesheet, sourceX, sourceY, w, h, -centerX, -centerY, w, h)
 
   if (debug.draw.center) {
     drawCenter(ctx)
   }
 
-  resetTransformation(ctx)
+  matrix.resetContextTransform(ctx)
 }

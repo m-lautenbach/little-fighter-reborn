@@ -3,8 +3,8 @@ import state from '../state'
 import getFrameMap from '../getFrameMap'
 import { worldToCamera } from '../rendering/coordinates'
 
-import resetTransformation from './resetTransformation'
 import getIntersectingRectangle from './getIntersectingRectangle'
+import TransformationMatrix from './TransformationMatrix'
 
 const drawHitboxes = (ctx, hitboxes, { centerX, centerY }, position, direction, actor2) => {
   hitboxes.forEach((hitbox) => {
@@ -84,13 +84,15 @@ export default (ctx) => {
       const { x, y } = worldToCamera(state, position)
       const { [animationId]: { frames } } = getFrameMap(character)
       const { centerX, centerY, hitboxes } = frames[frame]
-      ctx.translate(x, y)
+      const matrix = TransformationMatrix()
+      matrix.translate(x, y)
       if (direction === 'left') {
-        ctx.scale(-1, 1)
+        matrix.scale(-1, 1)
       }
 
+      matrix.setContextTransform(ctx)
       drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor2)
-      resetTransformation(ctx)
+      matrix.resetContextTransform(ctx)
     })
   })
 }
