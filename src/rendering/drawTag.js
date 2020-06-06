@@ -5,6 +5,7 @@ const color = {
 }
 
 export default (ctx, { type, name }) => {
+  if (type === 'npc') return
   ctx.save()
   ctx.imageSmoothingEnabled = true
   ctx.shadowColor = 'rgba(0,0,0,1)'
