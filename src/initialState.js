@@ -7,7 +7,7 @@ export default {
   debug: {
     draw: {
       center: false,
-      hitboxes: true,
+      hitboxes: false,
     },
   },
   world: {
