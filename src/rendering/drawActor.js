@@ -72,6 +72,7 @@ export default (ctx, actor) => {
 
   matrix.translate(x, y)
 
+  matrix.setContextTransform(ctx)
   // we can draw the tag before mirroring as it should not overlap
   //  with the character drawn later
   drawTag(ctx, actor)
