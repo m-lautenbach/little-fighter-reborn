@@ -1,6 +1,6 @@
 import sample from 'lodash/sample'
 
-import characters from './characters'
+import * as characters from './characters'
 
 export default {
   timestamp: Date.now(),
@@ -30,13 +30,13 @@ export default {
   npcs: {
     0: {
       name: 'NPC1',
-      character: sample(characters),
+      character: sample(characters.all),
       position: { x: 500, y: 200, z: 0 },
       direction: 'left',
     },
   },
   player: {
-    character: sample(characters),
+    character: sample(characters.playable),
     position: { x: Math.random() * 300, y: Math.random() * 470, z: Math.random() * 200 },
     direction: 'right',
   },

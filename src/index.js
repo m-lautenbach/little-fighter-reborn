@@ -1,4 +1,4 @@
-import { pathOr, test } from 'ramda'
+import { pathOr } from 'ramda'
 
 import createCanvas from './createCanvas'
 import assetCache from './assetCache'
@@ -10,7 +10,7 @@ import connect from './netcode/connect'
 import updateState from './progression/updateState'
 import state from './state'
 import handleInputs from './handleInputs'
-import characters from './characters'
+import * as characters from './characters'
 
 const mainLoop = (ctx) => {
   render(ctx)
@@ -25,7 +25,7 @@ const start = async () => {
   const ctx = canvas.getContext('2d')
   ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], initialState)
 
-  await Promise.all(characters.map(
+  await Promise.all(characters.all.map(
     async character => {
       const data = (await import(`./assets/data/${character}.json`)).default
       assetCache.data.characters[character] = data

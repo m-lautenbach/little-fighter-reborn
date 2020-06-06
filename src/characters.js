@@ -1,4 +1,4 @@
-export default [
+export const all = [
   'bandit',
   'bat',
   'davis',
@@ -21,5 +21,19 @@ export default [
   'monk',
   'rudolf',
   'sorcerer',
+  'woody',
+]
+
+export const playable = [
+  'bat',
+  'davis',
+  'deep',
+  'dennis',
+  'firen',
+  'freeze',
+  'henry',
+  'john',
+  'louis',
+  'rudolf',
   'woody',
 ]
