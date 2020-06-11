@@ -259,7 +259,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "catch",
@@ -315,7 +315,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "catch",
@@ -371,7 +371,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "catch",
@@ -427,7 +427,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "catch",
@@ -2098,7 +2098,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "pick",
@@ -2143,7 +2143,7 @@
         "hit_d": 0,
         "hit_j": 0,
         "sound": "data/007.mp3",
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -2191,7 +2191,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "pick",
@@ -2229,7 +2229,7 @@
         "hit_d": 0,
         "hit_j": 0,
         "sound": "data/007.mp3",
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -2353,7 +2353,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -2402,7 +2402,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -2511,7 +2511,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -2620,7 +2620,7 @@
         "hit_d": 0,
         "hit_j": 0,
         "sound": "data/007.mp3",
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -2781,7 +2781,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "instant pick",
@@ -2820,7 +2820,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "instant pick",
@@ -2859,7 +2859,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "instant pick",
@@ -2898,7 +2898,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "instant pick",
@@ -2937,7 +2937,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "instant pick",
@@ -2976,7 +2976,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "instant pick",
@@ -3148,7 +3148,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -3196,7 +3196,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -3244,7 +3244,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -4114,7 +4114,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4166,7 +4166,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4232,7 +4232,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4284,7 +4284,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4404,7 +4404,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4456,7 +4456,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4522,7 +4522,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4574,7 +4574,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "falling",
@@ -4732,7 +4732,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": 14,
@@ -4818,7 +4818,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -4872,7 +4872,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -4926,7 +4926,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -4980,7 +4980,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -5744,7 +5744,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -5792,7 +5792,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -5840,7 +5840,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -5888,7 +5888,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "super_punch",
@@ -6370,7 +6370,7 @@
           "dvy": 0,
           "dvz": 0
         },
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",

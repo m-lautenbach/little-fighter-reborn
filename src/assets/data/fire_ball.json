@@ -31,7 +31,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -73,7 +73,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -115,7 +115,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -157,7 +157,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -199,7 +199,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",
@@ -241,7 +241,7 @@
         "hit_a": 0,
         "hit_d": 0,
         "hit_j": 0,
-        "interaction": [
+        "interactions": [
           {
             "interaction": {
               "kind": "hit",

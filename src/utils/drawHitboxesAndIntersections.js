@@ -12,80 +12,63 @@ export default (ctx) => {
 
   const actors = getAllActors()
   actors.forEach((actor1, index) => {
+    drawHitboxes(ctx, actor1)
+    drawHitInteraction(ctx, actor1)
+
     actors.slice(index + 1, actors.length).forEach(actor2 => {
-
-      const { character, animation: { id: animationId, frame }, position, direction } = actor1
-      if (animationId === 'none') return
-
-      const { [animationId]: { frames } } = getFrameMap(character)
-      const { centerX, centerY, hitboxes } = frames[frame]
-
-      drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor1, actor2)
+      // TODO: draw intersections
     })
   })
 }
 
-function drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor1, actor2) {
+function drawHitboxes(ctx, actor) {
+  const currentFrame = getCurrentAnimationFrame(actor)
+  if (currentFrame === null) return
+  const { centerX, centerY, hitboxes } = currentFrame
+
   hitboxes.forEach((hitbox) => {
-    const transformedHitbox = {
+    const transformedBox = {
       x: hitbox.x - centerX,
       y: hitbox.y - centerY,
       w: hitbox.w,
       h: hitbox.h,
     }
 
-    const actor1Matrix = transformationMatrixForActor(state, actor1)
+    const actor1Matrix = transformationMatrixForActor(state, actor)
     actor1Matrix.setContextTransform(ctx)
     ctx.strokeStyle = '#00ffcc'
     ctx.lineWidth = 1
     ctx.beginPath()
-    ctx.rect(transformedHitbox.x, transformedHitbox.y, transformedHitbox.w, transformedHitbox.h)
+    ctx.rect(transformedBox.x, transformedBox.y, transformedBox.w, transformedBox.h)
     ctx.stroke()
     actor1Matrix.resetContextTransform(ctx)
+  })
+}
 
-    const { character, animation: { id: animationId, frame }, position: position2 } = actor2
-    if (animationId === 'none') return
+function drawHitInteraction(ctx, actor) {
+  const currentFrame = getCurrentAnimationFrame(actor)
+  if (currentFrame === null) return
+  const { centerX, centerY, interactions } = currentFrame
+  if (!interactions) return
+  const hitInteractions = interactions.filter(({ interaction: { kind } }) => kind === 'hit')
+  if (hitInteractions.length === 0) return
 
-    const { [animationId]: { frames } } = getFrameMap(character)
-    const { centerX: centerX2, centerY: centerY2, hitboxes: hitboxes2 } = frames[frame]
+  hitInteractions.forEach(({ interaction: { x, y, w, h } }) => {
+    const transformedBox = {
+      x: x - centerX,
+      y: y - centerY,
+      w: w,
+      h: h,
+    }
 
-    hitboxes2.forEach(
-      (hitbox2) => {
-        const transformedHitbox2 = {
-          x: hitbox2.x - centerX2,
-          y: hitbox2.y - centerY2,
-          w: hitbox2.w,
-          h: hitbox2.h,
-        }
-
-        const actor2Matrix = transformationMatrixForActor(state, actor2)
-        actor2Matrix.setContextTransform(ctx)
-        ctx.strokeStyle = '#00ffcc'
-        ctx.lineWidth = 1
-        ctx.beginPath()
-        ctx.rect(
-          transformedHitbox2.x,
-          transformedHitbox2.y,
-          transformedHitbox2.w,
-          transformedHitbox2.h,
-        )
-        ctx.stroke()
-        actor2Matrix.resetContextTransform(ctx)
-
-        const intersection = getIntersectingRectangle(transformedHitbox, transformedHitbox2, actor1Matrix, actor2Matrix)
-        // y is depth dimension in engine (in game files depth is z)
-        if (intersection && Math.abs(position.y - position2.y) < 20) {
-          ctx.fillStyle = '#ff0000'
-          ctx.fillRect(
-            intersection.x,
-            intersection.y,
-            intersection.w,
-            intersection.h,
-          )
-        }
-      },
-    )
-
+    const actor1Matrix = transformationMatrixForActor(state, actor)
+    actor1Matrix.setContextTransform(ctx)
+    ctx.strokeStyle = '#ffffff'
+    ctx.lineWidth = 1
+    ctx.beginPath()
+    ctx.rect(transformedBox.x, transformedBox.y, transformedBox.w, transformedBox.h)
+    ctx.stroke()
+    actor1Matrix.resetContextTransform(ctx)
   })
 }
 
@@ -98,4 +81,12 @@ function transformationMatrixForActor(state, actor) {
     matrix.scale(-1, 1)
   }
   return matrix
+}
+
+function getCurrentAnimationFrame(actor) {
+  const { character, animation: { id: animationId, frame } } = actor
+  if (animationId === 'none') return null
+
+  const { [animationId]: { frames } } = getFrameMap(character)
+  return frames[frame]
 }
