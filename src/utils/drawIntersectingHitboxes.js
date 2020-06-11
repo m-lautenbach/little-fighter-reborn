@@ -6,7 +6,29 @@ import { worldToCamera } from '../rendering/coordinates'
 import getIntersectingRectangle from './getIntersectingRectangle'
 import TransformationMatrix from './TransformationMatrix'
 
-const drawHitboxes = (ctx, hitboxes, { centerX, centerY }, position, direction, actor2) => {
+export default (ctx) => {
+  const { debug } = state
+  if (!debug.draw.hitboxes) return
+
+  const actors = getAllActors()
+  actors.forEach((actor1, index) => {
+    actors.slice(index + 1, actors.length).forEach(actor2 => {
+
+      const { character, animation: { id: animationId, frame }, position, direction } = actor1
+      if (animationId === 'none') return
+
+      const { [animationId]: { frames } } = getFrameMap(character)
+      const { centerX, centerY, hitboxes } = frames[frame]
+      const matrix = transformationMatrixForActor(state, actor1)
+
+      matrix.setContextTransform(ctx)
+      drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor2)
+      matrix.resetContextTransform(ctx)
+    })
+  })
+}
+
+function drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor2) {
   hitboxes.forEach((hitbox) => {
     ctx.strokeStyle = '#00ffcc'
     ctx.lineWidth = 1
@@ -70,29 +92,13 @@ const drawHitboxes = (ctx, hitboxes, { centerX, centerY }, position, direction, 
   })
 }
 
-export default (ctx) => {
-  const { debug } = state
-  if (!debug.draw.hitboxes) return
-
-  const actors = getAllActors()
-  actors.forEach((actor1, index) => {
-    actors.slice(index + 1, actors.length).forEach(actor2 => {
-
-      const { character, animation: { id: animationId, frame }, position, direction } = actor1
-      if (animationId === 'none') return
-
-      const { x, y } = worldToCamera(state, position)
-      const { [animationId]: { frames } } = getFrameMap(character)
-      const { centerX, centerY, hitboxes } = frames[frame]
-      const matrix = TransformationMatrix()
-      matrix.translate(x, y)
-      if (direction === 'left') {
-        matrix.scale(-1, 1)
-      }
-
-      matrix.setContextTransform(ctx)
-      drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor2)
-      matrix.resetContextTransform(ctx)
-    })
-  })
+function transformationMatrixForActor(state, actor) {
+  const { position, direction } = actor
+  const { x, y } = worldToCamera(state, position)
+  const matrix = TransformationMatrix()
+  matrix.translate(x, y)
+  if (direction === 'left') {
+    matrix.scale(-1, 1)
+  }
+  return matrix
 }
