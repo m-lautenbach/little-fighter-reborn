@@ -1,3 +1,5 @@
+import sample from 'lodash/sample'
+
 import getAllActors from '../getAllActors'
 import state from '../state'
 import getFrameMap from '../getFrameMap'
@@ -11,12 +13,37 @@ export default (ctx) => {
   if (!debug.draw.hitboxes) return
 
   const actors = getAllActors()
-  actors.forEach((actor1, index) => {
+  actors.forEach((actor1) => {
     drawHitboxes(ctx, actor1)
-    drawHitInteraction(ctx, actor1)
+    const hitInteractions1 = getAndDrawHitInteractions(ctx, actor1)
+    const matrix1 = getTransformationMatrixForActor(state, actor1)
 
-    actors.slice(index + 1, actors.length).forEach(actor2 => {
-      // TODO: draw intersections
+    actors.forEach(actor2 => {
+      if (actor1 === actor2) return
+      const currentFrame = getCurrentAnimationFrame(actor2)
+      if (currentFrame === null) return
+      const { hitboxes } = currentFrame
+      const matrix2 = getTransformationMatrixForActor(state, actor2)
+      hitInteractions1.forEach(({ interaction: _hitInteraction }) => {
+        const hitInteraction = offsetBox(_hitInteraction, actor1)
+        hitboxes.forEach(_hitbox => {
+          const hitbox = offsetBox(_hitbox, actor2)
+          // overlap is in screen coordinates, but as actors need to have similar depth to it it's a small error
+          const intersection = getIntersectingRectangle(hitInteraction, hitbox, matrix1, matrix2)
+
+          // y is depth dimension in engine (in game files depth is z)
+          if (intersection && Math.abs(actor1.position.y - actor2.position.y) < 20) {
+            console.debug(`${actor2.name} (${actor2.character}) says: "${sample([
+              'ooof',
+              'ouch',
+              'ahhh',
+              'STOP IT!!!',
+            ])}"`)
+            ctx.fillStyle = '#ff0000'
+            ctx.fillRect(intersection.x, intersection.y, intersection.w, intersection.h)
+          }
+        })
+      })
     })
   })
 }
@@ -24,55 +51,46 @@ export default (ctx) => {
 function drawHitboxes(ctx, actor) {
   const currentFrame = getCurrentAnimationFrame(actor)
   if (currentFrame === null) return
-  const { centerX, centerY, hitboxes } = currentFrame
+  const { hitboxes } = currentFrame
 
-  hitboxes.forEach((hitbox) => {
-    const transformedBox = {
-      x: hitbox.x - centerX,
-      y: hitbox.y - centerY,
-      w: hitbox.w,
-      h: hitbox.h,
-    }
+  hitboxes.forEach((_hitbox) => {
+    const hitbox = offsetBox(_hitbox, actor)
 
-    const actor1Matrix = transformationMatrixForActor(state, actor)
+    const actor1Matrix = getTransformationMatrixForActor(state, actor)
     actor1Matrix.setContextTransform(ctx)
     ctx.strokeStyle = '#00ffcc'
     ctx.lineWidth = 1
     ctx.beginPath()
-    ctx.rect(transformedBox.x, transformedBox.y, transformedBox.w, transformedBox.h)
+    ctx.rect(hitbox.x, hitbox.y, hitbox.w, hitbox.h)
     ctx.stroke()
     actor1Matrix.resetContextTransform(ctx)
   })
 }
 
-function drawHitInteraction(ctx, actor) {
+function getAndDrawHitInteractions(ctx, actor) {
   const currentFrame = getCurrentAnimationFrame(actor)
-  if (currentFrame === null) return
-  const { centerX, centerY, interactions } = currentFrame
-  if (!interactions) return
+  if (currentFrame === null) return []
+  const { interactions } = currentFrame
+  if (!interactions) return []
   const hitInteractions = interactions.filter(({ interaction: { kind } }) => kind === 'hit')
-  if (hitInteractions.length === 0) return
+  if (hitInteractions.length === 0) return []
 
-  hitInteractions.forEach(({ interaction: { x, y, w, h } }) => {
-    const transformedBox = {
-      x: x - centerX,
-      y: y - centerY,
-      w: w,
-      h: h,
-    }
+  hitInteractions.forEach(({ interaction }) => {
+    const interactionBox = offsetBox(interaction, actor)
 
-    const actor1Matrix = transformationMatrixForActor(state, actor)
+    const actor1Matrix = getTransformationMatrixForActor(state, actor)
     actor1Matrix.setContextTransform(ctx)
-    ctx.strokeStyle = '#ffffff'
+    ctx.strokeStyle = '#ff6200'
     ctx.lineWidth = 1
     ctx.beginPath()
-    ctx.rect(transformedBox.x, transformedBox.y, transformedBox.w, transformedBox.h)
+    ctx.rect(interactionBox.x, interactionBox.y, interactionBox.w, interactionBox.h)
     ctx.stroke()
     actor1Matrix.resetContextTransform(ctx)
   })
+  return hitInteractions
 }
 
-function transformationMatrixForActor(state, actor) {
+function getTransformationMatrixForActor(state, actor) {
   const { position, direction } = actor
   const { x, y } = worldToCamera(state, position)
   const matrix = TransformationMatrix()
@@ -89,4 +107,17 @@ function getCurrentAnimationFrame(actor) {
 
   const { [animationId]: { frames } } = getFrameMap(character)
   return frames[frame]
+}
+
+// boxes in data files are to be interpreted from top left corner
+function offsetBox(box, actor) {
+  const currentFrame = getCurrentAnimationFrame(actor)
+  if (currentFrame === null) return box
+  const { centerX, centerY } = currentFrame
+  return {
+    x: box.x - centerX,
+    y: box.y - centerY,
+    w: box.w,
+    h: box.h,
+  }
 }

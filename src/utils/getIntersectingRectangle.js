@@ -1,8 +1,7 @@
 const compNum = (a, b) => a - b
 
 export default (r1, r2, matrix1, matrix2) => {
-
-  [r1, r2] = [transformRect(r1, matrix1), transformRect(r2, matrix2)].map(r => ({
+  ;[r1, r2] = [transformRect(r1, matrix1), transformRect(r2, matrix2)].map(r => ({
     x: [r.x, r.x + r.w].sort(compNum),
     y: [r.y, r.y + r.h].sort(compNum),
   }))
