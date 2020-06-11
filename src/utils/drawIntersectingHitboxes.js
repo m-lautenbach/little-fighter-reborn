@@ -19,52 +19,47 @@ export default (ctx) => {
 
       const { [animationId]: { frames } } = getFrameMap(character)
       const { centerX, centerY, hitboxes } = frames[frame]
-      const matrix = transformationMatrixForActor(state, actor1)
 
-      matrix.setContextTransform(ctx)
-      drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor2)
-      matrix.resetContextTransform(ctx)
+      drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor1, actor2)
     })
   })
 }
 
-function drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor2) {
+function drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, actor1, actor2) {
   hitboxes.forEach((hitbox) => {
-    ctx.strokeStyle = '#00ffcc'
-    ctx.lineWidth = 1
-    ctx.beginPath()
     const transformedHitbox = {
       x: hitbox.x - centerX,
       y: hitbox.y - centerY,
       w: hitbox.w,
       h: hitbox.h,
     }
+
+    const actor1Matrix = transformationMatrixForActor(state, actor1)
+    actor1Matrix.setContextTransform(ctx)
+    ctx.strokeStyle = '#00ffcc'
+    ctx.lineWidth = 1
+    ctx.beginPath()
     ctx.rect(transformedHitbox.x, transformedHitbox.y, transformedHitbox.w, transformedHitbox.h)
     ctx.stroke()
+    actor1Matrix.resetContextTransform(ctx)
 
-    const { character, animation: { id: animationId, frame }, direction: direction2, position: position2 } = actor2
+    const { character, animation: { id: animationId, frame }, position: position2 } = actor2
     if (animationId === 'none') return
 
     const { [animationId]: { frames } } = getFrameMap(character)
     const { centerX: centerX2, centerY: centerY2, hitboxes: hitboxes2 } = frames[frame]
-    const { x: x1, y: y1 } = worldToCamera(state, position)
-    const { x: x2, y: y2 } = worldToCamera(state, position2)
 
     hitboxes2.forEach(
       (hitbox2) => {
         const transformedHitbox2 = {
-          x: ((direction === 'left' ?
-              (x1 - x2) :
-              (x2 - x1)) +
-            (direction === direction2 ?
-              (hitbox2.x - centerX2) :
-              (centerX2 - hitbox2.x))
-          ),
-          y: hitbox2.y - centerY2 + y2 - y1,
-          w: (direction === direction2 ? 1 : -1) * hitbox2.w,
+          x: hitbox2.x - centerX2,
+          y: hitbox2.y - centerY2,
+          w: hitbox2.w,
           h: hitbox2.h,
         }
 
+        const actor2Matrix = transformationMatrixForActor(state, actor2)
+        actor2Matrix.setContextTransform(ctx)
         ctx.strokeStyle = '#00ffcc'
         ctx.lineWidth = 1
         ctx.beginPath()
@@ -75,8 +70,10 @@ function drawHitboxes(ctx, hitboxes, { centerX, centerY }, position, direction, 
           transformedHitbox2.h,
         )
         ctx.stroke()
+        actor2Matrix.resetContextTransform(ctx)
 
-        const intersection = getIntersectingRectangle(transformedHitbox, transformedHitbox2)
+        const intersection = getIntersectingRectangle(transformedHitbox, transformedHitbox2, actor1Matrix, actor2Matrix)
+        // y is depth dimension in engine (in game files depth is z)
         if (intersection && Math.abs(position.y - position2.y) < 20) {
           ctx.fillStyle = '#ff0000'
           ctx.fillRect(
