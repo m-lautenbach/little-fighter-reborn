@@ -9,12 +9,10 @@ import getIntersectingRectangle from './getIntersectingRectangle'
 import TransformationMatrix from './TransformationMatrix'
 
 export default (ctx) => {
-  const { debug } = state
-  if (!debug.draw.hitboxes) return
-
   const actors = getAllActors()
   actors.forEach((actor1) => {
-    drawHitboxes(ctx, actor1)
+    if (state.debug.draw.interaction) drawHitboxes(ctx, actor1)
+
     const hitInteractions1 = getAndDrawHitInteractions(ctx, actor1)
     const matrix1 = getTransformationMatrixForActor(state, actor1)
 
@@ -39,6 +37,8 @@ export default (ctx) => {
               'ahhh',
               'STOP IT!!!',
             ])}"`)
+
+            if (!state.debug.draw.interaction) return
             ctx.fillStyle = '#ff0000'
             ctx.fillRect(intersection.x, intersection.y, intersection.w, intersection.h)
           }
@@ -75,18 +75,20 @@ function getAndDrawHitInteractions(ctx, actor) {
   const hitInteractions = interactions.filter(({ interaction: { kind } }) => kind === 'hit')
   if (hitInteractions.length === 0) return []
 
-  hitInteractions.forEach(({ interaction }) => {
-    const interactionBox = offsetBox(interaction, actor)
+  if (state.debug.draw.interaction) {
+    hitInteractions.forEach(({ interaction }) => {
+      const interactionBox = offsetBox(interaction, actor)
 
-    const actor1Matrix = getTransformationMatrixForActor(state, actor)
-    actor1Matrix.setContextTransform(ctx)
-    ctx.strokeStyle = '#ff6200'
-    ctx.lineWidth = 1
-    ctx.beginPath()
-    ctx.rect(interactionBox.x, interactionBox.y, interactionBox.w, interactionBox.h)
-    ctx.stroke()
-    actor1Matrix.resetContextTransform(ctx)
-  })
+      const actor1Matrix = getTransformationMatrixForActor(state, actor)
+      actor1Matrix.setContextTransform(ctx)
+      ctx.strokeStyle = '#ff6200'
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      ctx.rect(interactionBox.x, interactionBox.y, interactionBox.w, interactionBox.h)
+      ctx.stroke()
+      actor1Matrix.resetContextTransform(ctx)
+    })
+  }
   return hitInteractions
 }
 

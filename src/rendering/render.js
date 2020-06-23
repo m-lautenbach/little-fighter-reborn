@@ -1,6 +1,6 @@
 import state from '../state'
 import getAllActors from '../getAllActors'
-import drawHitboxesAndIntersections from '../utils/drawHitboxesAndIntersections'
+import hitDetection from '../utils/hitDetection'
 
 import drawBackground from './drawBackground'
 import drawActor from './drawActor'
@@ -14,5 +14,5 @@ export default (ctx) => {
     .forEach(
       actor => drawActor(ctx, actor),
     )
-  drawHitboxesAndIntersections(ctx)
+  hitDetection(ctx)
 }
