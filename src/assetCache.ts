@@ -1,4 +1,4 @@
-const assetCache = {
+const assetCache: any = {
   data: {
     characters: {},
   },

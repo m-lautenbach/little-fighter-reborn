@@ -12,9 +12,9 @@ import state from './state'
 import handleInputs from './handleInputs'
 import * as characters from './characters'
 
-const mainLoop = (ctx) => {
+const mainLoop = (ctx: any) => {
   render(ctx)
-  updateState(state)
+  updateState()
   requestAnimationFrame(() => mainLoop(ctx))
 }
 
@@ -36,7 +36,7 @@ const start = async () => {
     LionForest.layers.map(({ img }) => loadImage(img)),
   )
 
-  handleInputs(canvas)
+  handleInputs()
   state.timestamp = Date.now()
   mainLoop(ctx)
 }
