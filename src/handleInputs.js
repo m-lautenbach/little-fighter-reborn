@@ -1,5 +1,6 @@
 import inputState from './inputState'
 import updatePlayer from './updatePlayer'
+import assetCache from './assetCache'
 
 let isFullscreen = false
 
@@ -7,6 +8,7 @@ const fullscreenContainer = document.getElementById('fullscreen-container')
 
 export default () => {
   document.onkeydown = async ({ code, repeat }) => {
+    assetCache.sounds.forrest.play()
     if (repeat) return
     if (code === 'KeyF') {
       if (isFullscreen) {
