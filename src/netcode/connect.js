@@ -4,7 +4,7 @@ import registerHandlers from './registerHandlers'
 
 export default () => {
   const id = uuid()
-  const socket = io()
+  const socket = io('https://gentle-mountain-79659.herokuapp.com')
 
   socket.emit('register', { id })
   console.debug(`I am ${id}`)
