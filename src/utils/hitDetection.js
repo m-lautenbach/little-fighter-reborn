@@ -4,6 +4,7 @@ import getAllActors from '../getAllActors'
 import state from '../state'
 import getFrameMap from '../getFrameMap'
 import { worldToCamera } from '../rendering/coordinates'
+import assetCache from '../assetCache'
 
 import getIntersectingRectangle from './getIntersectingRectangle'
 import TransformationMatrix from './TransformationMatrix'
@@ -31,6 +32,7 @@ export default (ctx) => {
 
           // y is depth dimension in engine (in game files depth is z)
           if (intersection && Math.abs(actor1.position.y - actor2.position.y) < 20) {
+            sample(assetCache.sounds.hits).play()
             console.debug(`${actor2.name} (${actor2.character}) says: "${sample([
               'ooof',
               'ouch',

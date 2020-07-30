@@ -5,6 +5,7 @@ const assetCache: any = {
   images: {
     spritesheets: {}
   },
+  sounds: {}
 }
 
 export default assetCache

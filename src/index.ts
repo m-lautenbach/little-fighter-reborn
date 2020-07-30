@@ -30,6 +30,9 @@ const start = async () => {
       const data = (await import(`./assets/data/${character}.json`)).default
       assetCache.data.characters[character] = data
       assetCache.images.spritesheets[character] = await loadImage(data.header.spritesheets[0].file)
+      assetCache.sounds.hits = await Promise.all(['001', '002'].map(
+        async index => new Audio((await require(`./assets/audio/${index}.mp3`)).default)
+      ))
     },
   ))
   assetCache.images.lionForestLayers = await Promise.all(
