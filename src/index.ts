@@ -1,4 +1,4 @@
-import { pathOr } from 'ramda'
+import {fromPairs, KeyValuePair, pathOr, range} from 'ramda'
 
 import createCanvas from './createCanvas'
 import assetCache from './assetCache'
@@ -34,6 +34,15 @@ const start = async () => {
         async index => new Audio((await require(`./assets/audio/${index}.mp3`)).default)
       ))
       assetCache.sounds.forrest = new Audio((await require('./assets/audio/forrest.mp3')).default)
+      assetCache.sounds = {
+        ...assetCache.sounds,
+        ...fromPairs(await Promise.all(range(1, 103).map(
+            async (index): Promise<KeyValuePair<string, HTMLAudioElement>> => {
+              const key = `${index}`.padStart(3, '0')
+              return [key, new Audio((await require(`./assets/audio/${key}.mp3`)).default)]
+            }
+        )))
+      }
     },
   ))
   assetCache.images.lionForestLayers = await Promise.all(

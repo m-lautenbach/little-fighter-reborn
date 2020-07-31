@@ -8,4 +8,12 @@ const assetCache: any = {
   sounds: {}
 }
 
+declare global {
+  interface Window {
+    assetCache: any;
+  }
+}
+
+window.assetCache = assetCache
+
 export default assetCache

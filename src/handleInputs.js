@@ -45,11 +45,11 @@ export default () => {
     updatePlayer()
   }
   window.addEventListener('blur', () => {
-    audio.pause()
+    audio?.pause()
     for (const code in inputState) delete inputState[code]
     updatePlayer()
   })
-  window.addEventListener('focus', () => audio.play())
+  window.addEventListener('focus', () => audio?.play())
 }
 
 function openFullscreen(elem) {

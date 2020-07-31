@@ -1,32 +1,38 @@
 import getFrameMap from '../getFrameMap'
-import { always, cond, F, findIndex, propEq, T } from 'ramda'
+import { always, cond, F, findIndex, last, propEq, T } from 'ramda'
 import updatePlayer from '../updatePlayer'
 
 export default (actor, newTimestamp) => {
   const { character, animation } = actor
   if (!animation) return
-  const { id: animationId, frame, bounced, start } = animation
+  const { id: animationId, frame: frameIndex, bounced, start } = animation
   if (animationId === 'none') return
   const { frames, repeat } = getFrameMap(character)[animationId]
+  const frame = frames[frameIndex]
+  if (frame.sound) {
+    const index = last(frame.sound.split('/')).split('.')[0]
+    const sound = assetCache.sounds[index]
+    sound.play()
+  }
   // one TU (time unit) === 1/30s; always +1
-  const currentFrameEnded = newTimestamp > start + (frames[frame].wait + 1) * (1000 / 30)
+  const currentFrameEnded = newTimestamp > start + (frame.wait + 1) * (1000 / 30)
   if (!currentFrameEnded) {
     return
   }
 
-  const isLastFrame = (frame === (frames.length - 1)) || (frames[frame].next === 999)
+  const isLastFrame = (frameIndex === (frames.length - 1)) || (frame.next === 999)
 
   if (repeat !== 'none' || !isLastFrame) {
     const bouncedNew = cond([
       [always(!bounced && isLastFrame), T],
-      [always(bounced && frame === 0), F],
+      [always(bounced && frameIndex === 0), F],
       [T, always(bounced)],
     ])()
 
     animation.frame = repeat === 'pingpong' ?
-      (bouncedNew ? frame - 1 : frame + 1) :
-      (isLastFrame ? (frames[frame].next === 999 ? 0 : frame) :
-          findIndex(propEq('index', frames[frame].next), frames)
+      (bouncedNew ? frameIndex - 1 : frameIndex + 1) :
+      (isLastFrame ? (frame.next === 999 ? 0 : frameIndex) :
+          findIndex(propEq('index', frame.next), frames)
       )
 
     animation.start = newTimestamp

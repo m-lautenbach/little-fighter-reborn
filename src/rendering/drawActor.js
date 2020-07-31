@@ -1,4 +1,4 @@
-import { assoc, once } from 'ramda'
+import { assoc } from 'ramda'
 
 import assetCache from '../assetCache'
 import getFrameMap from '../getFrameMap'
@@ -7,8 +7,6 @@ import state from '../state'
 import drawShadow from './drawShadow'
 import drawTag from './drawTag'
 import TransformationMatrix from '../utils/TransformationMatrix'
-
-const logOnce = once(console.debug)
 
 const drawCenter = (ctx) => {
   const centerWidth = 5
@@ -50,8 +48,6 @@ export default (ctx, actor) => {
   const { x: sourceX, y: sourceY, centerX, centerY } = frames[frame]
 
   const spritesheet = assetCache.images.spritesheets[character]
-
-  logOnce(frames[frame])
 
   const matrix = TransformationMatrix()
   matrix.translate(sx, sy)
