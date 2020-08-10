@@ -30,7 +30,7 @@ export default {
   npcs: {
     0: {
       name: 'NPC1',
-      character: sample(characters.all),
+      character: 'bandit',
       position: { x: 500, y: 200, z: 0 },
       direction: 'left',
     },
