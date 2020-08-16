@@ -1,6 +1,8 @@
 # Little Fighter Reborn
 
-This is a reimplementation of Little Fighter 2 (http://www.lf2.net/) using original assets.
+Hosted here: https://mlautenbach.com/
+
+This is a reimplementation of Little Fighter 2 (http://www.lf2.net/) using original assets and datafiles (converted and manually revised).
 
 I'm in no way connected to the creators Marti Wong and Starsky Wong and if you know a way to contact them, please let me know. The mail addresses on the website seem dead.
 
@@ -9,6 +11,10 @@ Original LF2 assets in this repository are presumably still in their copyright, 
 # Getting started
 
 Check package.json for commands (`yarn dev` starts a dev server).
+
+There are two servers, one on cloudfront for content delivery and one on heroku for WebRTC connection negotiation. The clients send updates directly to each other without a server (well, they might use ICE, see WebRTC docs).
+
+If you run `yarn dev`, it will still use the heroku server, but the heroku server changes very infrequently (as it only establishes connections).
 
 All state is in one JSON structure, globally available, is updated through mutation and can also be inspected from the browser console (just type `state`, but beware that it's constantly mutated).
 
