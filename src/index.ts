@@ -1,4 +1,4 @@
-import {fromPairs, KeyValuePair, pathOr, range} from 'ramda'
+import { fromPairs, KeyValuePair, pathOr, range } from 'ramda'
 
 import createCanvas from './createCanvas'
 import assetCache from './assetCache'
@@ -23,28 +23,50 @@ const start = async () => {
 
   const canvas = createCanvas()
   const ctx = canvas.getContext('2d')
-  ctx.imageSmoothingEnabled = pathOr(true, ['rendering', 'imageSmoothing'], initialState)
+  ctx.imageSmoothingEnabled = pathOr(
+    true,
+    ['rendering', 'imageSmoothing'],
+    initialState,
+  )
 
-  await Promise.all(characters.all.map(
-    async character => {
+  await Promise.all(
+    characters.all.map(async (character) => {
       const data = (await import(`./assets/data/${character}.json`)).default
       assetCache.data.characters[character] = data
-      assetCache.images.spritesheets[character] = await loadImage(data.header.spritesheets[0].file)
-      assetCache.sounds.hits = await Promise.all(['001', '002'].map(
-        async index => new Audio((await require(`./assets/audio/${index}.mp3`)).default)
-      ))
-      assetCache.sounds.forrest = new Audio((await require('./assets/audio/forrest.mp3')).default)
+      assetCache.images.spritesheets[character] = await loadImage(
+        data.header.spritesheets[0].file,
+      )
+      assetCache.sounds.hits = await Promise.all(
+        ['001', '002'].map(
+          async (index) =>
+            new Audio((await require(`./assets/audio/${index}.mp3`)).default),
+        ),
+      )
+      assetCache.sounds.forrest = new Audio(
+        (await require('./assets/audio/forrest.mp3')).default,
+      )
       assetCache.sounds = {
         ...assetCache.sounds,
-        ...fromPairs(await Promise.all(range(1, 103).map(
-            async (index): Promise<KeyValuePair<string, HTMLAudioElement>> => {
-              const key = `${index}`.padStart(3, '0')
-              return [key, new Audio((await require(`./assets/audio/${key}.mp3`)).default)]
-            }
-        )))
+        ...fromPairs(
+          await Promise.all(
+            range(1, 103).map(
+              async (
+                index,
+              ): Promise<KeyValuePair<string, HTMLAudioElement>> => {
+                const key = `${index}`.padStart(3, '0')
+                return [
+                  key,
+                  new Audio(
+                    (await require(`./assets/audio/${key}.mp3`)).default,
+                  ),
+                ]
+              },
+            ),
+          ),
+        ),
       }
-    },
-  ))
+    }),
+  )
   assetCache.images.lionForestLayers = await Promise.all(
     LionForest.layers.map(({ img }) => loadImage(img)),
   )
