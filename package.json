@@ -39,7 +39,7 @@
   "dependencies": {
     "core-js": "3",
     "express": "^4.17.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "ramda": "^0.27.0",
     "retry": "^0.12.0",
     "rxjs": "^6.6.3",
