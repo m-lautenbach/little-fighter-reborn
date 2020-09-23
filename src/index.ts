@@ -1,4 +1,14 @@
 import { fromPairs, KeyValuePair, pathOr, range } from 'ramda'
+import { fromEvent, interval, of, animationFrameScheduler } from 'rxjs'
+import {
+  take,
+  repeat,
+  map,
+  takeUntil,
+  pairwise,
+  share,
+  exhaustMap,
+} from 'rxjs/operators'
 
 import createCanvas from './createCanvas'
 import assetCache from './assetCache'
@@ -70,6 +80,18 @@ const start = async () => {
   assetCache.images.lionForestLayers = await Promise.all(
     LionForest.layers.map(({ img }) => loadImage(img)),
   )
+
+  // TODO: use this for main game loop
+  of(0, animationFrameScheduler)
+    .pipe(
+      repeat(),
+      map(() => Date.now()),
+      pairwise(),
+      map(([t1, t2]) => t2 - t1),
+      map((dT) => Math.min(dT, (1 / 30) * 1000)),
+      share(),
+    )
+    .subscribe(console.log)
 
   handleInputs()
   state.timestamp = Date.now()
