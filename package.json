@@ -1,9 +1,6 @@
 {
   "private": true,
   "license": "UNLICENSED",
-  "engines": {
-    "node": "14.x"
-  },
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch --config webpack.dev.js",
